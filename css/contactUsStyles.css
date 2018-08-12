@@ -6,7 +6,7 @@
 body, html{
      height: 100%;
  	background-repeat: no-repeat;
- 	background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
+  background-color: white;
  	font-family: 'Oxygen', sans-serif;
 	    background-size: cover;
 }
