@@ -1,0 +1,8 @@
+body{
+
+background: #f4f4f4;
+
+}
+.table-sortable tbody tr {
+  cursor: move;
+}
