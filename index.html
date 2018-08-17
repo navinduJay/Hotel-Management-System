@@ -42,8 +42,49 @@
             <li><a href="about.html"><b>About</b></a></li>
             <li> <a href="contactUs.html"><b>Contact Us</b> </a></li>
             <ul  class="nav navbar-nav navbar-right">
-                <li id="mylist"><button class="btn btn-success btn-lg"><i class="fas fa-user"></i></button> </li>
-                <li id="mylist"><button class="btn btn-danger btn-lg"><i class="fas fa-user-tie"></i></button> </li>
+              <li id="mylist"><button type="button" data-toggle="modal" data-target="#customerLoginModal" class="btn btn-success btn-lg"><i class="fas fa-user"></i></button> </li>
+                <div id="customerLoginModal" class="modal fade" role="dialog" data-backdrop="false">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header"><h3><mark>Customer Login</mark></h3></div>
+                        <div class="modal-body">
+                          <form>
+                                            <div class="form-group">
+                                              <label for="exampleInputEmail1">Username</label>
+                                              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="username">
+
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="exampleInputPassword1">Password</label>
+                                              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+                                            </div>
+
+
+                                            <button type="submit" class="btn btn-success">Login</button>
+                                            <small id="emailHelp" class="form-text text-muted"><br /><b>New user?</b></small><br / >
+                                            <button data-toggle="modal" data-target="#customerModal" type="button" class="btn btn-primary">Register here</button>
+
+
+                                          </form>
+
+
+                        </div>
+                        <div class="modal-footer">
+
+
+                            <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              <li id="mylist"><button class="btn btn-danger btn-lg"><i class="fas fa-user-tie"></i></button> </li>
+
 
             </ul>
 
@@ -112,49 +153,7 @@
             <h3 class="text-secondary mb-0">Our Services</h3>
             <h2 class="mb-5"></h2>
           </div>
-          <!--
-          <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-              <span class="service-icon rounded-circle mx-auto mb-3">
-                <i class="icon-screen-smartphone"></i>
-              </span>
-              <h4>
-                <strong>Responsive</strong>
-              </h4>
-              <p class="text-faded mb-0">Looks great on any screen size!</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-              <span class="service-icon rounded-circle mx-auto mb-3">
-                <i class="icon-pencil"></i>
-              </span>
-              <h4>
-                <strong>Redesigned</strong>
-              </h4>
-              <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-              <span class="service-icon rounded-circle mx-auto mb-3">
-                <i class="icon-like"></i>
-              </span>
-              <h4>
-                <strong>Favorited</strong>
-              </h4>
-              <p class="text-faded mb-0">Millions of users
-                <i class="fa fa-heart"></i>
-                Start Bootstrap!</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-              <span class="service-icon rounded-circle mx-auto mb-3">
-                <i class="icon-mustache"></i>
-              </span>
-              <h4>
-                <strong>Question</strong>
-              </h4>
-              <p class="text-faded mb-0">I mustache you a question...</p>
-            </div>
-          </div>
-        </div>
-      -->
+
       </section>
 
       <section class="content-section bg-info text-white text-center" id="services">
