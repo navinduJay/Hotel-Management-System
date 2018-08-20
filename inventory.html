@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Admin | Stock Management</title>
+    <title>Admin | Menu Management</title>
 
    <link href="css/bootstrap.min.css" rel="stylesheet">
    <link href="css/style.css" rel="stylesheet">
@@ -25,206 +25,57 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><i class="fas fa-th"></i><b> INVENTORY MANAGEMENT</b></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span></a></li>
 
-            <li class="active"><a href="#contact"><i class="far fa-list-alt"></i> Product Category</a></li>
-            <li class="active"><a href="#contact"><i class="fas fa-check"></i> Stock</a></li>
-            <li class="active"><a href="menuManagement.html"><i class="fas fa-check"></i> Menu Management</a></li>
+    <div id="wrapper">
+        <div class="overlay"></div>
 
-          </ul>
-             <!-- Split button -->
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       HOME
+                    </a>
+                </li>
+                <li>
+                    <a href="#">ABOUT</a>
+                </li>
+                <li>
+                    <a href="menuManagement.html">MENU</a>
+                </li>
+                <li>
+                    <a href="#">INVENTORY</a>
+                </li>
+                <li>
+                    <a href="#">CONTACT</a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/maridlcrmn">Logout</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
 
-        </div>
-      </div>
-      </nav>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h1>Welcome to Staff Section!</h1>
 
-
-      <div class="container">
-            <div class="jumbotron">
-                <div class="container">
-
-                        <h2 class="display-4"><mark><b>Product</b></mark></h2>
-
-
-
-                        <hr class="my-4">
-
-                        <div class="container">
-                                <div class="row">
-                                    <div class="table-responsive col-md-12">
-                                    <table id="sort2" class="grid table table-bordered table-sortable">
-                                        <thead>
-                                            <tr><th><i class="fas fa-calendar-check"></i></th><th>Date</th><th>Supplier Name</th><th>Item Name</th><th>QTY</th><th>Description</th><th>Buying Price</th><th>Selling Price</th><th>Save Details</th></tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><input type="date" name="date" class="form-control"></td>
-                                                <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-
-                                                <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><input type="date" name="date" class="form-control"></td>
-                                                <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                 <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>3</td>
-                                                <td><input type="date" name="date" class="form-control"></td>
-                                                <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                 <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                            </tr>
-                                            <tr>
-                                                    <td>4</td>
-                                                    <td><input type="date" name="date" class="form-control"></td>
-                                                    <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                    <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                    <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                    <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                    <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                     <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                    <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                            </tr>
-                                            <tr>
-                                                    <td>5</td>
-                                                    <td><input type="date" name="date" class="form-control"></td>
-                                                    <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                    <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                    <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                    <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                    <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                     <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                    <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                            </tr>
-                                            <tr>
-                                                    <td>6</td>
-                                                    <td><input type="date" name="date" class="form-control"></td>
-                                                    <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                    <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                    <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                    <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                    <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                     <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                    <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>7</td>
-                                                    <td><input type="date" name="date" class="form-control"></td>
-                                                    <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                    <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                    <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                    <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                    <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                     <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                    <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>8</td>
-                                                    <td><input type="date" name="date" class="form-control"></td>
-                                                    <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                    <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                    <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                    <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                    <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                     <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                    <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>9</td>
-                                                        <td><input type="date" name="date" class="form-control"></td>
-                                                        <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                        <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                        <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                        <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                        <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                         <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                        <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                                </tr>
-                                                <tr>
-                                                        <td>10</td>
-                                                        <td><input type="date" name="date" class="form-control"></td>
-                                                        <td><input type="text" name="suppName" placeholder="Supplier Name" class="form-control"></td>
-                                                        <td><input type="text" name="itemName" placeholder="Item Name" class="form-control"></td>
-                                                        <td><input type="text" name="qty" placeholder="Quantity" class="form-control"></td>
-                                                        <td><input type="text" name="desc" placeholder="Description" class="form-control"></td>
-                                                        <td><input type="text" name="bPrice" placeholder="" class="form-control"></td>
-                                                         <td><input type="text" name="sPrice" placeholder="" class="form-control"></td>
-                                                        <td><input type="submit" class="btn btn-primary" value="Save"> </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <p class="lead">
-                          <a class="btn btn-primary btn-lg" href="#" role="button"><i class="fas fa-check"></i> View</a>
-                        </p>
-
+                    </div>
                 </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
 
-                  </div>
-                </div>
-
-                <!-- Footer -->
-                <footer class="footer-basic-centered">
-
-                 <p class="footer-company-motto"><b>Good Food | Good Vibes</b></p>
-
-                        <section id="lab_social_icon_footer">
-                                <!-- Include Font Awesome Stylesheet in Header -->
-                                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-                                <div class="container">
-                                        <div class="text-center center-block">
-                                                <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                                                <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                                                <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                                                <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                                    </div>
-                                </div>
-                                </section>
-
-
-                 <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
-
-               </footer>
-
-
-
-
+    </div>
+    <!-- /#wrapper -->
 
 
 
