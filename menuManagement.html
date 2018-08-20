@@ -9,12 +9,16 @@
     <title>Admin | Menu Management</title>
 
    <link href="css/bootstrap.min.css" rel="stylesheet">
+
    <link href="css/style.css" rel="stylesheet">
    <link href="css/inventoryStyles.css" rel="stylesheet">
+    <link href="css/inventoryStyles.css" rel="stylesheet">
    <link rel="stylesheet" href="css/sociel.css">
    <link rel="stylesheet" href="css/footer-basic-centered.css">
+   <link rel="stylesheet" href="css/menuManagement.css">
 
    <script src="js/ie-emulation-modes-warning.js"></script>
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
      <script src="js/myJS.js"></script>
@@ -24,66 +28,96 @@
  </head>
 
 <body>
-
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><i class="fas fa-th"></i><b> INVENTORY MANAGEMENT</b></a>
-          </div>
-          <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span></a></li>
-
-              <li class="active"><a href="#contact"><i class="far fa-list-alt"></i> Product Category</a></li>
-              <li class="active"><a href="#contact"><i class="fas fa-check"></i> Stock</a></li>
-              <li class="active"><a href="#contact"><i class="fab fa-elementor"></i> Menu Management</a></li>
-
-            </ul>
-
-
-
-          </ul>
-        </nav>
-        <div class="container">
-              <div class="jumbotron">
-                  <div class="container">
-
-                    <h2 class="display-4"><mark><b>Menu Management</b></mark></h2>
-
-
-
-                                            <hr class="my-4">
-
-                                            <div class="container">
-                                                    <div class="row">
-
-
-
-
-                                                      <div class="col-md-2">
-                                                         <img src="img/cMenu.jpg" height="250" width="250">
-                                                         <br /><br />
-                                                        <button type="button" class="btn btn-primary btn-lg btn-block">Catering</button>
-
-                                                      </div>
-
-
-
-
-                  </div>
-
+  <!-- Fixed navbar -->
+        <nav id="header" class="navbar navbar-fixed-top">
+            <div id="header-container" class="container navbar-container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="brand" class="navbar-brand" href="#"></a>
                 </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="inventory.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+        <br /><br />
+        <h1 class="xbootstrap"><b>Menu Management</b></h1>
 
-              </div>
+
+        <div class="container">
+<div class="col-md-4">
+
+    <div class="form-area">
+        <form  role="form">
+        <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>Add Menu<b/></h3>
+                      <br />
+    				<div class="form-group">
+
+              <select class="form-control select2">
+            	           <option>Select Menu Type</option>
+            	           <option>Regular Menu</option>
+            	           <option>Catering</option>
+            	           <option>Hall Menu</option>
+
+              </select>
+					</div>
+          <br />
+					<div class="form-group">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" required>
+					</div>
+          <br />
+					<div class="form-group">
+						<input type="text" class="form-control" id="price" name="price" placeholder="Price" required>
+					</div>
+          <br />
+          <label>Add a Picture</label>
+					<div class="form-group">
+						<input type="file"  id="pic" name="pic" placeholder="Subject" accept="image/jpeg" required>
+					</div>
+
+          <div class="form-group">
+             <button type="reset" value="Reset" class="btn btn-danger">RESET</button>
+
+          </div>
+
+          <div class="form-group">
+              <button type="button" id="submit" name="submit" class="btn btn-success pull-right">ADD ITEM</button>
+
+          </div><br />
+          <div class="form-group">
+              <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">CHECK</button>
+
+          </div><br / >
 
 
+
+
+        </form>
+
+    </div>
+
+</div>
+<div class="col-md-4"></div>
+</div>
+
+
+
+<script src="js/menuManagementJS.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/inventoryJS.js"></script>
 
 
 </body>
