@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,18 +50,19 @@
       
     <br><br>
       
-      <div class="container" style="border-style: dotted;background-color: #c2f0c2">
-      <form class="form-horizontal">
+      <div class="container" style="background-color: #ffff66">
+      <form action="RegisterStf" class="form-horizontal" method=post>
+        
+        
         <fieldset>
         <h1 class="reg"> Registration</h1>
-        <!-- Form Name -->
-        
-        
+ 
+       
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Full Name </label>  
           <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="Full Name" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md" required="" type="text">
             
           </div>
         </div>
@@ -68,7 +71,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Address </label>  
           <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="Address" class="form-control input-md" type="text">
+          <input id="textinput" name="address" placeholder="Address" class="form-control input-md" type="text">
             
           </div>
         </div>
@@ -77,7 +80,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Date of Birth</label>  
           <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
             
           </div>
         </div>
@@ -86,7 +89,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">NIC Number</label>  
           <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="NIC" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md" required="" type="text">
             
           </div>
         </div>
@@ -95,7 +98,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="passwordinput">Password</label>
           <div class="col-md-4">
-            <input id="passwordinput" name="passwordinput" placeholder="Password" class="form-control input-md" type="password">
+            <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md" type="password">
             <span class="help-block">minimum of eight (8) characters in length</span>
           </div>
         </div>
@@ -104,7 +107,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="passwordinput">Re-enter Password </label>
           <div class="col-md-4">
-            <input id="passwordinput" name="passwordinput" placeholder="Re-enter Password " class="form-control input-md" required="" type="password">
+            <input id="passwordinput" name="rpwd" placeholder="Re-enter Password " class="form-control input-md" required="" type="password">
             
           </div>
         </div>
@@ -114,7 +117,30 @@
           <label class="col-md-4 control-label" for="selectbasic">Security question 1</label>
           <div class="col-md-4">
             <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">Question 1</option>
+              <option value="1">What was your childhood nickname?</option>
+              <option value="2">What was your favorite food as a child?</option>
+              <option value="3">In what town was your first job?</option>
+              <option value="4">What was the name of the hospital where you were born?</option>
+              <option value="5">What was the name of your second pet?</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Answer</label>  
+          <div class="col-md-4">
+          <input id="textinput" name="ans1" placeholder="" class="form-control input-md" required="" type="text">
+            
+          </div>
+        </div>
+        
+        <!-- Select Basic -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="selectbasic">Security question 2</label>
+          <div class="col-md-4">
+            <select id="selectbasic" name="selectbasic" class="form-control">
+              <option value="1">Who was your childhood hero?</option>
               <option value="2">Question 2</option>
               <option value="3">Question 3</option>
               <option value="4">Question 4</option>
@@ -127,30 +153,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
-            
-          </div>
-        </div>
-        
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="selectbasic">Security question 2</label>
-          <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">Question 1</option>
-              <option value="2">Question 2</option>
-              <option value="">Question 3</option>
-              <option value="">Question 4</option>
-              <option value="">Question 5</option>
-            </select>
-          </div>
-        </div>
-        
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Answer</label>  
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans2" placeholder="" class="form-control input-md" required="" type="text">
             
           </div>
         </div>
