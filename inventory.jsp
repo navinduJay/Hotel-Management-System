@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,7 +42,7 @@
                     <a href="#">ABOUT</a>
                 </li>
                 <li>
-                    <a href="menuManagement.html">MENU</a>
+                    <a href="menuManagement.jsp">MENU</a>
                 </li>
                 <li>
                     <a href="#">INVENTORY</a>
@@ -90,3 +91,4 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+>

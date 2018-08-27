@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,12 +24,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
      <script src="js/myJS.js"></script>
 
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
 
  </head>
 
 <body>
-  <!-- Fixed navbar -->
+
         <nav id="header" class="navbar navbar-fixed-top">
             <div id="header-container" class="container navbar-container">
                 <div class="navbar-header">
@@ -46,24 +47,26 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
-                </div><!-- /.nav-collapse -->
+                </div>
             </div><!-- /.container -->
-        </nav><!-- /.navbar -->
+        </nav>
         <br /><br />
         <h1 class="xbootstrap"><b>Menu Management</b></h1>
 
 
         <div class="container">
 <div class="col-md-4">
+</div>
+<div class="col-md-4">
 
     <div class="form-area">
-        <form  role="form">
+        <form action="AddMenuServlet" method="post"  >
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>Add Menu<b/></h3>
+                    <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
     				<div class="form-group">
 
-              <select class="form-control select2">
+              <select name="menuType" class="form-control select2">
             	           <option>Select Menu Type</option>
             	           <option>Regular Menu</option>
             	           <option>Catering</option>
@@ -73,16 +76,16 @@
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" required>
+						<input type="text" class="form-control" id="name1" name="name" placeholder="Item Name" required>
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="price" name="price" placeholder="Price" required>
+						<input type="text" class="form-control" id="price1" name="price" placeholder="Price" required>
 					</div>
           <br />
           <label>Add a Picture</label>
 					<div class="form-group">
-						<input type="file"  id="pic" name="pic" placeholder="Subject" accept="image/jpeg" required>
+						<input type="file"  id="pic1" name="pic" placeholder="Subject" accept="image/jpeg">
 					</div>
 
           <div class="form-group">
@@ -91,13 +94,13 @@
           </div>
 
           <div class="form-group">
-              <button type="button" id="submit" name="submit" class="btn btn-success pull-right">ADD ITEM</button>
+
+			   <input type="submit" id="submit2" name="submit" class="btn btn-success pull-right" value="CHECK">
+          </div><br /><br />
+          <div class="form-group">
+             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM">
 
           </div><br />
-          <div class="form-group">
-              <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">CHECK</button>
-
-          </div><br / >
 
 
 
@@ -111,6 +114,30 @@
 </div>
 
 
+    <!-- Footer -->
+    <footer class="footer-basic-centered">
+
+			<p class="footer-company-motto"><b>Good food | Good Vibes</b></p>
+
+            <section id="lab_social_icon_footer">
+                    <!-- Include Font Awesome style sheet in Header -->
+                    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="container">
+                            <div class="text-center center-block">
+                                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                                    <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                        </div>
+                    </div>
+                    </section>
+
+
+			<p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+
+		</footer>
+
+
 
 <script src="js/menuManagementJS.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -118,6 +145,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/inventoryJS.js"></script>
+
 
 
 </body>

@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -182,4 +183,4 @@
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
-</html>
+</html>>

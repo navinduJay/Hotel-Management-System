@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home</title>
+    <title>Home Page Changed</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,11 +41,11 @@
     <nav class="navbar navbar-default navbar-fixed-top">
 
         <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 
 
             <li><a href="about.html"><b>About</b></a></li>
-            <li> <a href="contactUs.html"><b>Contact Us</b> </a></li>
+            <li> <a href="contactUs.jsp"><b>Contact Us</b> </a></li>
             <ul  class="nav navbar-nav navbar-right">
 
 
@@ -175,7 +177,7 @@
 
         <!-- Map -->
     <section id="contact" class="map">
-            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.105093851559!2d79.98641121416203!3d6.878011020850108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2516afa9f2df7%3A0xfb1d96d68a3e8f10!2sSujanee+Food+Center!5e0!3m2!1sen!2slk!4v1531332395242" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></iframe>
+    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.105093851559!2d79.98641121416203!3d6.878011020850108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2516afa9f2df7%3A0xfb1d96d68a3e8f10!2sSujanee+Food+Center!5e0!3m2!1sen!2slk!4v1531332395242" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></iframe>
             <br/>
             <small>
               <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
@@ -242,3 +244,4 @@
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+    
