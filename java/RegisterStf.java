@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,24 +14,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
+
 /**
  * Servlet implementation class Register
  */
-@WebServlet("/Register")
+@WebServlet("/RegisterStf")
 public class RegisterStf extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public RegisterStf() {
         super();
-        // TODO Auto-generated constructor stub
+    
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -64,25 +67,54 @@ public class RegisterStf extends HttpServlet {
 		boolean ans1Status = sd.nullAns1();
 		boolean ans2Status = sd.nullAns2();
 		
+		String dbnic = null;
+		
 		if(idstatus && namestatus && pwdstatus && ans1Status && ans2Status) {
-			RequestDispatcher rqst = request.getRequestDispatcher("profile.jsp");
-			rqst.forward(request, response);
+			/*RequestDispatcher rqst = request.getRequestDispatcher("profile.jsp");
+			rqst.forward(request, response);*/
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");
-				java.sql.Statement st = con.createStatement();
+				String sql = ("select * from staffdata where nic=?");
+				PreparedStatement st = (PreparedStatement) con.prepareStatement(sql);
+				st.setString(1, nic);
+				ResultSet rs = st.executeQuery();
 				
-				st.executeUpdate("insert into staffdata(nic,name,address,dob,pwd,ans1,ans2) values('"+nic+"','"+name+"','"+address+"','"+dob+"','"+pwd+"','"+ans1+"','"+ans2+"')");
+				while(rs.next()) {
+					dbnic = rs.getString("nic");
+				}	
+				
+			} catch (ClassNotFoundException | SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			if(!(nic.equals(dbnic))) {
+			
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");
+				java.sql.Statement stt = conn.createStatement();
+				
+				stt.executeUpdate("insert into staffdata(nic,name,address,dob,pwd,ans1,ans2) values('"+nic+"','"+name+"','"+address+"','"+dob+"','"+pwd+"','"+ans1+"','"+ans2+"')");
 				System.out.println("Data entered");
 			} catch (Exception e) {
 				e.printStackTrace();	
 			}
+			
+			}
+			else {
+				RequestDispatcher rq = request.getRequestDispatcher("UserExistRegStf.jsp");
+				rq.forward(request, response);
+				
+			}
 				
 		}
 		else {
-			out.println("Fill all the feilds");
-			RequestDispatcher rqst = request.getRequestDispatcher("staffRegistration.jsp");
+			
+			RequestDispatcher rqst = request.getRequestDispatcher("NullValRegStf.jsp");
 			rqst.forward(request, response);
 			
 		}
