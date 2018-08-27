@@ -62,7 +62,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Full Name </label>  
           <div class="col-md-4">
-          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -80,7 +80,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Date of Birth</label>  
           <div class="col-md-4">
-          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -89,7 +89,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">NIC Number</label>  
           <div class="col-md-4">
-          <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -107,7 +107,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="passwordinput">Re-enter Password </label>
           <div class="col-md-4">
-            <input id="passwordinput" name="rpwd" placeholder="Re-enter Password " class="form-control input-md" required="" type="password">
+            <input id="passwordinput" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password">
             
           </div>
         </div>
@@ -130,7 +130,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans1" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans1" placeholder="" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -153,7 +153,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans2" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans2" placeholder="" class="form-control input-md"  type="text">
             
           </div>
         </div>
