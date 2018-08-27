@@ -24,7 +24,7 @@
             
 
 
-    <title></title>
+    <title>Admin | Register</title>
   </head>
   <body>
 
@@ -160,12 +160,12 @@
         
         <!-- Button (Double) -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="button1id"></label>
+          
           <div class="col-md-8">
             
             <input type=submit  name="Submit" value="Submit" >
             <input type=reset value="Reset" >
-            
+            <label class="col-md-4 control-label" for="button1id">Have an account? <a href=staffLogin.jsp>Login</a></label>
           </div>
         </div>
         
