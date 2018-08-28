@@ -42,7 +42,7 @@
       <!--Header-->
       <br><br>
       <div class="container" style="background-color: #ffff66">
-      <form class="form-horizontal">
+      <form action=LoginStf class="form-horizontal" method=post>
             <fieldset>
             
             <!-- Form Name -->
@@ -52,7 +52,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">NIC</label>  
               <div class="col-md-4">
-              <input id="textinput" name="textinput" placeholder="NIC" class="form-control input-md" required="" type="text">
+              <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md" required="" type="text">
                 
               </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="passwordinput">Password</label>
               <div class="col-md-4">
-                <input id="passwordinput" name="passwordinput" placeholder="Password" class="form-control input-md" required="" type="password">
+                <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md" required="" type="password">
                 <span class="help-block"><a>forgot password?</a></span>
               </div>
             </div>
