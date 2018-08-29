@@ -1,3 +1,7 @@
+<%@page import = "java.sql.ResultSet" %>
+<%@page import = "java.sql.Connection" %>
+<%@page import = "java.sql.Statement" %>
+<%@page import = "java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -130,12 +134,28 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Security question 1</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">What was your childhood nickname?</option>
-              <option value="2">What was your favorite food as a child?</option>
-              <option value="3">In what town was your first job?</option>
-              <option value="4">What was the name of the hospital where you were born?</option>
-              <option value="5">What was the name of your second pet?</option>
+            <select id="selectbasic" name="select1" class="form-control">
+            
+            <%try{
+ 				Class.forName("com.mysql.jdbc.Driver");
+ 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
+            	
+            	<%Statement st = con.createStatement(); %>
+            	<%ResultSet rs = st.executeQuery("Select questions from securityquestions Order by RAND() LIMIT 6");%>
+            	
+            	<%while(rs.next()){%>
+            		
+            		<%String item = rs.getString("questions");%>
+            		
+            		<option><%=item%></option>
+            		
+            		
+            
+            <% }
+            }catch(Exception e){
+				System.out.println(e);
+            }%>
+
             </select>
           </div>
         </div>
@@ -153,12 +173,28 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Security question 2</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">Who was your childhood hero?</option>
-              <option value="2">Question 2</option>
-              <option value="3">Question 3</option>
-              <option value="4">Question 4</option>
-              <option value="5">Question 5</option>
+            <select id="selectbasic" name="select2" class="form-control">
+            
+            <%try{
+ 				Class.forName("com.mysql.jdbc.Driver");
+ 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
+            	
+            	<%Statement st = con.createStatement(); %>
+            	<%ResultSet rs = st.executeQuery("Select questions from securityquestions Order by RAND() LIMIT 6");%>
+            	
+            	<%while(rs.next()){%>
+            		
+            		<%String item = rs.getString("questions");%>
+            		
+            		<option><%=item%></option>
+            		
+            		
+            
+            <% }
+            }catch(Exception e){
+				System.out.println(e);
+            }%>
+
             </select>
           </div>
         </div>
