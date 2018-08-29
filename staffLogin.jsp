@@ -42,6 +42,7 @@
     </nav>
       <!--Header-->
       <br><br><br><br>
+    <div class="container" style="background-color: #ffff66">  
       <div class="container" style="background-color: #ffff66">
       <form action=LoginStf class="form-horizontal" method=post>
             <fieldset>
@@ -53,7 +54,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">NIC</label>  
               <div class="col-md-4">
-              <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md" required="" type="text">
+              <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md"  type="text">
                 
               </div>
             </div>
@@ -62,7 +63,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="passwordinput">Password</label>
               <div class="col-md-4">
-                <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md" required="" type="password">
+                <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md"  type="password">
 
               </div>
               
@@ -76,9 +77,17 @@
                       	
               </div>
             </div>
+            
+             </fieldset>
+            <br><br>
+            </form>
+            
+            
              <div class=container style="position:center">
              <span class="help-block">Forgot password?</span>
              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-lg">Reset Password</button> 
+             <br><br>
+             </div>
              
  <div id="myModal" class="modal fade">
     <div class="modal-dialog">
@@ -90,7 +99,7 @@
             </div>
             <div class="modal-body">
             	
-				<form class="form-horizontal" action=Forgotpwd>
+				<form class="form-horizontal" action=Forgotpwd method=post>
 				<fieldset>
 
 				<!-- Form Name -->
@@ -125,9 +134,7 @@
 
             
 
-            </fieldset>
-            <br><br>
-            </form>
+           
             </div>
 
 

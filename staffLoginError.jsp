@@ -62,7 +62,7 @@
     </div>
 </div>
       
-      <br><br>
+      <br><br><br><br><br>
       <div class="container" style="background-color: #ffff66">
       <form action=LoginStf class="form-horizontal" method=post>
             <fieldset>
@@ -102,7 +102,7 @@
             
 
       <!-- Footer -->
-      <footer class="footer-basic-centered">
+      <footer class="footer-basic-centered" style="position:fixed">
 
   			<p class="footer-company-motto"><b>Good food | Good Vibes</b></p>
 
