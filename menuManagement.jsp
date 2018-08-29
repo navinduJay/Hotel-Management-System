@@ -39,12 +39,17 @@
 
    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-   <link href="css/style.css" rel="stylesheet">
+   <link href="css/menuManagementBackground.css" rel="stylesheet">
    <link href="css/inventoryStyles.css" rel="stylesheet">
-    <link href="css/inventoryStyles.css" rel="stylesheet">
+
    <link rel="stylesheet" href="css/sociel.css">
+   <link rel="stylesheet" href="css/modalCSS.css">
    <link rel="stylesheet" href="css/footer-basic-centered.css">
    <link rel="stylesheet" href="css/menuManagement.css">
+    <link rel="stylesheet" href="css/menuManagementNavBar.css">
+
+
+
 
 
 
@@ -59,38 +64,33 @@
 
  </head>
 
-<body>
+<body id="LoginForm">
 
-        <nav id="header" class="navbar navbar-fixed-top">
-            <div id="header-container" class="container navbar-container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a id="brand" class="navbar-brand" href="#"></a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="inventory.html">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div><!-- /.container -->
-        </nav>
-        <br /><br />
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sujanee Restaurant</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="inventory.jsp"><i class="fas fa-home"></i></a></li>
+      <li><a href="#">Inventory</a></li>
+      <li class="active"><a href="menuManagement.jsp">Menu</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+
         <h1 class="xbootstrap"><b>Menu Management</b></h1>
 
 
         <div class="container">
+<div class=col-md-3></div>
+<div class="col-md-6">
 
-<div class="col-md-4">
-
-    <div class="form-area">
-        <form action="AddMenuServlet" method="post">
+    <div class="login-form">
+    <div class="main-div">
+        <form action="AddMenuServlet" method="post" id="Login">
         <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
@@ -113,18 +113,20 @@
 						<input type="text" class="form-control" id="price1" name="price" placeholder="Price" required>
 					</div>
           <br />
-          <label>Add a Picture</label>
+
 					<div class="form-group">
-						<input type="file"  id="pic1" name="pic" placeholder="Subject">
+					<p class="text-left">Upload an Image</p>
+						<input type="file" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Your label here.">
 					</div>
 
           <div class="form-group">
-             <button type="reset" value="Reset" class="btn btn-danger">RESET</button>
+             <button style="float: left" type="reset" value="Reset" class="btn btn-danger">RESET</button>
 
           </div>
 
 		   <div class="form-group">
-             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM">
+             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM"  onclick="clicked(event)" >
+
 
           </div><br /><br />
           <div class="form-group">
@@ -143,15 +145,105 @@
 
 
 </div>
-
-
-<div class="col-md-8">
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-12">
 <div id="myDIV" style="display:none">
 
 
 	<div class="jumbotron">
 	<hr class="my-4">
-  <h2 class="display-4"><b><mark>Regular Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+ <h2 class="display-4"><b><mark>Regular Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#regularModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+
+  	<div id="regularModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Regular Menu</h4>
+      </div>
+      <div class="modal-body">
+       <table id = "food">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Remove an Item</th>
+
+  </tr>
+  <tr>
+
+
+
+
+  	  <%
+
+
+  	try{
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
+
+		<% Statement st = con.createStatement();%>
+
+		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'R%' ");%>
+
+		<%if(rs.next()) {
+
+			rs.beforeFirst();
+			 while(rs.next()) {
+
+
+		%>
+    <td><p><%=rs.getString("menu_id")%></p></td>
+    <td><p><%=rs.getString("menu_item_name")%></p></td>
+    <td><p><%=rs.getString("menu_item_price") %></p></td>
+    <td>
+
+		<form action="removeItemServlet">
+
+	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+
+		   <button type="submit" class="btn btn-danger">
+     		<span class="glyphicon glyphicon-trash"></span>
+   		   </button>
+
+
+		</form>
+
+
+    </td>
+
+  </tr>
+
+  	<%
+		}
+		%>
+
+		<%
+		}
+
+		}catch(Exception e){
+
+			System.out.println("Failed");
+			System.out.println(e);
+
+
+		}%>
+
+</table>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
   <hr class="my-4">
 
   <%
@@ -166,35 +258,39 @@
 
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'R%' ");%>
 
-		<% while(rs.next()) {%>
+		<%if(rs.next()) {
+
+			rs.beforeFirst();
+			 while(rs.next()) {
 
 
-			<% int menu_id = rs.getInt("menu_id"); %>
-			<% String menu_type= rs.getString("menu_type");%>
-			<% String menu_item_name = rs.getString("menu_item_name");%>
-			<% String menu_item_price = rs.getString("menu_item_price");%>
-			<% Blob menu_item_pic = rs.getBlob("menu_item_pic");%>
+		%>
 
 
 			<div class="row">
-			  <div class="column" style="background-color:#aaa;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
-			    <p><%=menu_item_name %></p>
+			    <p><%=rs.getString("menu_item_name")%></p>
 			  </div>
-			  <div class="column" style="background-color:#bbb;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
-			    <img src="img/<%=menu_item_pic%>"  height="100" width="150">
+			   <img src= "<%=rs.getString("menu_item_pic") %>" width="100" height="100"/>
 			  </div>
-			  <div class="column" style="background-color:#ccc;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
-			    <p><%=menu_item_price %></p>
+			    <p><%=rs.getString("menu_item_price") %></p>
 			  </div>
 			</div>
 
 
 
 
-		<% }
+		<%
+		}
+		%>
+
+		<%
+		}
 
 		}catch(Exception e){
 
@@ -202,10 +298,104 @@
 			System.out.println(e);
 
 
-	}%>
+		}%>
 
   <hr class="my-4">
-  <h2 class="display-4"><b><mark>Catering Menu</mark></mark> <button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+  <h2 class="display-4"><b><mark>Catering Menu</mark></mark> <button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#cateringModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+
+  		  	<div id="cateringModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Catering Menu</h4>
+      </div>
+      <div class="modal-body">
+       <table id="food">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Remove Item</th>
+
+  </tr>
+  <tr>
+
+
+
+
+  	  <%
+
+
+  	try{
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
+
+		<% Statement st = con.createStatement();%>
+
+		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'C%' ");%>
+
+		<%if(rs.next()) {
+
+			rs.beforeFirst();
+			 while(rs.next()) {
+
+
+		%>
+    <td><p><%=rs.getString("menu_id")%></p></td>
+    <td><p><%=rs.getString("menu_item_name")%></p></td>
+    <td><p><%=rs.getString("menu_item_price") %></p></td>
+    <td>
+
+		<form action="removeItemServlet">
+
+	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+
+		   <button type="submit" class="btn btn-danger">
+     		<span class="glyphicon glyphicon-trash"></span>
+   		   </button>
+
+
+		</form>
+
+
+    </td>
+
+  </tr>
+
+  	<%
+		}
+		%>
+
+		<%
+		}
+
+		}catch(Exception e){
+
+			System.out.println("Failed");
+			System.out.println(e);
+
+
+		}%>
+
+</table>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
   <hr class="my-4">
 
 
@@ -228,15 +418,15 @@
 
 
 		<div class="row">
-			  <div class="column" style="background-color:#aaa;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <p><%=menu_item_name %></p>
 			  </div>
-			  <div class="column" style="background-color:#bbb;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <image src="<%=menu_item_pic%>"  height="100" width="150">
 			  </div>
-			  <div class="column" style="background-color:#ccc;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <p><%=menu_item_price %></p>
 			  </div>
@@ -254,7 +444,102 @@
 
 
     <hr class="my-4">
-  <h2 class="display-4"><b><mark>Hall Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+  <h2 class="display-4"><b><mark>Hall Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#hallModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
+
+
+  			  	<div id="hallModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Hall Menu</h4>
+      </div>
+      <div class="modal-body">
+       <table id="food">
+  <tr>
+    <th>Item ID</th>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Remove an Item</th>
+
+  </tr>
+  <tr>
+
+
+
+
+  	  <%
+
+
+  	try{
+
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
+
+		<% Statement st = con.createStatement();%>
+
+		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
+
+		<%if(rs.next()) {
+
+			rs.beforeFirst();
+			 while(rs.next()) {
+
+
+		%>
+    <td><p><%=rs.getString("menu_id")%></p></td>
+    <td><p><%=rs.getString("menu_item_name")%></p></td>
+    <td><p><%=rs.getString("menu_item_price") %></p></td>
+    <td>
+
+		<form action="removeItemServlet">
+
+	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+
+		   <button type="submit" class="btn btn-danger">
+     		<span class="glyphicon glyphicon-trash"></span>
+   		   </button>
+
+
+		</form>
+
+
+    </td>
+
+  </tr>
+
+  	<%
+		}
+		%>
+
+		<%
+		}
+
+		}catch(Exception e){
+
+			System.out.println("Failed");
+			System.out.println(e);
+
+
+		}%>
+
+</table>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
   <hr class="my-4">
 
 
@@ -277,15 +562,15 @@
 
 
 			<div class="row">
-			  <div class="column" style="background-color:#aaa;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <p><%=menu_item_name %></p>
 			  </div>
-			  <div class="column" style="background-color:#bbb;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <img src="<%=menu_item_pic%>"  height="100" width="150">
 			  </div>
-			  <div class="column" style="background-color:#ccc;">
+			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 
 			    <p><%=menu_item_price %></p>
 			  </div>
@@ -332,7 +617,7 @@
     <!-- Footer -->
     <footer class="footer-basic-centered">
 
-			<p class="footer-company-motto"><b>Good Food | Good Vibes</b></p>
+			<p class="footer-company-motto"><b>Good Food | Good Vibes </b></p>
 
             <section id="lab_social_icon_footer">
                     <!-- Include Font Awesome style sheet in Header -->
@@ -349,15 +634,25 @@
 
 
 			<p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+			 <address>
+				<small><font color="#989898">Tel : +94 112 078 517<br />
+				Athurugiriya Rd,Sri Lanka.</font>
+				</small>
+			</address>
+
+			<small><font color="#ffffff">
+					<b>Designed and Developed by 404 Solutions</b>
+				</font>
+				</small>
 
 		</footer>
 
 
-
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
 <script src="js/menuManagementJS.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="js/bootstrap.min.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/inventoryJS.js"></script>
 
