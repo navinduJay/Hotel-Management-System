@@ -48,6 +48,8 @@ public class RegisterStf extends HttpServlet {
 		String pwd = request.getParameter("password");
 		String ans1 = request.getParameter("ans1");
 		String ans2 = request.getParameter("ans2");
+		String ques1 = request.getParameter("select1");
+		String ques2 = request.getParameter("select2");
 		
 		PrintWriter out = response.getWriter();
 		out.println("entered name ::" +name);
@@ -60,22 +62,26 @@ public class RegisterStf extends HttpServlet {
 		sd.setPassword(pwd);
 		sd.setAns1(ans1);
 		sd.setAns2(ans2);
+		sd.setQues1(ques1);
+		sd.setQues2(ques2);
 		
 		boolean idstatus = sd.nullid();
 		boolean namestatus = sd.nullName();
 		boolean pwdstatus = sd.nullPwd();
 		boolean ans1Status = sd.nullAns1();
 		boolean ans2Status = sd.nullAns2();
+		boolean ques1status = sd.nullQues1();
+		boolean ques2status = sd.nullQues2();
 		
 		String dbnic = null;
 		
-		if(idstatus && namestatus && pwdstatus && ans1Status && ans2Status) {
+		if(idstatus && namestatus && pwdstatus && ans1Status && ans2Status && ques1status && ques2status) {
 			/*RequestDispatcher rqst = request.getRequestDispatcher("profile.jsp");
 			rqst.forward(request, response);*/
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");
+				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01?autoReconnect=true&useSSL=false", "root", "root");
 				String sql = ("select * from staffdata where nic=?");
 				PreparedStatement st = (PreparedStatement) con.prepareStatement(sql);
 				st.setString(1, nic);
@@ -90,19 +96,23 @@ public class RegisterStf extends HttpServlet {
 				e1.printStackTrace();
 			}
 			
+			//checking if user already exists in the system
 			if(!(nic.equals(dbnic))) {
 			
 			
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01?autoReconnect=true&useSSL=false", "root", "root");
 				java.sql.Statement stt = conn.createStatement();
 				
-				stt.executeUpdate("insert into staffdata(nic,name,address,dob,pwd,ans1,ans2) values('"+nic+"','"+name+"','"+address+"','"+dob+"','"+pwd+"','"+ans1+"','"+ans2+"')");
+				stt.executeUpdate("insert into staffdata(nic,name,address,dob,pwd,ans1,ans2,question1,question2) values('"+nic+"','"+name+"','"+address+"','"+dob+"','"+pwd+"','"+ans1+"','"+ans2+"','"+ques1+"','"+ques2+"')");
 				System.out.println("Data entered");
 			} catch (Exception e) {
 				e.printStackTrace();	
 			}
+			
+			RequestDispatcher rqst = request.getRequestDispatcher("profile.jsp");
+			rqst.forward(request, response);
 			
 			}
 			else {
