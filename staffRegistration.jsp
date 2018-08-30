@@ -26,6 +26,15 @@
            
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
             
+			<script>
+			function ConfirmPassword() {
+				var password = document.forms["register"]["password"].value;
+				var confirm_password = document.forms["register"]["rpwd"].value;
+				if (password != confirm_password) {
+				alert("Passwords does not match!!!!");
+				return false;
+				}
+			}</script>
 
 
     <title>Admin | Register</title>
@@ -55,7 +64,7 @@
     <br><br>
       
       <div class="container" style="background-color: #ffff66">
-      <form action="RegisterStf" class="form-horizontal" method=post>
+      <form action="RegisterStf" class="form-horizontal" method=post  name="register" id="register" onsubmit="return ConfirmPassword()">
         
         
         <fieldset>
@@ -100,18 +109,18 @@
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Password</label>
+          <label class="col-md-4 control-label" for="password">Password</label>
           <div class="col-md-4">
-            <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md" type="password">
+            <input id="passwordt" name="password" placeholder="Password" class="form-control input-md" type="password" min="8" >
             <span class="help-block">minimum of eight (8) characters in length</span>
           </div>
         </div>
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Re-enter Password </label>
+          <label class="col-md-4 control-label" for="rpwd">Re-enter Password </label>
           <div class="col-md-4">
-            <input id="passwordinput" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password">
+            <input id="rpwd" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password" min="8">
             
           </div>
         </div>
@@ -123,7 +132,7 @@
           
           
           
-            <select id="selectbasic" name="selectbasic" class="form-control">
+            <select id="selectbasic" name="select1" class="form-control">
             
             <%try{
  				Class.forName("com.mysql.jdbc.Driver");
@@ -162,7 +171,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Security question 2</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
+            <select id="selectbasic" name="select2" class="form-control">
               <%try{
  				Class.forName("com.mysql.jdbc.Driver");
  				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
@@ -241,8 +250,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
   </body>
 </html>
