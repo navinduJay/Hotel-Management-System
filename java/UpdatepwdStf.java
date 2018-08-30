@@ -45,6 +45,8 @@ public class UpdatepwdStf extends HttpServlet {
 		SaveDataStf sd = new SaveDataStf();
 		sd.setAns1(answer1);
 		sd.setAns2(answer2);
+		sd.setId(nictemp);
+		request.setAttribute("obj", sd);
 		
 		boolean a1status = sd.nullAns1();
 		boolean a2status = sd.nullAns2();
