@@ -23,6 +23,15 @@
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<script>
+			function ConfirmPassword() {
+				var password = document.forms["register"]["password"].value;
+				var confirm_password = document.forms["register"]["rpwd"].value;
+				if (password != confirm_password) {
+				alert("Passwords does not match!!!!");
+				return false;
+				}
+			}</script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#myModal").modal('show');
@@ -69,7 +78,7 @@
 <br><br>
   
   <div class="container" style="background-color: #ffff66">
-      <form action="RegisterStf" class="form-horizontal" method=post>
+      <form action="RegisterStf" class="form-horizontal" method=post name="register" id="register" onsubmit="return ConfirmPassword()">
         
         
         <fieldset>
@@ -80,7 +89,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Full Name </label>  
           <div class="col-md-4">
-          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -98,7 +107,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Date of Birth</label>  
           <div class="col-md-4">
-          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -114,18 +123,18 @@
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Password</label>
+          <label class="col-md-4 control-label" for="password">Password</label>
           <div class="col-md-4">
-            <input id="passwordinput" name="password" placeholder="Password" class="form-control input-md" type="password">
+            <input id="password" name="password" placeholder="Password" class="form-control input-md" type="password" min="8">
             <span class="help-block">minimum of eight (8) characters in length</span>
           </div>
         </div>
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Re-enter Password </label>
+          <label class="col-md-4 control-label" for="rpwd">Re-enter Password </label>
           <div class="col-md-4">
-            <input id="passwordinput" name="rpwd" placeholder="Re-enter Password " class="form-control input-md" required="" type="password">
+            <input id="rpwd" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password" min="8">
             
           </div>
         </div>
