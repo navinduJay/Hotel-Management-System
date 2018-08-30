@@ -1,0 +1,13 @@
+.jumbotron{
+    background-color: red !important;
+    color:#fff;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    
+}
+.box{
+    border:1px solid #ccc;
+    padding:20px;
+    box-shadow: 5px 10px #888888;
+     border-radius: 25px;
+}
+
