@@ -171,6 +171,7 @@
     <th>Item Name</th>
     <th>Item Price</th>
     <th>Remove an Item</th>
+    <th>Update Price</th>
 
   </tr>
   <tr>
@@ -202,13 +203,30 @@
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
 
-		<form action="removeItemServlet">
+		<form action="removeItemServlet" method="post">
 
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
 
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-   		   </button>
+
+
+		</form>
+
+
+
+    </td>
+
+    <td>
+
+    	  	<form action="updateItemPrice" method="post">
+
+	      <input type="text" name="itemPrice" >
+
+  			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+  			 <br>
+		  	 <button type="submit" class="btn btn-warning">
+     		<i class="fas fa-edit"></i></button>
 
 
 		</form>
@@ -319,7 +337,7 @@
     <th>Item Name</th>
     <th>Item Price</th>
     <th>Remove Item</th>
-
+    <th>Update Price</th>
   </tr>
   <tr>
 
@@ -348,21 +366,45 @@
     <td><p><%=rs.getString("menu_id")%></p></td>
     <td><p><%=rs.getString("menu_item_name")%></p></td>
     <td><p><%=rs.getString("menu_item_price") %></p></td>
+
+
     <td>
 
-		<form action="removeItemServlet">
+		<form action="removeItemServlet" method="post">
 
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
 
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-   		   </button>
+
 
 
 		</form>
 
 
     </td>
+
+
+
+
+    <td>
+
+    	  	<form action="updateItemPrice" method="post">
+
+	      <input type="text" name="itemPrice" >
+
+  			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+  			 <br>
+		  	 <button type="submit" class="btn btn-warning">
+     		<i class="fas fa-edit"></i></button>
+
+
+		</form>
+
+
+    </td>
+
+
 
   </tr>
 
@@ -463,6 +505,7 @@
     <th>Item Name</th>
     <th>Item Price</th>
     <th>Remove an Item</th>
+    <th>Update Price</th>
 
   </tr>
   <tr>
@@ -494,19 +537,41 @@
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
 
-		<form action="removeItemServlet">
+		<form action="removeItemServlet" method="post">
 
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
 
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-   		   </button>
+
 
 
 		</form>
 
 
     </td>
+
+
+
+    <td>
+
+    	  	<form action="updateItemPrice" method="post">
+
+	      <input type="text" name="itemPrice" >
+
+  			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
+  			 <br>
+		  	 <button type="submit" class="btn btn-warning">
+     		<i class="fas fa-edit"></i></button>
+
+
+		</form>
+
+
+    </td>
+
+
+
 
   </tr>
 
@@ -553,6 +618,7 @@
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
 
 		<% while(rs.next()) {%>
+
 
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type= rs.getString("menu_type");%>
