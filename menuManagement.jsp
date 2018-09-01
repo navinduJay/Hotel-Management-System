@@ -9,8 +9,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <style>
+  
 
+       
+  
+  
+  <style>
+  
   * {
     box-sizing: border-box;
 }
@@ -20,7 +25,7 @@
     float: left;
     width: 33.33%;
     padding: 10px;
-    height: 120px;
+    height: 120px; 
 }
 
 /* Clear floats after the columns */
@@ -29,7 +34,7 @@
     display: table;
     clear: both;
 }
-
+  
   </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,8 +46,9 @@
 
    <link href="css/menuManagementBackground.css" rel="stylesheet">
    <link href="css/inventoryStyles.css" rel="stylesheet">
-
+    
    <link rel="stylesheet" href="css/sociel.css">
+    <link rel="stylesheet" href="css/menuValidationCSS.css">
    <link rel="stylesheet" href="css/modalCSS.css">
    <link rel="stylesheet" href="css/footer-basic-centered.css">
    <link rel="stylesheet" href="css/menuManagement.css">
@@ -50,22 +56,22 @@
 
 
 
-
-
+ 
+   
 
    <script src="js/ie-emulation-modes-warning.js"></script>
-
-
+     
+	 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
      <script src="js/myJS.js"></script>
-
+    
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
 
  </head>
 
 <body id="LoginForm">
-
+ 
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -80,7 +86,7 @@
   </div>
 </nav>
 
-
+   
         <h1 class="xbootstrap"><b>Menu Management</b></h1>
 
 
@@ -90,7 +96,7 @@
 
     <div class="login-form">
     <div class="main-div">
-        <form action="AddMenuServlet" method="post" id="Login">
+        <form action="AddMenuServlet" method="post"  onsubmit="return validate()" name="vForm">
         <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
@@ -106,17 +112,19 @@
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="name1" name="name" placeholder="Item Name" required>
+						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name">
+						<div id="name_error" class="val_error"></div>
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="price1" name="price" placeholder="Price" required>
+						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" >
+						<div id="price_error" class="val_error"></div>
 					</div>
           <br />
-
+         
 					<div class="form-group">
 					<p class="text-left">Upload an Image</p>
-						<input type="file" class="filestyle" data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus" data-buttonText="Your label here.">
+						<input type="file" class="filestyle" accept="image/*" name="pic">
 					</div>
 
           <div class="form-group">
@@ -125,15 +133,15 @@
           </div>
 
 		   <div class="form-group">
-             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM"  onclick="clicked(event)" >
-
-
+             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM" >
+				
+			
           </div><br /><br />
           <div class="form-group">
-
+              
 			   <input type="button" id="btn1" name="btn" class="btn btn-primary pull-right" onclick="myFunction()" value="CHECK">
           </div><br />
-
+        
 
 
 
@@ -141,8 +149,8 @@
         </form>
 
     </div>
-
-
+    
+    
 
 </div>
 </div>
@@ -150,11 +158,11 @@
 <div class="col-md-12">
 <div id="myDIV" style="display:none">
 
-
+	
 	<div class="jumbotron">
 	<hr class="my-4">
  <h2 class="display-4"><b><mark>Regular Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#regularModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
-
+  
   	<div id="regularModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -172,155 +180,156 @@
     <th>Item Price</th>
     <th>Remove an Item</th>
     <th>Update Price</th>
-
+    
   </tr>
   <tr>
-
-
-
-
-  	  <%
-
-
+  
+  
+  
+  
+  	  <% 
+  	
+  
   	try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'R%' ");%>
-
-		<%if(rs.next()) {
-
+		
+		<%if(rs.next()) { 
+			
 			rs.beforeFirst();
 			 while(rs.next()) {
-
-
+			 
+			 
 		%>
     <td><p><%=rs.getString("menu_id")%></p></td>
     <td><p><%=rs.getString("menu_item_name")%></p></td>
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
-
+    
 		<form action="removeItemServlet" method="post">
-
+	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
-
+  		
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-
-
-		</form>
-
-
-
+   		  
+		  
+		</form>     
+    
+  
+    
     </td>
-
+    
     <td>
-
-    	  	<form action="updateItemPrice" method="post">
-
-	      <input type="text" name="itemPrice" >
-
+    
+    	  	<form action="editItemPriceServlet" method="post">
+	
+	      <input type="text" name="itemPrice" id="itemPrice" required>
+	      <div id="itemPriceError" class="val_error"></div>
+	      
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
 		  	 <button type="submit" class="btn btn-warning">
      		<i class="fas fa-edit"></i></button>
-
-
-		</form>
-
-
+   		  
+		  
+		</form>  
+    
+    
     </td>
-
+    
   </tr>
-
-  	<%
+  
+  	<% 
 		}
 		%>
-
+	
 		<%
 		}
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 		}%>
 
 </table>
 
 
-
+	
       </div>
-
+      
     </div>
 
   </div>
 </div>
-
+  
   <hr class="my-4">
-
-  <%
-
-
+  
+  <% 
+  	
+  
   	try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'R%' ");%>
-
-		<%if(rs.next()) {
-
+		
+		<%if(rs.next()) { 
+			
 			rs.beforeFirst();
 			 while(rs.next()) {
-
-
+			 
+			 
 		%>
-
-
+				
+				
 			<div class="row">
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			   
 			    <p><%=rs.getString("menu_item_name")%></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			   
 			   <img src= "<%=rs.getString("menu_item_pic") %>" width="100" height="100"/>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			    
 			    <p><%=rs.getString("menu_item_price") %></p>
 			  </div>
 			</div>
-
-
-
-
-		<%
+			
+			
+			
+		
+		<% 
 		}
 		%>
-
+	
 		<%
 		}
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 		}%>
-
+    
   <hr class="my-4">
   <h2 class="display-4"><b><mark>Catering Menu</mark></mark> <button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#cateringModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
-
+  
   		  	<div id="cateringModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -340,155 +349,155 @@
     <th>Update Price</th>
   </tr>
   <tr>
-
-
-
-
-  	  <%
-
-
+  
+  
+  
+  
+  	  <% 
+  	
+  
   	try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'C%' ");%>
-
-		<%if(rs.next()) {
-
+		
+		<%if(rs.next()) { 
+			
 			rs.beforeFirst();
 			 while(rs.next()) {
-
-
+			 
+			 
 		%>
     <td><p><%=rs.getString("menu_id")%></p></td>
     <td><p><%=rs.getString("menu_item_name")%></p></td>
     <td><p><%=rs.getString("menu_item_price") %></p></td>
-
-
+    
+    
     <td>
-
+    
 		<form action="removeItemServlet" method="post">
-
+	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
-
+  		
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-
-
-
-		</form>
-
-
+   		  
+		  
+		  
+		</form>     
+    
+    
     </td>
-
-
-
-
+    
+    
+    
+    	    
     <td>
-
-    	  	<form action="updateItemPrice" method="post">
-
-	      <input type="text" name="itemPrice" >
-
+    
+    	  	<form action="editItemPriceServlet" method="post" >
+	
+	      <input type="text" name="itemPrice" id="itemPrice" required>
+	      <div id="itemPriceError" class="val_error"></div>
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
 		  	 <button type="submit" class="btn btn-warning">
      		<i class="fas fa-edit"></i></button>
-
-
-		</form>
-
-
+   		  
+		  
+		</form>  
+    
+    
     </td>
-
-
-
+    
+    
+    
   </tr>
-
-  	<%
+  
+  	<% 
 		}
 		%>
-
+	
 		<%
 		}
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 		}%>
 
 </table>
 
 
-
+	
       </div>
-
+     
     </div>
 
   </div>
 </div>
-
-
-
-
-
+  
+  
+  
+  
+  
   <hr class="my-4">
-
-
+  
+  
  	<% try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'C%' ");%>
-
+		
 		<% while(rs.next()) {%>
-
+		
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type = rs.getString("menu_type");%>
 			<% String menu_item_name = rs.getString("menu_item_name");%>
 			<% String menu_item_price = rs.getString("menu_item_price");%>
 			<% String menu_item_pic = rs.getString("menu_item_pic");%>
-
-
+			
+			
 		<div class="row">
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			   
 			    <p><%=menu_item_name %></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
-			    <image src="<%=menu_item_pic%>"  height="100" width="150">
+			   
+			    <image src="<%=menu_item_pic%>"  height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			    
 			    <p><%=menu_item_price %></p>
 			  </div>
 			</div>
-
+		
 		<% }
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 	}%>
-
-
+    
+    
     <hr class="my-4">
   <h2 class="display-4"><b><mark>Hall Menu </mark><button id="btn2" name="btn" class="btn btn-primary pull-right" onclick="" data-toggle="modal" data-target="#hallModal" value="EDIT"><i class="fas fa-edit"></i></button></b></h2>
-
-
+  
+  
   			  	<div id="hallModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -506,156 +515,156 @@
     <th>Item Price</th>
     <th>Remove an Item</th>
     <th>Update Price</th>
-
+    
   </tr>
   <tr>
-
-
-
-
-  	  <%
-
-
+  
+  
+  
+  
+  	  <% 
+  	
+  
   	try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
-
-		<%if(rs.next()) {
-
+		
+		<%if(rs.next()) { 
+			
 			rs.beforeFirst();
 			 while(rs.next()) {
-
-
+			 
+			 
 		%>
     <td><p><%=rs.getString("menu_id")%></p></td>
     <td><p><%=rs.getString("menu_item_name")%></p></td>
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
-
+    
 		<form action="removeItemServlet" method="post">
-
+	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
-
+  		
 		   <button type="submit" class="btn btn-danger">
      		<span class="glyphicon glyphicon-trash"></span>
-
-
-
-		</form>
-
-
+   		   
+		  
+		  
+		</form>     
+    
+    
     </td>
-
-
-
+    
+   
+    	    
     <td>
-
-    	  	<form action="updateItemPrice" method="post">
-
-	      <input type="text" name="itemPrice" >
-
+    
+    	  	<form action="editItemPriceServlet" method="post" >
+	
+	      <input type="text" name="itemPrice" id="itemPrice" required>
+	      <div id="itemPriceError" class="val_error"></div>
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
 		  	 <button type="submit" class="btn btn-warning">
      		<i class="fas fa-edit"></i></button>
-
-
-		</form>
-
-
+   		  
+		  
+		</form>  
+    
+    
     </td>
-
-
-
-
+    
+    
+    
+    
   </tr>
-
-  	<%
+  
+  	<% 
 		}
 		%>
-
+	
 		<%
 		}
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 		}%>
 
 </table>
 
 
-
+	
       </div>
-
+     
     </div>
 
   </div>
 </div>
-
-
-
-
-
+  
+  
+  
+  
+  
   <hr class="my-4">
-
-
+  
+  
 		<% try{
-
+								
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
-
+		
 		<% Statement st = con.createStatement();%>
-
+		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
-
+		
 		<% while(rs.next()) {%>
-
-
+	
+		
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type= rs.getString("menu_type");%>
 			<% String menu_item_name = rs.getString("menu_item_name");%>
 			<% String menu_item_price = rs.getString("menu_item_price");%>
 			<% String menu_item_pic = rs.getString("menu_item_pic");%>
-
-
+			
+			
 			<div class="row">
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			   
 			    <p><%=menu_item_name %></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
-			    <img src="<%=menu_item_pic%>"  height="100" width="150">
+			   
+			    <img src="<%=menu_item_pic%>"  height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-
+			    
 			    <p><%=menu_item_price %></p>
 			  </div>
 			</div>
-
+		
 		<% }
-
+		
 		}catch(Exception e){
-
+		
 			System.out.println("Failed");
 			System.out.println(e);
-
-
+		
+		
 	}%>
-
+  
 </div>
-
-
-
+	
+	
+	
 
 
 </div>
@@ -673,9 +682,9 @@
     }
 	}
 	</script>
+	
 
-
-
+	
 
 </div>
 
@@ -704,13 +713,13 @@
 				<small><font color="#989898">Tel : +94 112 078 517<br />
 				Athurugiriya Rd,Sri Lanka.</font>
 				</small>
-			</address>
-
+			</address> 
+			
 			<small><font color="#ffffff">
 					<b>Designed and Developed by 404 Solutions</b>
 				</font>
 				</small>
-
+	
 		</footer>
 
 
@@ -728,3 +737,69 @@
 
 
 </html>
+
+<script type="text/javascript">
+var name = document.forms["vForm"]["name"];
+var price = document.forms["vForm"]["price"];
+
+
+var name_error = document.getElementById("name_error");
+var price_error = document.getElementById("price_error");
+
+name.addEventListener("blur", nameVerify, true);
+price.addEventListener("blur", priceVerify, true);
+
+function validate(){
+	
+	if(name.value == ""){
+		
+		name.style.border = "1px solid red";
+		name_error.textContent = "Name Required!";
+		name.focus();
+		return false;
+		
+	}
+	
+	if(price.value == ""){
+		
+		price.style.border = "1px solid red";
+		price_error.textContent = "Price Required!";
+		price.focus();
+		return false;
+		
+	}
+	
+}
+
+function nameVerify(){
+	
+	if(name.value != ""){
+		name.style.border = "1px solid 5E6E66";
+		name_error.innerHTML = "";
+		return true;
+		
+		
+	}
+	
+	
+}
+
+
+function priceVerify(){
+	
+	if(price.value != ""){
+		price.style.border = "1px solid 5E6E66";
+		price_error.innerHTML = "";
+		return true;
+		
+		
+	}
+	
+	
+}
+
+
+
+
+</script>
+
