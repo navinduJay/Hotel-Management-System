@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/footer-basic-centered.css">
     <link href="css/customStylesPM.css" rel="Stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -41,7 +42,7 @@
               <li><a href="">Expenses</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Welcome, Brad</a></li>
+              <li><a href="#">Welcome,</a></li>
               <li><a href="login.html">Logout</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -52,7 +53,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Users<small>Manage Employees</small></h1>
+            <h1><span  aria-hidden="true"></span> Users<small>Manage Employees</small></h1>
           </div>
 
         </div>
@@ -74,11 +75,11 @@
           <div class="col-md-3">
             <div class="list-group">
               <a href="index.html" class="list-group-item active main-color-bg">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                <span class=""  aria-hidden="true"></span> Dashboard
               </a>
-              <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Salary </a>
-              <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Reservation </span></a>
-              <a href="" class="list-group-item"><span class="glyphicon glyphicon-eur" aria-hidden="true"></span> Expenses</a>
+              <a href="pages.html" class="list-group-item"><span class="" aria-hidden="true"></span> Salary </a>
+              <a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation </span></a>
+              <a href="" class="list-group-item"><span class="" aria-hidden="true"></span> Expenses</a>
             </div>
 
 
@@ -94,8 +95,9 @@
                     
                         <table class="table table-striped table-hover">
                             <tr>
-                              <th style="padding-left:25%"><p>Add Employees</p></th>
-                              <th style="padding-right: 50px"><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success btn-lg">Add</button> </th>
+                              <th width=60%><p>Add Employees</p></th>
+                              <th><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success">Add</button> </th>
+                              <th><button class="btn btn-danger" type=submit data-toggle="modal" data-target="#deletemodal">Delete</button></th>
                             </tr>
                         </table>
                         
@@ -107,10 +109,11 @@
                       </div>
                 </div>
                 <br>
+               
                 <table class="table table-striped table-hover">
                       <tr>
+                        <th>NIC</th>
                         <th>Name</th>
-                        <th>Email</th>
                         <th>Joined</th>
                         <th></th>
                       </tr>
@@ -129,11 +132,13 @@
             					String tname = rs.getString("name");
             					String tdate = rs.getString("joindate"); %>
             					
+            					
 							<tr>
-                        			<td><%=tnic %></td>
+									
+                        			<td><input type=text name=nic value="<%=tnic %>" readonly ></td>
                         			<td><%=tname %></td>
                         			<td><%=tdate %></td>
-                        			<td><a class="btn btn-default" href="edit.html">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                        			<td><a class="btn btn-default" href="edit.html">Edit</a></td>
                       		</tr>
             					
             					
@@ -147,6 +152,9 @@
                       
                       
                     </table>
+                  
+                    
+                    
               </div>
               </div>
 
@@ -249,6 +257,56 @@
       </div>
   </div>
 </div>
+
+
+<!-- Delete Employee -->
+
+<div id="deletemodal" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+          
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Sujanee City Hotel</h4>
+          </div>
+          <div class="modal-body">
+            
+<form class="form-horizontal" action="DeleteEmployee" method="post">
+	<fieldset>
+	
+	<!-- Form Name -->
+	<h1 class=reg>Form Name</h1>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="nic">Enter NIC</label>  
+	  <div class="col-md-4">
+	  <input id="nic" name="nic" placeholder="Employee NIC" class="form-control input-md" type="text">
+	  <span class="help-block">Add the nic of the employee you want to delete</span>  
+	  </div>
+	</div>
+	
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="btn"></label>
+	  <div class="col-md-4">
+	    <button id="btn" name="btn" class="btn btn-danger" type="submit">Delete</button>
+	  </div>
+	</div>
+	
+	</fieldset>
+</form>
+
+              
+      
+      
+              
+          </div>
+      </div>
+  </div>
+</div>
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
