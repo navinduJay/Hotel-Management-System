@@ -27,8 +27,6 @@ public class DeleteEmployee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);
@@ -78,6 +76,8 @@ public class DeleteEmployee extends HttpServlet {
 				
 				RequestDispatcher rqst = request.getRequestDispatcher("employees.jsp");
 				rqst.forward(request, response);
+				
+			}else {
 				
 			}
 			
