@@ -47,8 +47,7 @@ public class AddEmployee extends HttpServlet {
 		
 		boolean nicstatus = sd.nullid();
 		boolean namestatus = sd.nullName();
-		boolean datestatus = sd.nullDate();
-		
+		boolean datestatus = sd.nullDate();		
 		if(nicstatus && namestatus && datestatus) {
 			
 			try {
@@ -56,6 +55,7 @@ public class AddEmployee extends HttpServlet {
 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01?autoReconnect=true&useSSL=false", "root", "root");
 				Statement st = con.createStatement();
 				st.executeUpdate("insert into employee(nic,name,joindate) values('"+nic+"','"+name+"','"+jdate+"')");
+				st.executeUpdate("insert into transactions(nic) values('"+nic+"')");
 				System.out.println("data entered");
 				
 				RequestDispatcher rq = request.getRequestDispatcher("employees.jsp");
