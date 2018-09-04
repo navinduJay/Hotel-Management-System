@@ -17,8 +17,10 @@
     
     <link rel="stylesheet" href="css/footer-basic-centered.css">
     <link href="css/customStylesPM.css" rel="Stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
   </head>
   <body>
@@ -86,7 +88,7 @@
           </div>
           <div class="col-md-9">
             <!-- Website Overview -->
-            <div class="panel panel-default" style="padding-left: 10px">
+            <div class="panel panel-default" >
               <div class="panel-heading main-color-bg">
                 <h3 class="panel-title">Users</h3>
               </div>
@@ -95,9 +97,9 @@
                     
                         <table class="table table-striped table-hover">
                             <tr>
-                              <th width=60%><p>Add Employees</p></th>
-                              <th><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success">Add</button> </th>
-                              <th><button class="btn btn-danger" type=submit data-toggle="modal" data-target="#deletemodal">Delete</button></th>
+                              <th width=60%><p class="text-center">Add Employees</p></th>
+                              <th><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success" style="width:108px">Add</button> </th>
+                              <th></th>
                             </tr>
                         </table>
                         
@@ -132,13 +134,57 @@
             					String tname = rs.getString("name");
             					String tdate = rs.getString("joindate"); %>
             					
-            					
+            				
 							<tr>
 									
                         			<td><input type=text name=nic value="<%=tnic %>" readonly ></td>
                         			<td><%=tname %></td>
                         			<td><%=tdate %></td>
-                        			<td><a class="btn btn-default" href="edit.html">Edit</a></td>
+                        			<form action="SalaryInfo" method="post">	
+                        			<input type=hidden name="tnic" value="<%=tnic %>">
+                        			<input type=hidden name="tname" value="<%=tname %>">
+                        			<td><button class="btn btn-default" type=submit style="width:108px">View profile</button></form>
+                        			<button class="btn btn-danger" type=submit data-toggle="modal" data-target="#deletemodal">Delete profile</button>
+                        			
+									<div id="deletemodal" class="modal fade">
+									<div class="modal-dialog">
+									<div class="modal-content">
+	          							<div class="modal-header">
+	          							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	              							<h4 class="modal-title">Sujanee City Hotel</h4>
+	          							</div>
+          							<div class="modal-body">
+            						<form class="form-horizontal" action="DeleteEmployee" method="post">
+									<fieldset>
+									<!-- Form Name -->
+									<h1 class=reg>Confirm..</h1>
+	
+									<!-- Text input-->
+									<div class="form-group">
+									<label class="col-md-4 control-label" for="tnic"></label>  
+									<div class="col-md-4">
+									<input id="tnic" name="tnic" class="form-control input-md" type="hidden" value="<%=tnic%>">
+									<span class="help-block">Are you sure you want to delete?</span>  
+									</div>
+									</div>
+	
+									<!-- Button -->
+									<div class="form-group">
+									<label class="col-md-4 control-label" for="btn"></label>
+									<div class="col-md-4">
+									<button id="btn" name="btn" class="btn btn-danger" type="submit">Delete</button>
+									</div>
+									</div>
+	
+									</fieldset>
+									</form>
+							              
+							</div>
+							</div>
+							</div>
+							</div>
+                        			
+                        		</td>
                       		</tr>
             					
             					
@@ -160,7 +206,7 @@
 
           </div>
         </div>
-      </div>
+      
     </section>
 
     <footer class="footer-basic-centered">
@@ -169,7 +215,7 @@
 
               <section id="lab_social_icon_footer">
                       <!-- Include Font Awesome Stylesheet in Header -->
-                      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+                      
                       <div class="container">
                               <div class="text-center center-block">
                                       <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
@@ -261,50 +307,7 @@
 
 <!-- Delete Employee -->
 
-<div id="deletemodal" class="modal fade">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-          
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Sujanee City Hotel</h4>
-          </div>
-          <div class="modal-body">
-            
-<form class="form-horizontal" action="DeleteEmployee" method="post">
-	<fieldset>
-	
-	<!-- Form Name -->
-	<h1 class=reg>Form Name</h1>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="nic">Enter NIC</label>  
-	  <div class="col-md-4">
-	  <input id="nic" name="nic" placeholder="Employee NIC" class="form-control input-md" type="text">
-	  <span class="help-block">Add the nic of the employee you want to delete</span>  
-	  </div>
-	</div>
-	
-	<!-- Button -->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="btn"></label>
-	  <div class="col-md-4">
-	    <button id="btn" name="btn" class="btn btn-danger" type="submit">Delete</button>
-	  </div>
-	</div>
-	
-	</fieldset>
-</form>
 
-              
-      
-      
-              
-          </div>
-      </div>
-  </div>
-</div>
 
 
 
