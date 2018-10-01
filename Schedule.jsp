@@ -97,7 +97,16 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-							<form action="AddEvent" method="post">
+								<%
+									String mno = null;
+								%>
+								<%
+									char[] ch = date.toCharArray();
+									char c = date.charAt(5);
+									char d = date.charAt(6);
+									mno = c + "" + d;
+								%>
+								<form action="AddEvent" method="post">
 								<table class="table table-striped table-hover animated bounceInUp">
 									<tr>
 										<th><p class="text-center">Event ID :</p></th>
@@ -116,8 +125,9 @@
 										<th><textarea name="eventDescription" style="width:300px;height:100px" placeholder="Anything you want to keep about the event"></textarea></th>
 									</tr>
 									<tr>
-										<th></th>
-										<th><Button type="submit" class="btn btn-success">Submit</Button></th>
+										<th><input type="hidden" value="<%=mno%>" name="monthNo"></th>
+										<th><Button type="submit" class="btn btn-success">Submit</Button>
+										<Button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-info">View All</Button></th>
 									</tr>
 								</table>
 							</form>
@@ -140,7 +150,7 @@
 								<th>Description</th>
 								<th></th>
 							</tr>
-							
+
 							<%try{
  							Class.forName("com.mysql.jdbc.Driver");
  							Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
@@ -167,6 +177,7 @@
 							</tr> 
 
 
+					
 							<%
 							}
  							}catch (Exception e) {
@@ -175,6 +186,8 @@
 							%>
 
  						</table>
+
+
 
 
 
@@ -216,12 +229,70 @@
 
 	</footer>
 
-<script>
-    function pm(){
-        swal("Done!", "Event Deleted", "success");
-    }
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">All events in this month</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table class="table table-striped table-hover animated bounceInUp">
+						<tr>
+							<th>Date</th>
+							<th>Event</th>
+							<th>Start Time</th>
+							<th>End Time</th>
+							<th>Description</th>
+							<th></th>
+						</tr>
+						<%try{
+ 							Class.forName("com.mysql.jdbc.Driver");
+ 							Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
+						<%PreparedStatement ps = (PreparedStatement) con.prepareStatement("Select * from calendar where monthNo='"+mno+"'"); %>
+						<%ResultSet rs = ps.executeQuery();%>
 
-</script>
+						<%while(rs.next()){
+ 								String evId = rs.getString("eventID");
+             					String evDate = rs.getString("eventDate");
+             					String evStartTime = rs.getString("eventStartTime");
+             					String evEndTime = rs.getString("eventEndTime");
+             					String evName = rs.getString("eventName");
+            					String evDesc = rs.getString("eventDescription");%>
+
+
+						<tr>
+							<th><%=evDate%></th>
+							<th><%=evName%></th>
+							<th><%=evStartTime%></th>
+							<th><%=evEndTime%></th>
+							<th><%=evDesc%></th>
+							<th></th>
+						</tr>
+
+						<%
+						}
+						}catch (Exception e) {
+
+						}
+						%>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function pm() {
+			swal("Done!", "Event Deleted", "success");
+		}
+	</script>
 
 
 	<script>
