@@ -13,8 +13,10 @@
 <link rel="stylesheet" href="css/footer-basic-centered.css">
 <link href="css/customStylesPM.css" rel="Stylesheet">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Schedule</title>
 </head>
@@ -96,7 +98,7 @@
 						<div class="panel-body">
 							<div class="row">
 							<form action="AddEvent" method="post">
-								<table class="table table-striped table-hover">
+								<table class="table table-striped table-hover animated bounceInUp">
 									<tr>
 										<th><p class="text-center">Event ID :</p></th>
 										<th><input type="text" name="evid" style="width:300px" placeholder="Add a random number"></th>
@@ -122,14 +124,14 @@
 							</div>
 							<hr>
 						</div>
-						<div class="row">
+						<div class="row animated bounceInUp">
 							<div class="col-md-12">
 							<h3 class="text-center">Schedule</h3>
 							</div>
 						</div>
 						<br>
 
-						<table class="table table-striped table-hover">
+						<table class="table table-striped table-hover animated bounceInUp">
 							<tr>
 								<th>Date</th>
 								<th>Event</th>
@@ -159,7 +161,9 @@
 								<th><%=evStartTime%></th>
  								<th><%=evEndTime%></th>
  								<th><%=evDesc%></th> 
- 								<th><form action="DeleteEvent" method="post"><input type="hidden" name="id" value="<%=evId%>"><button class="btn btn-danger" type=submit>Delete</button></form></th>
+ 								<th><form action="DeleteEvent" method="post">
+ 								<input type="hidden" name="id" value="<%=evId%>"><input type="hidden" value="<%=evDate%>" name="date">
+ 								<button class="btn btn-danger" type=submit onclick="pm()">Delete</button></form></th>
 							</tr> 
 
 
@@ -212,6 +216,12 @@
 
 	</footer>
 
+<script>
+    function pm(){
+        swal("Done!", "Event Deleted", "success");
+    }
+
+</script>
 
 
 	<script>

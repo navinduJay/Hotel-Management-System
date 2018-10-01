@@ -2,10 +2,68 @@ package com;
 
 public class SaveDataStf {
 	
-	private String id,name,email,password,address,dob,ans1,ans2,ques1,ques2;
+	private String id,name,email,password,address,dob,ans1,ans2,ques1,ques2,joinDate;
+	private String eventID,date,startTime,endTime,eventName,eventDescription;
 	
 	
 	
+	
+
+	public String getEventID() {
+		return eventID;
+	}
+
+	public void setEventID(String eventID) {
+		this.eventID = eventID;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getEventName() {
+		return eventName;
+	}
+
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+
+	public String getEventDescription() {
+		return eventDescription;
+	}
+
+	public void setEventDescription(String eventDescription) {
+		this.eventDescription = eventDescription;
+	}
+
+	public String getJoinDate() {
+		return joinDate;
+	}
+
+	public void setJoinDate(String joinDate) {
+		this.joinDate = joinDate;
+	}
 
 	public String getQues1() {
 		return ques1;
@@ -125,6 +183,11 @@ public class SaveDataStf {
 	public boolean nullAns2() {return(!(ans2.isEmpty()));}
 	public boolean nullQues1(){return(!(ques1.isEmpty()));}
 	public boolean nullQues2(){return(!(ques2.isEmpty()));}
+	public boolean nullDate() {return(!(joinDate.isEmpty()));}
+	
+	public boolean nullEventID() {
+		return(!(eventID.isEmpty()));
+	}
 	
 	
 	

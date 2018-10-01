@@ -5,7 +5,7 @@
 
 <html>
 <head>
-  <title>devdaily.com calendar</title>
+  <title>Calendar</title>
 <link href="css/bootstrap.css" rel="stylesheet">  
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/sociel.css">
 <link rel="stylesheet" href="css/footer-basic-centered.css">
 <link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
@@ -36,7 +37,7 @@ function myFunction() {
 <body id="regular_page">
 
 <div id="calendar_main_div">
-<table border="1" cellspacing="0" cellpadding="4" id="calendar_table">
+<table border="1" cellspacing="0" cellpadding="4" id="calendar_table" class="animated bounceInUp">
   <tr>
     <td width="100%" colspan="7" class="month_year_header">
       <%=monthName%>, <%=intYear%>
