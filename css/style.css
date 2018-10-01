@@ -1,6 +1,6 @@
 
 body {
-  background-color: #bbbbbb ;
+  background-color: #9e9e9e ;
   color: #222 !important;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
@@ -8,7 +8,7 @@ body {
 }
 
 nav {
-  background-color:whitesmoke !important;
+  background-color:whitesmoke ;
   
   border-radius: 4px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);

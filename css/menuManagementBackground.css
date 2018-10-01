@@ -5,14 +5,15 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 15px;
-   background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
-    background-repeat:repeat;
+ background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+ background-blend-mode: normal, lighten, soft-light;
+   background-repeat:repeat;
       position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-size: cover;
+    
     background-position: 50% 50%;
 }
 
