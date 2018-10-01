@@ -103,14 +103,17 @@
         
         
 
-        <h3> <img src= "<%=rs.getString("menu_item_pic") %>" width="200" height="250"/></h3> 
+        <h3> <img src= "img/<%=rs.getString("menu_item_pic") %>" width="200" height="200"/></h3> 
         
         
         
       <h3><%=rs.getString("menu_item_name")%></h3>
       <h3><%=rs.getString("menu_item_price") %></h3>
+      <button type="button" class="btn btn-success pull-right">CUSTOMIZE NOW</button>
     </div>
+     <br /><br />
     </div>
+    
     
     	<% 
 		}

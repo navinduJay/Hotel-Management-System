@@ -9,9 +9,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	
+	
+		
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
-
-       
   
   
   <style>
@@ -47,7 +49,9 @@
    <link href="css/menuManagementBackground.css" rel="stylesheet">
    <link href="css/inventoryStyles.css" rel="stylesheet">
     
+     <link rel="stylesheet" href="css/aos-master/dist/aos.css" />
    <link rel="stylesheet" href="css/sociel.css">
+   <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/menuValidationCSS.css">
    <link rel="stylesheet" href="css/modalCSS.css">
    <link rel="stylesheet" href="css/footer-basic-centered.css">
@@ -58,15 +62,21 @@
 
  
    
-
+	 
    <script src="js/ie-emulation-modes-warning.js"></script>
      
 	 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script
+			  src="http://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
      <script src="js/myJS.js"></script>
     
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
+   
+
 
  </head>
 
@@ -79,15 +89,15 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="inventory.jsp"><i class="fas fa-home"></i></a></li>
-      <li><a href="#">Inventory</a></li>
+     
       <li class="active"><a href="menuManagement.jsp">Menu</a></li>
-      <li><a href="#">Page 3</a></li>
+      
     </ul>
   </div>
 </nav>
 
    
-        <h1 class="xbootstrap"><b>Menu Management</b></h1>
+        <h1 class="xbootstrap animated bounceInUp delay-1s" ><b>Menu Management</b></h1>
 
 
         <div class="container">
@@ -95,10 +105,10 @@
 <div class="col-md-6">
 
     <div class="login-form">
-    <div class="main-div">
-        <form action="AddMenuServlet" method="post"  onsubmit="return validate()" name="vForm">
+    <div class="main-div animated zoomInUp">
+        <form  id="addmenu" action="AddMenuServlet" method="POST"  onsubmit="return formAddMenuSubmit()" name="vForm" >
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
+                    <h3  style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
     				<div class="form-group">
 
@@ -112,19 +122,19 @@
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name">
-						<div id="name_error" class="val_error"></div>
+						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" required>
+						<div id="name_error" class="val_error animated shake"></div>
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" >
-						<div id="price_error" class="val_error"></div>
+						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" required >
+						<div id="price_error" class="val_error" ></div>
 					</div>
           <br />
          
 					<div class="form-group">
 					<p class="text-left">Upload an Image</p>
-						<input type="file" class="filestyle" accept="image/*" name="pic">
+						<input type="file" class="filestyle" accept="image/*" name="pic" >
 					</div>
 
           <div class="form-group">
@@ -133,7 +143,11 @@
           </div>
 
 		   <div class="form-group">
-             <input type="submit" id="submit1" name="submit" class="btn btn-success pull-right" value="ADD ITEM" >
+             <button type="submit" name="submit" class="btn btn-success pull-right" value="ADD ITEM" onclick ="">ADD ITEM</button>
+               <h3 id="success"></h3>
+					
+ 	
+
 				
 			
           </div><br /><br />
@@ -141,13 +155,15 @@
               
 			   <input type="button" id="btn1" name="btn" class="btn btn-primary pull-right" onclick="myFunction()" value="CHECK">
           </div><br />
-        
+          
 
 
 
 
         </form>
-
+        
+   
+ 
     </div>
     
     
@@ -155,8 +171,8 @@
 </div>
 </div>
 <div class="col-md-4"></div>
-<div class="col-md-12">
-<div id="myDIV" style="display:none">
+<div id="auto" class="col-md-12">
+<div id="myDIV" style="overflow:hidden">
 
 	
 	<div class="jumbotron">
@@ -183,11 +199,7 @@
     
   </tr>
   <tr>
-  
-  
-  
-  
-  	  <% 
+   <% 
   	
   
   	try{
@@ -206,21 +218,22 @@
 			 
 			 
 		%>
+		
     <td><p><%=rs.getString("menu_id")%></p></td>
     <td><p><%=rs.getString("menu_item_name")%></p></td>
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
     
-		<form action="removeItemServlet" method="post">
+		<form id="deletemenu"  action="removeItemServlet"  onsubmit="" method="post"  >
 	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   		
 		   <button type="submit" class="btn btn-danger">
-     		<span class="glyphicon glyphicon-trash"></span>
+     		X</button>
    		  
 		  
 		</form>     
-    
+		
   
     
     </td>
@@ -229,8 +242,8 @@
     
     	  	<form action="editItemPriceServlet" method="post">
 	
-	      <input type="text" name="itemPrice" id="itemPrice" required>
-	      <div id="itemPriceError" class="val_error"></div>
+	      <input type="text" name="itemPrice" id="itemPrice" placeholder="new price" required>
+	      
 	      
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
@@ -292,16 +305,17 @@
 			 
 			 
 		%>
+	
 				
 				
-			<div class="row">
+			<div class="row" data-aos="fade-right" >
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
 			    <p><%=rs.getString("menu_item_name")%></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			   <img src= "<%=rs.getString("menu_item_pic") %>" width="100" height="100"/>
+			   <img src= "img/<%=rs.getString("menu_item_pic") %>" width="100" height="100"/>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -317,7 +331,11 @@
 		%>
 	
 		<%
-		}
+		}else{
+		%>	
+			<p>no items</p>
+			
+		<%}
 		
 		}catch(Exception e){
 		
@@ -379,7 +397,7 @@
     
     <td>
     
-		<form action="removeItemServlet" method="post">
+		<form id="deletemenu" onsubmit="return formDeleteMenuSubmit()" method="post" >
 	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   		
@@ -400,8 +418,8 @@
     
     	  	<form action="editItemPriceServlet" method="post" >
 	
-	      <input type="text" name="itemPrice" id="itemPrice" required>
-	      <div id="itemPriceError" class="val_error"></div>
+	      <input type="text" name="itemPrice" id="itemPrice" placeholder="new price" required>
+	      
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
 		  	 <button type="submit" class="btn btn-warning">
@@ -459,7 +477,11 @@
 		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'C%' ");%>
 		
-		<% while(rs.next()) {%>
+		
+		<%if(rs.next()) { 
+			
+			rs.beforeFirst();
+		    while(rs.next()) {%>
 		
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type = rs.getString("menu_type");%>
@@ -468,14 +490,14 @@
 			<% String menu_item_pic = rs.getString("menu_item_pic");%>
 			
 			
-		<div class="row">
+		<div class="row" data-aos="fade-left">
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
 			    <p><%=menu_item_name %></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <image src="<%=menu_item_pic%>"  height="100" width="100">
+			    <image src="img/<%=menu_item_pic%>"  height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -483,9 +505,16 @@
 			  </div>
 			</div>
 		
-		<% }
+		<% }  %>
 		
-		}catch(Exception e){
+		<% }else{
+			%>
+			<p>no items</p>
+			
+ <% 	}
+		
+		}
+		catch(Exception e){
 		
 			System.out.println("Failed");
 			System.out.println(e);
@@ -546,12 +575,12 @@
     <td><p><%=rs.getString("menu_item_price") %></p></td>
     <td>
     
-		<form action="removeItemServlet" method="post">
+		<form id="deletemenu" onsubmit="return formDeleteMenuSubmit()" action="removeItemServlet" method="post">
 	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   		
 		   <button type="submit" class="btn btn-danger">
-     		<span class="glyphicon glyphicon-trash"></span>
+     		X</button>
    		   
 		  
 		  
@@ -566,8 +595,8 @@
     
     	  	<form action="editItemPriceServlet" method="post" >
 	
-	      <input type="text" name="itemPrice" id="itemPrice" required>
-	      <div id="itemPriceError" class="val_error"></div>
+	      <input type="text" name="itemPrice" id="itemPrice" placeholder="new price" required>
+	      
   			 <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   			 <br>
 		  	 <button type="submit" class="btn btn-warning">
@@ -626,7 +655,11 @@
 		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
 		
-		<% while(rs.next()) {%>
+		<%if(rs.next()) { 
+			
+			rs.beforeFirst();
+		%>
+	 <% 	while(rs.next()) {%>
 	
 		
 			<% int menu_id = rs.getInt("menu_id"); %>
@@ -636,14 +669,14 @@
 			<% String menu_item_pic = rs.getString("menu_item_pic");%>
 			
 			
-			<div class="row">
+			<div class="row" data-aos="fade-right">
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
 			    <p><%=menu_item_name %></p>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <img src="<%=menu_item_pic%>"  height="100" width="100">
+			    <img src="img/<%=menu_item_pic%>"  height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -651,6 +684,12 @@
 			  </div>
 			</div>
 		
+		<% } 
+		
+		}else{
+		%>
+			<p>no items</p>
+			
 		<% }
 		
 		}catch(Exception e){
@@ -659,7 +698,7 @@
 			System.out.println(e);
 		
 		
-	}%>
+	 }%>
   
 </div>
 	
@@ -683,7 +722,13 @@
 	}
 	</script>
 	
-
+	<script>
+	$("#vForm").submit(function(e) {
+	    e.preventDefault(); //this prevents form from getting submitted
+	});
+	</script>
+	
+	
 	
 
 </div>
@@ -725,11 +770,20 @@
 
 <script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
 <script src="js/menuManagementJS.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 
+
+
+<script src="css/aos-master/dist/aos.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/inventoryJS.js"></script>
+<script  type="text/javascript">
+	
+	AOS.init({
+		
+		duration: 1000,
+		
+	});
+</script>
 
 
 
@@ -738,6 +792,57 @@
 
 </html>
 
+<script src="jq.js"></script>
+<script type="text/javascript">
+
+
+function formAddMenuSubmit(){
+	
+	$.ajax({
+		
+		type:'POST',
+		url:'AddMenuServlet',
+		data:$('#addmenu').serialize(),
+		success:function(data){
+			
+			swal("Item added!", "Successfully!", "success");
+			
+		
+		}
+	
+
+	});
+	var form = document.getElementById('addmenu').reset();
+	return false;
+	}
+	
+	$(document).ready(function(){
+		
+		$('#auto').load('AddMenuServlet.java');
+		refresh();
+		
+	});
+	
+	function refresh(){
+		
+		setTimeout(function(){
+			
+			$('#auto').fadeOut('slow').load('AddMenuServlet.java').fadeIn('slow');
+				refresh();
+		 	}, 30000);
+	
+		
+		
+	}
+
+	
+
+</script>
+
+	
+       
+
+	
 <script type="text/javascript">
 var name = document.forms["vForm"]["name"];
 var price = document.forms["vForm"]["price"];
@@ -753,9 +858,13 @@ function validate(){
 	
 	if(name.value == ""){
 		
+		
 		name.style.border = "1px solid red";
 		name_error.textContent = "Name Required!";
+		
+		
 		name.focus();
+	
 		return false;
 		
 	}
@@ -764,7 +873,9 @@ function validate(){
 		
 		price.style.border = "1px solid red";
 		price_error.textContent = "Price Required!";
+		$('input[name=price]').addClass('animateShake');
 		price.focus();
+		
 		return false;
 		
 	}
@@ -776,6 +887,7 @@ function nameVerify(){
 	if(name.value != ""){
 		name.style.border = "1px solid 5E6E66";
 		name_error.innerHTML = "";
+		
 		return true;
 		
 		
@@ -790,6 +902,7 @@ function priceVerify(){
 	if(price.value != ""){
 		price.style.border = "1px solid 5E6E66";
 		price_error.innerHTML = "";
+		
 		return true;
 		
 		
