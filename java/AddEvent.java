@@ -38,6 +38,7 @@ public class AddEvent extends HttpServlet {
 		String endTime = request.getParameter("endTime");
 		String name = request.getParameter("eventName");
 		String description = request.getParameter("eventDescription");
+		String monthNo = request.getParameter("monthNo");
 		
 		SaveDataStf sd1 = new SaveDataStf();
 		sd1.setEventID(id);;
@@ -57,7 +58,7 @@ public class AddEvent extends HttpServlet {
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01?autoReconnect=true&useSSL=false", "root", "root");
 				Statement st = con.createStatement();
-				String sql = "insert into calendar(eventID,eventName,eventDate,eventStartTime,eventEndTime,eventDescription) values('"+id+"','"+name+"','"+date+"','"+startTime+"','"+endTime+"','"+description+"')";
+				String sql = "insert into calendar(eventID,eventName,eventDate,eventStartTime,eventEndTime,eventDescription,monthNo) values('"+id+"','"+name+"','"+date+"','"+startTime+"','"+endTime+"','"+description+"','"+monthNo+"')";
 				st.executeUpdate(sql);
 				System.out.println("insert successful");
 				
