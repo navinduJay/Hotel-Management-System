@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -49,7 +48,7 @@
 <style>
 
 
-
+sadasdsdsadasasdasdasasfasda
 
 </style>
   </head>
@@ -182,15 +181,16 @@
                  </small>
                 </address>
 
-                <small><font color="#989898">
-                   <b>Designed and Developed by 404 Solutions</b>
-                 </font>
-                 </small>
+
+  <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
                 </section>
 
 
 
-  <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+  <small><font color="#989898">
+                   <b>Designed and Developed by 404 Solutions</b>
+                 </font>
+                 </small>
 
 </footer>
 
