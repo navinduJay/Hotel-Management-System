@@ -54,7 +54,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">NIC</label>  
               <div class="col-md-4">
-              <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md"  type="text">
+              <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md"  type="text">
                 
               </div>
             </div>
@@ -87,50 +87,54 @@
              <span class="help-block">Forgot password?</span>
              <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-danger btn-lg">Reset Password</button> 
              <br><br>
+             <form action="staffRegistration.jsp"><button class="btn btn-primary" type="submit">Register</button></form><br>
              </div>
-             
- <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Enter your NIC number to continue..</h4>
-            </div>
-            <div class="modal-body">
-            	
-				<form class="form-horizontal" action=Forgotpwd method=post>
-				<fieldset>
 
-				<!-- Form Name -->
-				<h1 class=reg>Reset password</h1>
-		
-				<!-- Text input-->
-				<div class="form-group">
-				<label class="col-md-4 control-label" for="nic">Enter your NIC</label>  
-				 <div class="col-md-4">
-				 <input id="nic" name="nic" placeholder="NIC" class="form-control input-md" type="text">
-	    
+			<div id="myModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Enter your NIC number to continue..</h4>
+						</div>
+						<div class="modal-body">
+
+							<form class="form-horizontal" action=ForgotpwdStf method=post>
+								<fieldset>
+
+									<!-- Form Name -->
+									<h1 class=reg>Reset password</h1>
+
+									<!-- Text input-->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="nic">Enter
+											your NIC</label>
+										<div class="col-md-4">
+											<input id="nic" name="nic" placeholder="NIC"
+												class="form-control input-md" type="text">
+
+										</div>
+									</div>
+									<!-- Button -->
+									<div class="form-group">
+										<label class="col-md-4 control-label" for="btn"></label>
+										<div class="col-md-4">
+											<input type=submit value="Proceed">
+										</div>
+									</div>
+
+								</fieldset>
+							</form>
+
+
+
+						</div>
+					</div>
 				</div>
-				</div>
-				<!-- Button -->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="btn"></label>
-					<div class="col-md-4">
-					<input type=submit value="Proceed">
-				</div>
-				</div>
-				
-				</fieldset>
-				</form>
-				
-				
-                
-            </div>
-        </div>
-    </div>
-</div>
-             </div> 
+			</div>
+		</div> 
 
             
 
@@ -141,27 +145,43 @@
             
  			
       <!-- Footer -->
-    <footer class="footer-basic-centered" style="position:fixed">
+	<footer class="footer-basic-centered">
 
-			<p class="footer-company-motto"><b>Good food | Good Vibes</b></p>
+		<p class="footer-company-motto">
+			<b>Good Food | Good Vibes </b>
+		</p>
 
-            <section id="lab_social_icon_footer">
-                    <!-- Include Font Awesome Stylesheet in Header -->
-                    
-                    <div class="container">
-                            <div class="text-center center-block">
-                                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                                    <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                        </div>
-                    </div>
-                    </section>
+		<section id="lab_social_icon_footer">
+			<!-- Include Font Awesome style sheet in Header -->
+			<div class="container">
+				<div class="text-center center-block">
+					<a href="https://www.facebook.com/"><i id="social-fb"
+						class="fa fa-facebook-square fa-3x social"></i></a> <a
+						href="https://twitter.com/"><i id="social-tw"
+						class="fa fa-twitter-square fa-3x social"></i></a> <a
+						href="https://plus.google.com/"><i id="social-gp"
+						class="fa fa-google-plus-square fa-3x social"></i></a> <a
+						href="mailto:#"><i id="social-em"
+						class="fa fa-envelope-square fa-3x social"></i></a>
+				</div>
+			</div>
+		</section>
 
 
-			<p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+		<p class="footer-company-name">
+			<b>Hotel Sujanee &copy; 2018</b>
+		</p>
+		<address>
+			<small><font color="#989898">Tel : +94 112 078 517<br />
+					Athurugiriya Rd,Sri Lanka.
+			</font> </small>
+		</address>
 
-		</footer>
+		<small><font color="#ffffff"> <b>Designed and
+					Developed by 404 Solutions</b>
+		</font> </small>
+
+	</footer>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

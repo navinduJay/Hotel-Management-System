@@ -52,7 +52,7 @@
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Welcome, <%=sname %></a></li>
-                        <li style="padding-top:15px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
+                        <li style="padding-top:10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
                       </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -90,8 +90,9 @@
               </a>
 
               <a href="employees.jsp" class="list-group-item active main-color-bg"><span class="" aria-hidden="true"></span> Employees </a>
-              <a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation </span></a>
-              <a href="" class="list-group-item"><span class="" aria-hidden="true"></span> Expenses</a>
+              <a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation </a>
+              <a href="menuManagement.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Inventory</a>
+              <a href="calendar.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Calendar</a>
             </div>
 
 
@@ -433,7 +434,7 @@
     
     <%}else{%>
     <script type="text/javascript">
-    window.location.href="http://localhost:8080/ITPv4/staffLogin.jsp";
+    window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
     </script>
     <%}%>
   </body>

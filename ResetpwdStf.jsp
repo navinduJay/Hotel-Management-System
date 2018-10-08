@@ -1,3 +1,4 @@
+
 <%@page import="com.SaveDataStf"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import = "java.sql.ResultSet" %>
@@ -47,8 +48,8 @@
       <!--Header-->
 
       <br><br>
-      
-      <form class="form-horizontal">
+      <div class="container" style="background-color: #ffff66">
+      <form  class="form-horizontal" action="UpdatepwdStf" method="post">
 	<fieldset>
 	
 	<!-- Form Name -->
@@ -58,6 +59,15 @@
 	
 	<%SaveDataStf sd1 = (SaveDataStf)request.getAttribute("obj");%>
 	<%String qs = sd1.getId();%>
+	
+	
+<!-- Textarea -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="nic">NIC Number</label>
+	  <div class="col-md-4">                     
+	    <textarea class="form-control" id="nic" name="nic"><%=qs %></textarea>
+	  </div>
+	</div>
 		
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="ques1">Question 1</label>
@@ -95,7 +105,7 @@
 	
 	<!-- Textarea -->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="ques2">Question</label>
+	  <label class="col-md-4 control-label" for="ques2">Question 2</label>
 	  <div class="col-md-4"> 
 	  
 	  <%try{
@@ -131,12 +141,13 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="singlebutton"></label>
 	  <div class="col-md-4">
-	    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Button</button>
+	    <button id="singlebutton" name="singlebutton" class="btn btn-danger">Proceed</button>
 	  </div>
 	</div>
 	
 	</fieldset>
 </form>
+</div>
       
       
       <!-- Footer -->

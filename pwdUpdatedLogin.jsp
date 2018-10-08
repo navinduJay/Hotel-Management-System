@@ -14,19 +14,20 @@
            <link rel="stylesheet" href="css/footer-basic-centered.css">
            <link href="css/style.css" rel="stylesheet">
            <link href="css/customStylesPM.css" rel="Stylesheet">
+           <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-            
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#myModal").modal('show');
-	});
-</script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script type="text/javascript">
+				$(document).ready(function(){
+				$("#myModal").modal('show');
+			});
+			</script>
 <meta charset="ISO-8859-1">
 <title>Admin | Login</title>
 </head>
 <body>
+
 
     <!--Header-->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -46,22 +47,22 @@
         </ul>
 
     </nav>
-      <!--Header-->
-      <div id="myModal" class="modal fade">
+    
+    <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Error</h4>
+                <h4 class="modal-title">Password successfully updated.. </h4>
             </div>
             <div class="modal-body">
-				<p>Check credentials and try again.</p>
+				<p>please login to use the system</p>
                 
             </div>
         </div>
     </div>
 </div>
-      
+      <!--Header-->
       <br><br><br><br>
     <div class="container" style="background-color: #ffff66">  
       <div class="container" style="background-color: #ffff66">
@@ -106,11 +107,11 @@
             
              <div class=container style="position:center">
              <span class="help-block">Forgot password?</span>
-             <button type="button" data-toggle="modal" data-target="#myModal1" class="btn btn-danger btn-lg">Reset Password</button> 
+             <button type="button" data-toggle="modal" data-target="#pwreset" class="btn btn-danger btn-lg">Reset Password</button> 
              <br><br>
              </div>
              
- <div id="myModal1" class="modal fade">
+ <div id="pwreset" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -151,6 +152,8 @@
         </div>
     </div>
 </div>
+
+
              </div> 
 
             
@@ -185,8 +188,11 @@
 		</footer>
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
+
+
+
+
+
      
   </body>
-  </html>
+</html>

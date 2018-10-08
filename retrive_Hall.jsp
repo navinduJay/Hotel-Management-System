@@ -24,19 +24,50 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head><!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/stylish-portfolio.css" rel="stylesheet">
+<link href="css/stylish-portfolio.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/demo.css">
+<link href="scss/anime.css" rel="stylesheet">
+<link rel="stylesheet" href="css/sociel.css">
+<link rel="stylesheet" href="css/footer-basic-centered.css">
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<style>
-table  {
-	width: auto !important;
-}
 
-</style>
 
 </head>
 <body>
+
+<% session = request.getSession(); %>
+<% String nic = (String)session.getAttribute("snic");%>
+<% String name = (String)session.getAttribute("sname"); %>
+
+<%if(nic!=null){ %> 
+<!--Header-->
+	<nav class="navbar navbar-default navbar-fixed-top">
+
+		<ul>
+			<li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+
+			<li><a href="about.html"><b>About</b></a></li>
+			<li><a href="contactUs.html"><b>Contact Us</b> </a></li>
+			<ul class="nav navbar-nav navbar-right">
+				<li id="mylist"><a href="#">Welcome, <%=name %></a></li>
+				<li id="mylist" style="padding-top:5px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
+				</ul></ul>
+				</nav>
+					
+					<br><br><br>
 
 
 
@@ -52,10 +83,10 @@ table  {
 				<th scope="col">Child</th>
 				<th scope="col">Function Type</th>
 				<th scope="col">Function Date</th>
-				<th scope="col">Delete</th>
+				
 			</tr>
-			</thead>
-			</table>
+		
+			
 
 			<%
 				try {
@@ -68,8 +99,8 @@ table  {
 			
 				
 
-			<table class="table">
-				<thead class="thead-light">
+			
+				
 					<tr>
 						<th scope="col"><%=resultSet.getString("name")%></th>
 						<th scope="col"><%=resultSet.getString("id")%></th>
@@ -81,10 +112,12 @@ table  {
 						<th scope="col"><%=resultSet.getString("funct")%></th>
 						<th scope="col"><%=resultSet.getString("funcd")%></th>
 						<%String temp = resultSet.getString("id"); %>
-						<th scope="col"><form action=delete.jsp><input type="hidden" value=<%=temp %> name="tid"><button type="submit" class="delete">Delete</button></form></th>
+						<th scope="col"><form action="delete" method="post"><input type="hidden" value=<%=temp %> name="tid"><button type="submit" class="btn btn-danger">Delete</button></form></th>
+						<th scope="col"><form action="updateHall.jsp" method="post"><input type="hidden" value=<%=temp %> name="tid"><button type="submit" class="btn btn-success">Update</button></form></th>
 					</tr>
-				</thead>
-			</table>
+					
+				
+			
 		
 
 			<%
@@ -94,10 +127,63 @@ table  {
 					e.printStackTrace();
 				}
 			%>
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br><br>
+		<br>
+		<br>
 		
-	</table>
+	<!-- Footer -->
+	<footer class="footer-basic-centered">
+
+		<p class="footer-company-motto">
+			<b>Good food | Good Vibes</b>
+		</p>
+
+		<section id="lab_social_icon_footer">
+			<!-- Include Font Awesome Stylesheet in Header -->
+			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+			<div class="container">
+				<div class="text-center center-block">
+					<a href="https://www.facebook.com/"><i id="social-fb"
+						class="fa fa-facebook-square fa-3x social"></i></a> <a
+						href="https://twitter.com/"><i id="social-tw"
+						class="fa fa-twitter-square fa-3x social"></i></a> <a
+						href="https://plus.google.com/"><i id="social-gp"
+						class="fa fa-google-plus-square fa-3x social"></i></a> <a
+						href="mailto:#"><i id="social-em"
+						class="fa fa-envelope-square fa-3x social"></i></a>
+				</div>
+			</div>
+		</section>
+
+
+		<p class="footer-company-name">
+			<b>Hotel Sujanee &copy; 2018</b>
+		</p>
+
+	</footer>
 
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/jquery-3.3.1.js"></script>
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>	
 </body>
 </html>

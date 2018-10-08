@@ -1,4 +1,4 @@
-<%@ page import="com.devdaily.calendar.Month, java.util.*,java.io.*,java.sql.*,com.devdaily.*" errorPage="error.jsp" %>
+<%@ page import="com.devdaily.*, java.util.*,java.io.*,java.sql.*" errorPage="error.jsp" %>
 <%
   // get the current year/month/day
   Calendar theCal = Calendar.getInstance();

@@ -1,4 +1,5 @@
 <%@page import = "java.sql.DriverManager" %>
+<%@page import = "java.util.Base64" %>
 
 <%@page import = "java.sql.ResultSet" %>
 <%@page import = "java.sql.Connection" %>
@@ -44,26 +45,26 @@
 
     <title>Admin | Menu Management</title>
 
-   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
 
-   <link href="css/menuManagementBackground.css" rel="stylesheet">
-   <link href="css/inventoryStyles.css" rel="stylesheet">
+   <link href="cssNavindu/menuManagementBackground.css" rel="stylesheet">
+   <link href="cssNavindu/inventoryStyles.css" rel="stylesheet">
     
-     <link rel="stylesheet" href="css/aos-master/dist/aos.css" />
-   <link rel="stylesheet" href="css/sociel.css">
-   <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/menuValidationCSS.css">
-   <link rel="stylesheet" href="css/modalCSS.css">
-   <link rel="stylesheet" href="css/footer-basic-centered.css">
-   <link rel="stylesheet" href="css/menuManagement.css">
-    <link rel="stylesheet" href="css/menuManagementNavBar.css">
+     <link rel="stylesheet" href="cssNavindu/aos-master/dist/aos.css" />
+   <link rel="stylesheet" href="cssNavindu/sociel.css">
+   <link rel="stylesheet" href="cssNavindu/animate.min.css">
+    <link rel="stylesheet" href="cssNavindu/menuValidationCSS.css">
+   <link rel="stylesheet" href="cssNavindu/modalCSS.css">
+   <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
+   <link rel="stylesheet" href="cssNavindu/menuManagement.css">
+    <link rel="stylesheet" href="cssNavindu/menuManagementNavBar.css">
 
 
 
  
    
 	 
-   <script src="js/ie-emulation-modes-warning.js"></script>
+   <script src="jsNavindu/ie-emulation-modes-warning.js"></script>
      
 	 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -71,7 +72,7 @@
 			  src="http://code.jquery.com/jquery-3.3.1.js"
 			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			  crossorigin="anonymous"></script>
-     <script src="js/myJS.js"></script>
+     <script src="jsNavindu/myJS.js"></script>
     
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
@@ -81,23 +82,34 @@
  </head>
 
 <body id="LoginForm">
+
+<% session = request.getSession(); %>
+<% String snic = (String)session.getAttribute("snic");%>
+<% String sname = (String)session.getAttribute("sname"); %>
+
+<%if(snic!=null){ %>
  
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Sujanee Restaurant</a>
+      <a class="navbar-brand" href="#"><b>Sujanee Restaurant</b></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="inventory.jsp"><i class="fas fa-home"></i></a></li>
+      <li><a href="stock.jsp">Stock</a></li>
      
       <li class="active"><a href="menuManagement.jsp">Menu</a></li>
-      
+      <li class="active"><a href="addPackages.jsp">Packages</a></li>
     </ul>
-  </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Welcome, <%=sname%></a></li>
+				<li style="padding-top: 10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form>
+				</li>
+			</ul>
+		</div>
 </nav>
 
    
-        <h1 class="xbootstrap animated bounceInUp delay-1s" ><b>Menu Management</b></h1>
+        <h1 class="deepshd animated fadeInLeft" ><b>Menu Management</b></h1>
 
 
         <div class="container">
@@ -105,15 +117,15 @@
 <div class="col-md-6">
 
     <div class="login-form">
-    <div class="main-div animated zoomInUp">
-        <form  id="addmenu" action="AddMenuServlet" method="POST"  onsubmit="return formAddMenuSubmit()" name="vForm" >
+    <div class="main-div ">
+        <form  id="addmenu" action="AddMenuServlet" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()" name="vForm" >
         <br style="clear:both">
                     <h3  style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
     				<div class="form-group">
 
-              <select name="menuType" class="form-control select2">
-            	           <option>Select Menu Type</option>
+              <select id="mType" name="menuType" class="form-control select2">
+            	           <option value = "0">Select Menu Type</option>
             	           <option>Regular Menu</option>
             	           <option>Catering</option>
             	           <option>Hall Menu</option>
@@ -122,19 +134,19 @@
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" required>
+						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" pattern="[A-Za-z]{3,}" title="This field can only contain string values!" >
 						<div id="name_error" class="val_error animated shake"></div>
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" required >
+						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" pattern="[0-9]{3,}"  title="This field can only contain numeric values!" >
 						<div id="price_error" class="val_error" ></div>
 					</div>
           <br />
          
 					<div class="form-group">
 					<p class="text-left">Upload an Image</p>
-						<input type="file" class="filestyle" accept="image/*" name="pic" >
+						<input type="file"   name="pic" >
 					</div>
 
           <div class="form-group">
@@ -143,7 +155,7 @@
           </div>
 
 		   <div class="form-group">
-             <button type="submit" name="submit" class="btn btn-success pull-right" value="ADD ITEM" onclick ="">ADD ITEM</button>
+             <input type="submit" name="submit" class="btn btn-success pull-right" value="ADD ITEM" >ADD ITEM</button>
                <h3 id="success"></h3>
 					
  	
@@ -190,18 +202,13 @@
       </div>
       <div class="modal-body">
        <table id = "food">
+
   <tr>
-    <th>Item ID</th>
-    <th>Item Name</th>
-    <th>Item Price</th>
-    <th>Remove an Item</th>
-    <th>Update Price</th>
-    
-  </tr>
-  <tr>
-   <% 
-  	
   
+  
+ 
+  	
+  <% 
   	try{
 								
 		Class.forName("com.mysql.jdbc.Driver");
@@ -211,8 +218,18 @@
 		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'R%' ");%>
 		
-		<%if(rs.next()) { 
+		<%if(rs.next()) { %>
 			
+			    <tr>
+    				 <th>Item ID</th>
+    				<th>Item Name</th>
+    				<th>Item Price</th>
+   					<th>Remove an Item</th>
+   					<th>Update Price</th>
+    
+  				</tr>
+			
+		<% 	
 			rs.beforeFirst();
 			 while(rs.next()) {
 			 
@@ -263,7 +280,11 @@
 		%>
 	
 		<%
-		}
+		}else{
+		%>	
+			<span class="badge badge-pill badge-secondary animated zoomIn">no items</span>
+			
+		<%}
 		
 		}catch(Exception e){
 		
@@ -300,8 +321,19 @@
 		
 		<%if(rs.next()) { 
 			
-			rs.beforeFirst();
-			 while(rs.next()) {
+			
+				 
+				 rs.beforeFirst();
+				 while(rs.next()) {
+					 
+					 
+						 byte[] imgData = rs.getBytes("menu_item_pic"); // blob field 
+			            request.setAttribute("rvi", "Navindu");
+			            rs.getString("menu_item_pic");
+
+			            String encode = Base64.getEncoder().encodeToString(imgData);
+			            request.setAttribute("imgBase", encode);
+				 
 			 
 			 
 		%>
@@ -315,7 +347,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			   <img src= "img/<%=rs.getString("menu_item_pic") %>" width="100" height="100"/>
+			   <img src="data:image/jpeg;base64,${imgBase}" width="100" height="100"/>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -331,12 +363,12 @@
 		%>
 	
 		<%
-		}else{
-		%>	
-			<p>no items</p>
-			
-		<%}
+		} else{%>
 		
+			<span class="badge badge-pill badge-secondary">no items</span>
+			
+	<% 	}%>
+		<% 
 		}catch(Exception e){
 		
 			System.out.println("Failed");
@@ -359,13 +391,9 @@
       </div>
       <div class="modal-body">
        <table id="food">
-  <tr>
-    <th>Item ID</th>
-    <th>Item Name</th>
-    <th>Item Price</th>
-    <th>Remove Item</th>
-    <th>Update Price</th>
-  </tr>
+       
+     
+
   <tr>
   
   
@@ -383,8 +411,17 @@
 		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'C%' ");%>
 		
-		<%if(rs.next()) { 
+		<%if(rs.next()) { %>
 			
+			  <tr>
+			    <th>Item ID</th>
+			    <th>Item Name</th>
+			    <th>Item Price</th>
+			    <th>Remove Item</th>
+			    <th>Update Price</th>
+			  </tr>
+		
+		<% 	
 			rs.beforeFirst();
 			 while(rs.next()) {
 			 
@@ -397,7 +434,7 @@
     
     <td>
     
-		<form id="deletemenu" onsubmit="return formDeleteMenuSubmit()" method="post" >
+		<form id="deletemenu" onsubmit="return formDeleteMenuSubmit()" method="post" action="removeItemServlet">
 	
 	      <input type="hidden" name="itemCode" value="<%=rs.getString("menu_id")%>" >
   		
@@ -439,8 +476,12 @@
 		}
 		%>
 	
-		<%
-		}
+			<%
+		}else{
+		%>	
+			<span class="badge badge-pill badge-secondary animated zoomIn">no items</span>
+			
+		<%}
 		
 		}catch(Exception e){
 		
@@ -483,6 +524,18 @@
 			rs.beforeFirst();
 		    while(rs.next()) {%>
 		
+			<% 		 
+				 
+					 
+						 byte[] imgData = rs.getBytes("menu_item_pic"); // blob field 
+			            request.setAttribute("rvi", "Navindu");
+			            rs.getString("menu_item_pic");
+
+			            String encode = Base64.getEncoder().encodeToString(imgData);
+			            request.setAttribute("imgBase", encode);
+		
+		    %>
+		
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type = rs.getString("menu_type");%>
 			<% String menu_item_name = rs.getString("menu_item_name");%>
@@ -497,7 +550,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <image src="img/<%=menu_item_pic%>"  height="100" width="100">
+			    <image src="data:image/jpeg;base64,${imgBase}"   height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -507,9 +560,9 @@
 		
 		<% }  %>
 		
-		<% }else{
+		<% } else{
 			%>
-			<p>no items</p>
+			<span class="badge badge-pill badge-secondary animated zoomIn">no items</span>
 			
  <% 	}
 		
@@ -538,14 +591,7 @@
       </div>
       <div class="modal-body">
        <table id="food">
-  <tr>
-    <th>Item ID</th>
-    <th>Item Name</th>
-    <th>Item Price</th>
-    <th>Remove an Item</th>
-    <th>Update Price</th>
-    
-  </tr>
+
   <tr>
   
   
@@ -563,8 +609,18 @@
 		
 		<%ResultSet rs = st.executeQuery("select * from menu_mgmt where menu_type like 'H%' ");%>
 		
-		<%if(rs.next()) { 
+		<%if(rs.next()) { %>
 			
+			  <tr>
+			    <th>Item ID</th>
+			    <th>Item Name</th>
+			    <th>Item Price</th>
+			    <th>Remove an Item</th>
+			    <th>Update Price</th>
+			    
+			  </tr>
+		
+		<% 	
 			rs.beforeFirst();
 			 while(rs.next()) {
 			 
@@ -617,8 +673,11 @@
 		}
 		%>
 	
-		<%
-		}
+			<% }else{
+			%>
+			<span class="badge badge-pill badge-secondary animated zoomIn">No Items</span>
+			
+	<% 	}
 		
 		}catch(Exception e){
 		
@@ -660,7 +719,16 @@
 			rs.beforeFirst();
 		%>
 	 <% 	while(rs.next()) {%>
-	
+	 
+	 			
+	 			<% 
+						 byte[] imgData = rs.getBytes("menu_item_pic"); // blob field 
+			            request.setAttribute("rvi", "Navindu");
+			            rs.getString("menu_item_pic");
+
+			            String encode = Base64.getEncoder().encodeToString(imgData);
+			            request.setAttribute("imgBase", encode);
+				%>
 		
 			<% int menu_id = rs.getInt("menu_id"); %>
 			<% String menu_type= rs.getString("menu_type");%>
@@ -676,7 +744,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <img src="img/<%=menu_item_pic%>"  height="100" width="100">
+			    <img src="data:image/jpeg;base64,${imgBase}"  height="100" width="100">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -692,19 +760,28 @@
 			
 		<% }
 		
-		}catch(Exception e){
+		
+		 }  else { %>
+			<span class="badge badge-pill badge-secondary">no items</span>
+		
+	 <% 	} %>
+		
+	
+<% 	  }catch(Exception e){ 
+		
 		
 			System.out.println("Failed");
 			System.out.println(e);
-		
-		
-	 }%>
+			
+		}
+ 	%>
+	
   
 </div>
 	
 	
 	
-
+ 
 
 </div>
 
@@ -768,14 +845,14 @@
 		</footer>
 
 
-<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
-<script src="js/menuManagementJS.js"></script>
+<script type="text/javascript" src="jsNavindu/bootstrap-filestyle.min.js"> </script>
+<script src="jsNavindu/menuManagementJS.js"></script>
 
 
 
-<script src="css/aos-master/dist/aos.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/inventoryJS.js"></script>
+<script src="cssNavindu/aos-master/dist/aos.js"></script>
+<script src="jsNavindu/bootstrap.min.js"></script>
+<script src="jsNavindu/inventoryJS.js"></script>
 <script  type="text/javascript">
 	
 	AOS.init({
@@ -784,7 +861,11 @@
 		
 	});
 </script>
-
+ 	<%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>	
 
 
 </body>
@@ -793,126 +874,64 @@
 </html>
 
 <script src="jq.js"></script>
+
+
 <script type="text/javascript">
+function validateForm() {
+    var x = document.forms["vForm"]["name"].value;
+    var y = document.forms["vForm"]["price"].value;
+    var z = document.getElementById("mType");
+    var type = z.options[z.selectedIndex].value;
+    
+    if ((x == "") && (y == "")) {
+    	
+    	swal("Please fill all fields!");
+        return false;
+    }else if ((x == "") && (y != "")){
+    	
+    	swal("Please fill name field!");
+    	return false;
+    	
+    }else if ((y == "") && (x != "")){
+    	
+    	swal("Please fill price field!");
+    	return false;
+    	
+    }else if (( x != "") && (y != "") && (type == 0 )){
+    	
+    	swal("Please select a menu type!");
+		return false;
+    }else if ((y != "") && (x != "") && (type != 0)){
+    	
+   				
+   				
+   				///AJAX CODE
+    	
+    	
+    	
+    
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    
+    	}
+    
 
+}
 
-function formAddMenuSubmit(){
-	
-	$.ajax({
-		
-		type:'POST',
-		url:'AddMenuServlet',
-		data:$('#addmenu').serialize(),
-		success:function(data){
-			
-			swal("Item added!", "Successfully!", "success");
-			
-		
-		}
-	
-
-	});
-	var form = document.getElementById('addmenu').reset();
-	return false;
-	}
-	
-	$(document).ready(function(){
-		
-		$('#auto').load('AddMenuServlet.java');
-		refresh();
-		
-	});
-	
-	function refresh(){
-		
-		setTimeout(function(){
-			
-			$('#auto').fadeOut('slow').load('AddMenuServlet.java').fadeIn('slow');
-				refresh();
-		 	}, 30000);
-	
-		
-		
-	}
-
-	
 
 </script>
-
-	
        
 
 	
-<script type="text/javascript">
-var name = document.forms["vForm"]["name"];
-var price = document.forms["vForm"]["price"];
-
-
-var name_error = document.getElementById("name_error");
-var price_error = document.getElementById("price_error");
-
-name.addEventListener("blur", nameVerify, true);
-price.addEventListener("blur", priceVerify, true);
-
-function validate(){
-	
-	if(name.value == ""){
-		
-		
-		name.style.border = "1px solid red";
-		name_error.textContent = "Name Required!";
-		
-		
-		name.focus();
-	
-		return false;
-		
-	}
-	
-	if(price.value == ""){
-		
-		price.style.border = "1px solid red";
-		price_error.textContent = "Price Required!";
-		$('input[name=price]').addClass('animateShake');
-		price.focus();
-		
-		return false;
-		
-	}
-	
-}
-
-function nameVerify(){
-	
-	if(name.value != ""){
-		name.style.border = "1px solid 5E6E66";
-		name_error.innerHTML = "";
-		
-		return true;
-		
-		
-	}
-	
-	
-}
-
-
-function priceVerify(){
-	
-	if(price.value != ""){
-		price.style.border = "1px solid 5E6E66";
-		price_error.innerHTML = "";
-		
-		return true;
-		
-		
-	}
-	
-	
-}
 
 
 
 
-</script>
 

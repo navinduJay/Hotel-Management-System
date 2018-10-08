@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29798a92-b02c-44bd-9bf4-e257014f7e6c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM sujanee_hotel.stock_mgmt where category = "Fruits"]]>
+	</queryString>
+	<field name="item_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="item_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="item_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="buyer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="buyer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="category" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="category"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="buy_price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="buy_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="sell_price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sell_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="amount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="unit_price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="discount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="discount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<group name="item_id">
+		<groupExpression><![CDATA[$F{item_id}]]></groupExpression>
+	</group>
+	<group name="item_name">
+		<groupExpression><![CDATA[$F{item_name}]]></groupExpression>
+	</group>
+	<group name="buyer">
+		<groupExpression><![CDATA[$F{buyer}]]></groupExpression>
+	</group>
+	<group name="category">
+		<groupExpression><![CDATA[$F{category}]]></groupExpression>
+	</group>
+	<group name="buy_price">
+		<groupExpression><![CDATA[$F{buy_price}]]></groupExpression>
+	</group>
+	<group name="sell_price">
+		<groupExpression><![CDATA[$F{sell_price}]]></groupExpression>
+	</group>
+	<group name="amount">
+		<groupExpression><![CDATA[$F{amount}]]></groupExpression>
+	</group>
+	<group name="unit_price">
+		<groupExpression><![CDATA[$F{unit_price}]]></groupExpression>
+	</group>
+	<group name="discount">
+		<groupExpression><![CDATA[$F{discount}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" x="140" y="0" width="360" height="66" uuid="c45cd5f0-8ccc-4cdb-867e-061977ef486e"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sujanee Restaurant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="40" width="189" height="30" uuid="61fd21ce-8e93-444d-90d4-1a0124f76294"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Fruits Inventory Report]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="227" y="70" width="100" height="30" uuid="38144dd2-fb33-418b-994a-95022002173f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="361" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="297" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -8,8 +8,11 @@
 <style>
 body {
 	
-   
-}
+	background-image: url(back.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-size: 1480px 840px;
+	}
 </style>
 
 <!-- Required meta tags -->
@@ -30,6 +33,11 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body>
+<% session = request.getSession(); %>
+<% String nic = (String)session.getAttribute("snic");%>
+<% String name = (String)session.getAttribute("sname"); %>
+
+<%if(nic!=null){ %>  
 	<!--Header-->
 	<nav class="navbar navbar-default navbar-fixed-top">
 
@@ -39,19 +47,11 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 			<li><a href="about.html"><b>About</b></a></li>
 			<li><a href="contactUs.html"><b>Contact Us</b> </a></li>
+			<li><a href="retrive_Room.jsp"><b>Reserved Rooms</b> </a></li>
 			<ul class="nav navbar-nav navbar-right">
-				<li id="mylist"><button class="btn btn-success btn-lg">
-						<i class="fas fa-user"></i>
-					</button></li>
-				<li id="mylist"><button class="btn btn-danger btn-lg">
-						<i class="fas fa-user-tie"></i>
-					</button></li>
-
-			</ul>
-
-		</ul>
-
-	</nav>
+				<li id="mylist"><a href="#">Welcome, <%=name %></a></li>
+				<li id="mylist" style="padding-top:5px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
+				</ul></ul></nav>
 
 	<form method="post" action="m_room" class="form-horizontal">
 
@@ -166,7 +166,7 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 				
 					<label class="col-md-4 control-label" for="c_Arrive">Arrive
 						Date :</label>
-					<div class="col-md-4">
+					<div class="col-md-2">
 						<input id="c_Arrive" name="c_Arrive" type="date" placeholder="Click to select a Date"class="form-control input-md" required="">
 					</div>
 				</div>
@@ -176,7 +176,7 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 				
 					<label class="col-md-4 control-label" for="c_depature">Departure
 						Date :</label>
-					<div class="col-md-4">
+					<div class="col-md-2">
 						<input id="c_depature" name="c_depature" type="date" placeholder="Click to select a Date" class="form-control input-md" required="">
 					</div>
 				</div>
@@ -192,6 +192,7 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		</fieldset>
 	</form>
 	
+	<br>
 	<br>
 	<!-- Footer -->
 	<footer class="footer-basic-centered">
@@ -231,7 +232,11 @@ content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
+ 	<%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>	
 
 </body>
 </html>
