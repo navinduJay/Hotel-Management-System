@@ -10,15 +10,15 @@
 
 
 
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="css/contactUsStyles.css" rel="stylesheet">
-      <link href="css/stylish-portfolio.css" rel="stylesheet">
-      <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/demo.css">
+      <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
+      <link href="cssNavindu/contactUsStyles.css" rel="stylesheet">
+      <link href="cssNavindu/stylish-portfolio.css" rel="stylesheet">
+      <link href="cssNavindu/stylish-portfolio.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="cssNavindu/demo.css">
        <link href="scss/anime.css" rel="stylesheet">
-       <link rel="stylesheet" href="css/sociel.css">
-       <link rel="stylesheet" href="css/footer-basic-centered.css">
-       <link href="css/style.css" rel="stylesheet">
+       <link rel="stylesheet" href="cssNavindu/sociel.css">
+       <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
+       <link href="cssNavindu/style.css" rel="stylesheet">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
@@ -158,12 +158,12 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="jsNavindu/bootstrap.min.js"></script>
     <!--Google Maps-->
-    <script src="js/contactUsGoogleMap.js"></script>
-    <script src="js/stylish-portfolio.js"></script>
-    <script src="js/stylish-portfolio.min.js"></script>
-    <script src="js/myJs.js"></script>
+    <script src="jsNavindu/contactUsGoogleMap.js"></script>
+    <script src="jsNavindu/stylish-portfolio.js"></script>
+    <script src="jsNavindu/stylish-portfolio.min.js"></script>
+    <script src="jsNavindu/myJs.js"></script>
      <!-- Bootstrap core JavaScript -->
      <script src="vendor/jquery/jquery.min.js"></script>
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

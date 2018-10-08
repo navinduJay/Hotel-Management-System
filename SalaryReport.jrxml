@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SalaryReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="270a6510-3414-4656-9342-36f6b9e7f696">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select * from transactions]]>
+	</queryString>
+	<field name="nic" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="nic"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<field name="basic" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="basic"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<field name="d_amount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="d_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<field name="d_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="d_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<field name="i_amount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="i_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<field name="i_date" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="i_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transactions"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{nic}]]></groupExpression>
+		<groupHeader>
+			<band height="40">
+				<textField>
+					<reportElement style="SubTitle" x="140" y="13" width="413" height="24" forecolor="#990099" uuid="0af2eb97-cf9e-4640-a988-bc290a275a38"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nic}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="50" y="7" width="73" height="30" uuid="135eb618-657c-4cde-b6a9-341cf123b868"/>
+					<textElement>
+						<font size="22"/>
+					</textElement>
+					<text><![CDATA[NIC]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="40">
+				<textField>
+					<reportElement x="81" y="10" width="100" height="30" uuid="f39e4afd-90b7-4898-bcc6-154125d7d2e3"/>
+					<textFieldExpression><![CDATA[$F{d_amount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="181" y="10" width="100" height="30" uuid="dfa9b4c9-af0e-453e-a7ea-eb3adbd76f18"/>
+					<textFieldExpression><![CDATA[$F{d_date}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{basic}]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<textField>
+					<reportElement style="SubTitle" x="140" y="5" width="413" height="20" uuid="d6dc71fe-0f5b-43a2-bdc2-0c049f3e9cd7"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{basic}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="46" y="0" width="80" height="30" uuid="fc23e6e8-2647-4a3c-b89a-4b9b55637a5d"/>
+					<textElement>
+						<font size="22"/>
+					</textElement>
+					<text><![CDATA[Basic]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="d_amount">
+		<groupExpression><![CDATA[$F{d_amount}]]></groupExpression>
+	</group>
+	<group name="d_date">
+		<groupExpression><![CDATA[$F{d_date}]]></groupExpression>
+	</group>
+	<group name="i_amount">
+		<groupExpression><![CDATA[$F{i_amount}]]></groupExpression>
+	</group>
+	<group name="i_date">
+		<groupExpression><![CDATA[$F{i_date}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="88796d59-cd8c-43c1-853f-dd6acfa88258"/>
+				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="bcf29663-c4b8-483e-a197-e5f6920fd2a2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Salary Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="9d02e302-57b8-432b-babd-efb2418804ba"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="e333df44-9887-45d8-a569-1c4607976a27"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="55" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f4ea54fc-a4b9-4971-acd1-638c2e274a20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="433509ef-2a34-4797-9cd1-684511ae022d"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="27402784-6be1-4e60-b9c7-c3664ea17454"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="e16da2cc-f2dd-4b0a-a299-981148326ee6"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

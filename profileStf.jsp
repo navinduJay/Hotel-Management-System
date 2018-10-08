@@ -41,12 +41,12 @@
             <li class="active"><a href="index.html">Dashboard</a></li>
             <li><a href="">Salary</a></li>
             <li><a href="">Reservation</a></li>
-            <li><a href="">Expenses</a></li>
+            <li><a href="">Inventory</a></li>
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, <%=name %></a></li>
-            <li style="padding-top:15px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
+            <li style="padding-top:10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -76,12 +76,14 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="index.html" class="list-group-item active main-color-bg">
+              <a href="profileStf.jsp" class="list-group-item active main-color-bg">
                 <span class="" aria-hidden="true"></span> Dashboard
               </a>
-              <a href="pages.html" class="list-group-item"><span class="" aria-hidden="true"></span> Salary </a>
-              <a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation </span></a>
-              <a href="" class="list-group-item"><span class="" aria-hidden="true"></span> Expenses</a>
+              <a href="employees.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Employees</a>
+              <a href="Manual_Reservation.jsp" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation</a>
+              <a href="menuManagement.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Inventory</a>
+              <a href="calendar.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Calendar</a>
+              
             </div>
 
 
@@ -103,18 +105,22 @@
                   </div>
                 </div>
                 </a>
+                <a href="Manual_Reservation.jsp">
                 <div class="col-md-3">
                   <div class="well dash-box">
-                    <h2><span class="" aria-hidden="true"></span> </h2>
-                    <h4></h4>
+                    <h1><span class="" aria-hidden="true" style="padding-left:33%;"></span> </h1>
+                    <h4 style="padding-left:12%;">Reservations</h4>
                   </div>
                 </div>
+                </a>
+                <a href="menuManagement.jsp">
                 <div class="col-md-3">
                   <div class="well dash-box">
-                    <h2><span class="" aria-hidden="true"></span> </h2>
-                    <h4></h4>
+                    <h1><span class="" aria-hidden="true" style="padding-left:33%;"></span> </h1>
+                    <h4 style="padding-left:20%;">Inventory</h4>
                   </div>
                 </div>
+                </a>
                 <div class="col-md-3">
                   <div class="well dash-box">
                     <h2><span class="" aria-hidden="true"></span> </h2>
@@ -181,7 +187,7 @@
     <script src="js/bootstrap.min.js"></script>
     <%}else{%>
     	<script type="text/javascript">
-    	window.location.href="http://localhost:8080/ITPv4/staffLogin.jsp";
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
     	</script>
     <%}%>
 

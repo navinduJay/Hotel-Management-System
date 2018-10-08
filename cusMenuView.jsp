@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -12,20 +11,20 @@
 
     <!-- Bootstrap -->
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/newMenuStyles.css" rel="stylesheet">
-     <link href="css/customerlogin.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+    <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
+    <link href="cssNavindu/newMenuStyles.css" rel="stylesheet">
+     <link href="cssNavindu/customerlogin.css" rel="stylesheet">
+    <link href="cssNavindu/stylish-portfolio.css" rel="stylesheet">
+    <link href="cssNavindu/stylish-portfolio.min.css" rel="stylesheet">
     <link href="scss/anime.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/demo.css">
-    <link rel="stylesheet" href="css/sociel.css">
+    <link rel="stylesheet" href="cssNavindu/demo.css">
+    <link rel="stylesheet" href="cssNavindu/sociel.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
 
-    <link rel="stylesheet" href="css/cusViewFooter.css">
+    <link rel="stylesheet" href="cssNavindu/cusViewFooter.css">
 
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -38,9 +37,9 @@
 
 
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/testfileCSS.css" rel="stylesheet">
+    <link href="cssNavindu/testfileCSS.css" rel="stylesheet">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -182,24 +181,25 @@
                  </small>
                 </address>
 
-                <small><font color="#989898">
-                   <b>Designed and Developed by 404 Solutions</b>
-                 </font>
-                 </small>
+
+  <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
                 </section>
 
 
 
-  <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+  <small><font color="#989898">
+                   <b>Designed and Developed by 404 Solutions</b>
+                 </font>
+                 </small>
 
 </footer>
 
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/customerLogin.js"></script>
+      <script src="jsNavindu/bootstrap.min.js"></script>
+      <script src="jsNavindu/customerLogin.js"></script>
 
-      <script src="js/stylish-portfolio.js"></script>
-      <script src="js/stylish-portfolio.min.js"></script>
-      <script src="js/myJs.js"></script>
+      <script src="jsNavindu/stylish-portfolio.js"></script>
+      <script src="jsNavindu/stylish-portfolio.min.js"></script>
+      <script src="jsNavindu/myJs.js"></script>
        <!-- Bootstrap core JavaScript -->
        <script src="vendor/jquery/jquery.min.js"></script>
        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -207,6 +207,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="jsNavindu/bootstrap.min.js"></script>
   </body>
 </html>

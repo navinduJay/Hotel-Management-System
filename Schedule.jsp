@@ -18,12 +18,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <meta charset="ISO-8859-1">
-<title>Schedule</title>
+<title>Admin | Schedule</title>
 </head>
 <body>
 
 	<%SaveDataStf sd1 = (SaveDataStf)request.getAttribute("date");%>
 	<%String date = sd1.getDate(); %>
+	
+<% session = request.getSession(); %>
+<% String nic = (String)session.getAttribute("snic");%>
+<% String name = (String)session.getAttribute("sname"); %>
+
+
+<%if(nic!=null){ %> 
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -44,7 +51,7 @@
 					<li><a href="">Expenses</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Welcome, </a></li>
+					<li><a href="#">Welcome, <%=name%></a></li>
 					<li style="padding-top: 10px"><form action="logout.jsp"
 							method="post">
 							<button type="submit" class="btn btn-danger">Logout</button>
@@ -59,7 +66,7 @@
 			<div class="row">
 				<div class="col-md-10">
 					<h1>
-						<span aria-hidden="true"></span>Employees &nbsp;<small>Manage Employees</small>
+						<span aria-hidden="true"></span>Calendar &nbsp;<small>Manage Events</small>
 					</h1>
 				</div>
 
@@ -71,7 +78,7 @@
 		<div class="container">
 			<ol class="breadcrumb">
 				<li><a href="profileStf.jsp">Dashboard</a></li>
-				<li class="active">Users</li>
+				<li class="active">Calendar</li>
 			</ol>
 		</div>
 	</section>
@@ -81,10 +88,11 @@
 			<div class="row">
 				<div class="col-md-3">
 					<div class="list-group">
-						<a href="profileStf.jsp" class="list-group-item active main-color-bg"> <span class="" aria-hidden="true"></span> Dashboard</a> 
+						<a href="profileStf.jsp" class="list-group-item"> <span class="" aria-hidden="true"></span> Dashboard</a> 
 							<a href="employees.jsp" class="list-group-item"><span class="" aria-hidden="true"></span> Employees </a> 
 							<a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation</a> 
-							<a href="" class="list-group-item"><span class="" aria-hidden="true"></span>Expenses</a>
+							<a href="menuManagement.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Inventory</a>
+              				<a href="calendar.jsp" class="list-group-item active main-color-bg"><span class="" aria-hidden="true"></span>Calendar</a>
 					</div>
 
 
@@ -131,6 +139,7 @@
 									</tr>
 								</table>
 							</form>
+							<form action="GenerateReport" method="post"><Button type="submit" class="btn btn-primary">Generate Monthly Report</Button></form>
 							</div>
 							<hr>
 						</div>
@@ -233,7 +242,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">All events in this month</h5>
+					<h3 class="modal-title" id="exampleModalLabel">All events in this month</h3>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -270,13 +279,15 @@
 							<th><%=evStartTime%></th>
 							<th><%=evEndTime%></th>
 							<th><%=evDesc%></th>
-							<th></th>
+							<th><form action="DeleteEvent" method="post">
+ 								<input type="hidden" name="id" value="<%=evId%>"><input type="hidden" value="<%=evDate%>" name="date">
+ 								<button class="btn btn-danger" type=submit onclick="pm()">Delete</button></form></th>
 						</tr>
 
 						<%
 						}
 						}catch (Exception e) {
-
+							e.printStackTrace();
 						}
 						%>
 					</table>
@@ -306,7 +317,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	
-	
+    <%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>	
 
 
 </body>

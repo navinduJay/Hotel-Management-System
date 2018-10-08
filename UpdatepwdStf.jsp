@@ -1,3 +1,10 @@
+<%@page import="com.SaveDataStf"%>
+<%@page import="java.io.PrintWriter"%>
+<%@page import = "java.sql.ResultSet" %>
+<%@page import = "java.sql.Connection" %>
+<%@page import = "java.sql.Statement" %>
+<%@page import = "java.sql.*" %>
+<%@page import = "java.io.PrintWriter" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -15,6 +22,15 @@
            <link href="css/customStylesPM.css" rel="Stylesheet">
            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+			<script>
+			function ConfirmPassword() {
+				var password = document.forms["resetpwd"]["pwd"].value;
+				var confirm_password = document.forms["resetpwd"]["rpwd"].value;
+				if (password != confirm_password) {
+				alert("Passwords does not match!!!!");
+				return false;
+				}
+			}</script>
 <meta charset="ISO-8859-1">
 <title>Admin | Reset password</title>
 </head>
@@ -39,27 +55,44 @@
     </nav>
       <!--Header-->
       <br><br><br><br>
+      
+      <!-- FORM -->
+      
+      
+      
+      
 	<div class=container style="background-color: #ffff66">
-	<form class="form-horizontal">
+	<form class="form-horizontal" action="NewpwdStf" method="post" name="resetpwd" id="resetpwd" onsubmit="return ConfirmPassword()">
 	<fieldset>
 	
 	<!-- Form Name -->
 	<h1 class=reg>Reset Password</h1>
 	
+	<%SaveDataStf sd1 = (SaveDataStf)request.getAttribute("obj");%>
+	<%String qs = sd1.getId();%>
+	
+	<!-- Textarea -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="nic">NIC Number</label>
+	  <div class="col-md-4">                     
+	    <textarea class="form-control" id="nic" name="nic"><%=qs %></textarea>
+	  </div>
+	</div>
+	
 	<!-- Text input-->
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="pwd">Enter new password</label>  
 	  <div class="col-md-4">
-	  <input id="pwd" name="pwd" placeholder="password" class="form-control input-md" type="text">
+	  <input id="pwd" name="pwd" placeholder="password" class="form-control input-md" type="password" min="8">
 	  <span class="help-block">minimum of eight (8) characters in length</span>  
 	  </div>
 	</div>
 	
 	<!-- Text input-->
 	<div class="form-group">
-	  <label class="col-md-4 control-label" for="repwd">Re-enter Password</label>  
+	  <label class="col-md-4 control-label" for="rpwd">Re-enter Password</label>  
 	  <div class="col-md-4">
-	  <input id="repwd" name="repwd" placeholder="Re-enter Password" class="form-control input-md" type="text">
+	  <input id="rpwd" name="rpwd" placeholder="Re-enter Password" class="form-control input-md" type="password" min="8">
 	    
 	  </div>
 	</div>
@@ -75,6 +108,11 @@
 	</fieldset>
 	</form>
 	</div>
+	
+	
+	
+	
+	
 	
 	      <!-- Footer -->
     <footer class="footer-basic-centered" style="position:fixed">

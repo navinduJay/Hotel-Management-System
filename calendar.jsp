@@ -1,4 +1,4 @@
-<%@ page import="com.devdaily.calendar.Month, java.util.*,java.io.*,java.sql.*,com.devdaily.*" errorPage="error.jsp" %>
+<%@ page import="com.devdaily.calendar.*, java.util.*,java.io.*,java.sql.*" errorPage="error.jsp" %>
 <%-- TODO: CLEAN UP THE PAGE TAG ABOVE --%>
 
 <%@ include file="calendarCommon.jsp" %>
@@ -35,7 +35,12 @@ function myFunction() {
 </head>
 
 <body id="regular_page">
+  
+<% session = request.getSession(); %>
+<% String nic = (String)session.getAttribute("snic");%>
+<% String name = (String)session.getAttribute("sname"); %>
 
+<%if(nic!=null){ %> 
 <div id="calendar_main_div">
 <table border="1" cellspacing="0" cellpadding="4" id="calendar_table" class="animated bounceInUp">
   <tr>
@@ -129,6 +134,12 @@ function myFunction() {
 </table>
 
 <p id="demo"></p>
+
+    <%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>
   <!-- navigation links end -->
  <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> --> 

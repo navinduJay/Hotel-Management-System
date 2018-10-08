@@ -110,7 +110,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">NIC Number</label>  
           <div class="col-md-4">
-          <input id="textinput" name="nic" placeholder="NIC" class="form-control input-md"  type="text">
+          <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -119,8 +119,8 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="password">Password</label>
           <div class="col-md-4">
-            <input id="passwordt" name="password" placeholder="Password" class="form-control input-md" type="password" min="8" >
-            <span class="help-block">minimum of eight (8) characters in length</span>
+            <input id="passwordt" name="password" placeholder="Password" class="form-control input-md" type="password" >
+           <!--   <span class="help-block">minimum of eight (8) characters in length</span>-->
           </div>
         </div>
         
@@ -128,7 +128,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="rpwd">Re-enter Password </label>
           <div class="col-md-4">
-            <input id="rpwd" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password" min="8">
+            <input id="rpwd" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password">
             
           </div>
         </div>

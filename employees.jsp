@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="css/footer-basic-centered.css">
     <link href="css/customStylesPM.css" rel="Stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Welcome, <%=sname %></a></li>
-              <li style="padding-top:15px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
+              <li style="padding-top:10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
             </ul>
           </div><!--/.nav-collapse -->
       </div>
@@ -82,12 +82,13 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="profileStf.jsp" class="list-group-item active main-color-bg">
+              <a href="profileStf.jsp" class="list-group-item">
                 <span class=""  aria-hidden="true"></span> Dashboard
               </a>
-              <a href="employees.jsp" class="list-group-item"><span class="" aria-hidden="true"></span> Employees </a>
-              <a href="posts.html" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation </span></a>
-              <a href="" class="list-group-item"><span class="" aria-hidden="true"></span> Expenses</a>
+              <a href="employees.jsp" class="list-group-item active main-color-bg"><span class="" aria-hidden="true"></span>Employees</a>
+              <a href="Manual_Reservation.jsp" class="list-group-item"><span class="" aria-hidden="true"></span> Reservation</a>
+              <a href="menuManagement.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Inventory</a>
+              <a href="calendar.jsp" class="list-group-item"><span class="" aria-hidden="true"></span>Calendar</a>
             </div>
 
 
@@ -101,7 +102,7 @@
               <div class="panel-body">
                   <div class="row">
                     
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover animated bounceInUp">
                             <tr>
                               <th width=60%><p class="text-center">Add Employees</p></th>
                               <th><button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success" style="width:108px">Add</button> </th>
@@ -118,7 +119,7 @@
                 </div>
                 <br>
                
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover animated bounceInUp">
                       <tr>
                         <th>NIC</th>
                         <th>Name</th>
@@ -215,33 +216,52 @@
       
     </section>
 
-    <footer class="footer-basic-centered">
+	<footer class="footer-basic-centered">
 
-  			<p class="footer-company-motto"><b>Good food | Good Vibes</b></p>
+		<p class="footer-company-motto">
+			<b>Good Food | Good Vibes </b>
+		</p>
 
-              <section id="lab_social_icon_footer">
-                      <!-- Include Font Awesome Stylesheet in Header -->
-                      
-                      <div class="container">
-                              <div class="text-center center-block">
-                                      <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                                      <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                                      <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                                      <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                          </div>
-                      </div>
-                      </section>
+		<section id="lab_social_icon_footer">
+			<!-- Include Font Awesome style sheet in Header -->
+			<link
+				href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+				rel="stylesheet">
+			<div class="container">
+				<div class="text-center center-block">
+					<a href="https://www.facebook.com/"><i id="social-fb"
+						class="fa fa-facebook-square fa-3x social"></i></a> <a
+						href="https://twitter.com/"><i id="social-tw"
+						class="fa fa-twitter-square fa-3x social"></i></a> <a
+						href="https://plus.google.com/"><i id="social-gp"
+						class="fa fa-google-plus-square fa-3x social"></i></a> <a
+						href="mailto:#"><i id="social-em"
+						class="fa fa-envelope-square fa-3x social"></i></a>
+				</div>
+			</div>
+		</section>
 
 
-  			<p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+		<p class="footer-company-name">
+			<b>Hotel Sujanee &copy; 2018</b>
+		</p>
+		<address>
+			<small><font color="#989898">Tel : +94 112 078 517<br />
+					Athurugiriya Rd,Sri Lanka.
+			</font> </small>
+		</address>
 
-  		</footer>
+		<small><font color="#ffffff"> <b>Designed and
+					Developed by 404 Solutions</b>
+		</font> </small>
+
+	</footer>
 
 
 
-  <script>
-     CKEDITOR.replace( 'editor1' );
- </script>
+	<script>
+		CKEDITOR.replace('editor1');
+	</script>
 
 
 <!--Add employee modal-->
@@ -324,7 +344,7 @@
     <script src="js/bootstrap.min.js"></script>
         <%}else{%>
     	<script type="text/javascript">
-    	window.location.href="http://localhost:8080/ITPv4/staffLogin.jsp";
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
     	</script>
     <%}%>
     
