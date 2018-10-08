@@ -12,41 +12,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class removeItemServlet
- */
-@WebServlet("/removeItemServlet")
-public class removeItemServlet extends HttpServlet {
+
+@WebServlet("/RemoveStockItemServlet")
+public class RemoveStockItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public removeItemServlet() {
+
+    public RemoveStockItemServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 		
-		response.setContentType("text/html");
+		doGet(request, response);
 		
 		String item = request.getParameter("itemCode");
 		int product = Integer.parseInt(item);
-		
 		
 		//setting up DB connection
 		
@@ -57,7 +43,7 @@ public class removeItemServlet extends HttpServlet {
 			
 			Statement st = connection.createStatement();
 			
-			st.executeUpdate("delete from menu_mgmt where menu_id = ('"+item+"')");
+			st.executeUpdate("delete from stock_mgmt where item_id = ('"+item+"')");
 			
 			System.out.println("Deletion successful!");
 			
@@ -69,8 +55,9 @@ public class removeItemServlet extends HttpServlet {
 			
 		}
 		//Re-directs to the following page
-		RequestDispatcher dispatch = request.getRequestDispatcher("menuManagement.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("currentStock.jsp");
         dispatch.forward(request, response);
+		
 		
 		
 		

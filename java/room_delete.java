@@ -1,11 +1,10 @@
-package backend;
+
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class removeItemServlet
+ * Servlet implementation class room_delete
  */
-@WebServlet("/removeItemServlet")
-public class removeItemServlet extends HttpServlet {
+@WebServlet("/room_delete")
+public class room_delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public removeItemServlet() {
+    public room_delete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,39 +40,21 @@ public class removeItemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
-		response.setContentType("text/html");
-		
-		String item = request.getParameter("itemCode");
-		int product = Integer.parseInt(item);
-		
-		
-		//setting up DB connection
+		String rid = request.getParameter("rid");
+		System.out.print(rid);
 		
 		try {
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel", "root", "root");
-			
-			Statement st = connection.createStatement();
-			
-			st.executeUpdate("delete from menu_mgmt where menu_id = ('"+item+"')");
-			
-			System.out.println("Deletion successful!");
-			
-			
-		}catch(Exception e) {
-			
-			System.out.print(e);
-			e.printStackTrace();
-			
-		}
-		//Re-directs to the following page
-		RequestDispatcher dispatch = request.getRequestDispatcher("menuManagement.jsp");
-        dispatch.forward(request, response);
-		
-		
+			Class.forName("com.mysql.jdbc.Driver"); 
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root","root");
+			Statement st=conn.createStatement(); 
+			st.executeUpdate("DELETE FROM mrr WHERE cid='"+rid+"'");
+			System.out.println("Data Deleted Successfully!"); } 
+
+
+		catch(Exception e)
+			{ System.out.print(e); e.printStackTrace(); }
+	}
 		
 	}
 
-}
+
