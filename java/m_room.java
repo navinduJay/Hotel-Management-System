@@ -5,12 +5,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Properties;
 
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+
+import com.mysql.cj.Session;
 
 /**
  * Servlet implementation class m_room
@@ -77,8 +84,15 @@ public class m_room extends HttpServlet {
 			ps.setString(10, c_depature);
 
 			ps.executeUpdate();
+			
+			
+			response.sendRedirect("retrive_Room.jsp");
+			
 			PrintWriter out = response.getWriter();
 			out.println("successfull");
+			
+			
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
