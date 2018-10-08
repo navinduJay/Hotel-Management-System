@@ -34,7 +34,6 @@ public class SalaryInfo extends HttpServlet {
 		sd.setName(nm);
 		request.setAttribute("obj", sd);
 		
-		
 		RequestDispatcher rq = request.getRequestDispatcher("SalaryInfo.jsp");
 		rq.forward(request, response);
 	}

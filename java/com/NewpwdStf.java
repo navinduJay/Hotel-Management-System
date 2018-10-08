@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,6 +52,9 @@ public class NewpwdStf extends HttpServlet {
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
+			
+			RequestDispatcher rq = request.getRequestDispatcher("pwdUpdatedLogin.jsp");
+			rq.forward(request, response);
 		
 		}
 		else {

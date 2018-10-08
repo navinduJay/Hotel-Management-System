@@ -48,7 +48,10 @@ public class room_delete extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root","root");
 			Statement st=conn.createStatement(); 
 			st.executeUpdate("DELETE FROM mrr WHERE cid='"+rid+"'");
-			System.out.println("Data Deleted Successfully!"); } 
+			System.out.println("Data Deleted Successfully!"); 
+			
+		
+		response.sendRedirect("retrive_Room.jsp");} 
 
 
 		catch(Exception e)

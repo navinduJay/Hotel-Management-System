@@ -144,7 +144,7 @@ public class RegisterStf extends HttpServlet {
 				message.setFrom(new InternetAddress("pamudithamaduranga2@gmail.com"));
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
 				message.setSubject("Sujanee City Hotel");
-				message.setText("Welcome "+name+ " to Sujanee City Hotel Management System and thanks for starting the registration process.You can access your Management tools once you login.. Welcome to Booking.com and thanks for starting the registration process.\r\n" + "Thankyou");
+				message.setText("Welcome "+name+ " to Sujanee City Hotel Management System and thanks for starting the registration process.You can access your Management tools once you login.. .\r\n" + "Thankyou");
 				Transport.send(message);
 				
 				out.println("message sent");

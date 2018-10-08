@@ -49,9 +49,10 @@ public class delete extends HttpServlet {
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root","root");
 			Statement st=conn.createStatement(); 
 			st.executeUpdate("DELETE FROM mhr WHERE id='"+tid+"'");
-			System.out.println("Data Deleted Successfully!"); } 
+			System.out.println("Data Deleted Successfully!");  
 
-
+		response.sendRedirect("retrive_Hall.jsp");}
+		
 		catch(Exception e)
 			{ System.out.print(e); e.printStackTrace(); }
 	}

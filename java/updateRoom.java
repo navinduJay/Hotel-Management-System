@@ -6,7 +6,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +16,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class m_hall
+ * Servlet implementation class updateRoom
  */
-@WebServlet("/m_hall")
-public class m_hall extends HttpServlet {
+@WebServlet("/updateRoom")
+public class updateRoom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public m_hall() {
+    public updateRoom() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,48 +45,47 @@ public class m_hall extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		try {
+		
 
 			String c_Name = request.getParameter("c_Name");
 			String c_id = request.getParameter("c_id");
 			String c_PhoneNum = request.getParameter("c_PhoneNum");
 			String c_Email = request.getParameter("c_Email");
-			String hall_Type = request.getParameter("hall_Type");
+			String Room_Type = request.getParameter("Room_Type");
+			String c_noRom = request.getParameter("c_noRom");
 			String c_adult = request.getParameter("c_adult");
 			String c_child = request.getParameter("c_child");
-			String func_type = request.getParameter("func_type");
-			String c_func = request.getParameter("c_func");
+			String c_Arrive = request.getParameter("c_Arrive");
+			String c_depature = request.getParameter("c_depature");
 			
-
-			String sql = "insert into mhr(name,id,phone,email,hallt,adult,child,funct,funcd) values(?,?,?,?,?,?,?,?,?)";
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root", "root");
-
-			PreparedStatement ps = conn.prepareStatement(sql);
-
-			ps.setString(1, c_Name);
-			ps.setString(2, c_id);
-			ps.setString(3, c_PhoneNum);
-			ps.setString(4, c_Email);
-			ps.setString(5, hall_Type);
-			ps.setString(6, c_adult);
-			ps.setString(7, c_child);
-			ps.setString(8, func_type);
-			ps.setString(9, c_func);
+			try {
+				
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root", "root");
+				
+				Statement statement = connection.createStatement();
+				
+				statement.executeUpdate("Update mrr Set cname = ('"+c_Name+"'), cid = ('"+c_id+"') , cphone = ('"+c_PhoneNum+"') , cemail = ('"+c_Email+"') ,roomt = ('"+Room_Type+"') ,nroom = ('"+c_noRom+"'), adult = ('"+c_adult+"') , child = ('"+c_child+"') ,adate = ('"+c_Arrive+"') , ddate = ('"+c_depature+"') where cid = ('"+c_id+"')");
+				
+				System.out.println("Updation Successful!");
+				
+				RequestDispatcher rq = request.getRequestDispatcher("retrive_Room.jsp");
+				rq.forward(request, response);
+				
+				
+				
+				
+			}catch(Exception e) {
+				
+				
+				System.out.println(e);
+				e.printStackTrace();
+				
+			}
 			
-
-			ps.executeUpdate();
-			PrintWriter out = response.getWriter();
-			out.println("successfull");
 			
-			response.sendRedirect("retrive_Hall.jsp");
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
-	}
+}
+
 
 

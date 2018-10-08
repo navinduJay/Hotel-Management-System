@@ -50,7 +50,7 @@ public class ForgotpwdStf extends HttpServlet {
 		boolean idstatus = sd.nullid();
 		
 		String dbnic = null;
-		String dbques1 = null;
+
 		
 		if(idstatus) {
 			

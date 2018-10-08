@@ -3,7 +3,6 @@ package com;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -61,6 +60,7 @@ public class AddEvent extends HttpServlet {
 				String sql = "insert into calendar(eventID,eventName,eventDate,eventStartTime,eventEndTime,eventDescription,monthNo) values('"+id+"','"+name+"','"+date+"','"+startTime+"','"+endTime+"','"+description+"','"+monthNo+"')";
 				st.executeUpdate(sql);
 				System.out.println("insert successful");
+				
 				
 				RequestDispatcher rq = request.getRequestDispatcher("Schedule.jsp");
 				rq.forward(request, response);

@@ -31,7 +31,7 @@ public class DeleteEmployee extends HttpServlet {
 
 		doGet(request, response);
 		
-		String nic = request.getParameter("nic");
+		String nic = request.getParameter("tnic");
 		
 		SaveDataStf sd = new SaveDataStf();
 		sd.setId(nic);
@@ -52,9 +52,7 @@ public class DeleteEmployee extends HttpServlet {
 					dbnic = rs.getString("nic");
 					
 				}
-				
-				
-				
+							
 				
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
@@ -80,21 +78,10 @@ public class DeleteEmployee extends HttpServlet {
 			}else {
 				
 			}
-			
-			
-			
-			
-			
-			
-			
+		
 			
 		}
-		
-		
-		
-		
-		
-		
+
 		
 		
 		
