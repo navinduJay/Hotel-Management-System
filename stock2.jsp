@@ -7,47 +7,47 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin | Stock Management</title>
 
- <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
+ <link href="css/bootstrap.min.css" rel="stylesheet">
 
-   <link href="cssNavindu/menuManagementBackground.css" rel="stylesheet">
-   <link href="cssNavindu/inventoryStyles.css" rel="stylesheet">
+   <link href="css/menuManagementBackground.css" rel="stylesheet">
+   <link href="css/inventoryStyles.css" rel="stylesheet">
     
-     <link rel="stylesheet" href="cssNavindu/aos-master/dist/aos.css" />
-   <link rel="stylesheet" href="cssNavindu/sociel.css">
-   <link rel="stylesheet" href="cssNavindu/animate.min.css">
-    <link rel="stylesheet" href="cssNavindu/menuValidationCSS.css">
-   <link rel="stylesheet" href="cssNavindu/modalCSS.css">
-   <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
-   <link rel="stylesheet" href="cssNavindu/menuManagement.css">
-    <link rel="stylesheet" href="cssNavindu/menuManagementNavBar.css">
 
-
-
+    
+    
+     <link rel="stylesheet" href="css/aos-master/dist/aos.css" />
+   <link rel="stylesheet" href="css/sociel.css">
+   <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/menuValidationCSS.css">
+   <link rel="stylesheet" href="css/modalCSS.css">
+   <link rel="stylesheet" href="css/footer-basic-centered.css">
+   <link rel="stylesheet" href="css/menuManagement.css">
+    <link rel="stylesheet" href="css/menuManagementNavBar.css">
  
-   
-	 
-   <script src="jsNavindu/ie-emulation-modes-warning.js"></script>
-     
+   <script src="js/ie-emulation-modes-warning.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script
 			  src="http://code.jquery.com/jquery-3.3.1.js"
 			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			  crossorigin="anonymous"></script>
-     <script src="jsNavindu/myJS.js"></script>
+     <script src="js/myJS.js"></script>
     
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
-   
+   <script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
 
 
 </head>
 <body id="LoginForm">
-<% session = request.getSession(); %>
-<% String snic = (String)session.getAttribute("snic");%>
-<% String sname = (String)session.getAttribute("sname"); %>
 
-<%if(snic!=null){ %>
 	 
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -59,15 +59,7 @@
      
       <li><a href="menuManagement.jsp">Menu</a></li>
        <li><a href="addPackages.jsp">Package</a></li>
-       <li><a href="profileStf.jsp">Dashboard</a></li>
     </ul>
-    			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Welcome, <%=sname%></a></li>
-				<li style="padding-top: 10px"><form action="logout.jsp"
-						method="post">
-						<button type="submit" class="btn btn-danger">Logout</button>
-					</form></li>
-			</ul>
   </div>
 </nav>
 
@@ -115,28 +107,28 @@
 									
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" id = "bP" name="buyingPrice" placeholder="Buying Price*" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" required >
+											 <input type="text" class="form-control" id = "bP" name="buyingPrice" placeholder="Buying Price*" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" >
                                              
 										</div>
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" id="sP" name="sellingPrice" placeholder="Selling Price" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" required >
+											 <input type="text" class="form-control" id="sP" name="sellingPrice" placeholder="Selling Price" pattern="[0-9]{2,}"  title="This field can only contain numeric values!"  >
                                              
 										</div>
 											<div class="form-group">
 											 
-											 <input type="text" class="form-control" id="iA" name="itemAmount" placeholder="Amount*" pattern="[0-9]{1,}"  title="This field can only contain numeric values!" required >
+											 <input type="text" class="form-control" id="iA" name="itemAmount" placeholder="Amount*" pattern="[0-9]{1,}"  title="This field can only contain numeric values!"  >
                                              
 										</div>
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" id="uP" name="unitPrice" placeholder="Unit Price*" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" required >
+											 <input type="text" class="form-control" id="uP" name="unitPrice" placeholder="Unit Price*" pattern="[0-9]{2,}"  title="This field can only contain numeric values!"  >
                                              
 										</div>
 									
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" name="discount" placeholder="Discount" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" required  >
+											 <input type="text" class="form-control" name="discount" placeholder="Discount" pattern="[0-9]{2,}"  title="This field can only contain numeric values!"  >
                                              
 									</div>
 										
@@ -187,12 +179,12 @@
 										</div>
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" id = "wItemN" name="wItemName" placeholder="Item Name*"  title="This field can only contain numeric values!" required >
+											 <input type="text" class="form-control" id = "wItemN" name="wItemName" placeholder="Item Name*"  title="This field can only contain numeric values!"  >
                                              
 										</div>
 										<div class="form-group">
 											 
-											 <input type="text" class="form-control" id = "wqty" name="wItemQty" placeholder="Quantity*" pattern="[0-9]{1,}"  title="This field can only contain numeric values!"  required>
+											 <input type="text" class="form-control" id = "wqty" name="wItemQty" placeholder="Quantity*" pattern="[0-9]{1,}"  title="This field can only contain numeric values!"  >
                                              
 										</div>
 										 
@@ -267,19 +259,30 @@
 		</footer>
 
 
-<script type="text/javascript" src="jsNavindu/bootstrap-filestyle.min.js"> </script>
-<script src="jsNavindu/menuManagementJS.js"></script>
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
+<script src="js/menuManagementJS.js"></script>
 
 
 
-<script src="cssNavindu/aos-master/dist/aos.js"></script>
-<script src="jsNavindu/bootstrap.min.js"></script>
-<script src="jsNavindu/inventoryJS.js"></script>
-<%}else{%>
-    	<script type="text/javascript">
-    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
-    	</script>
-    <%}%>
+<script src="css/aos-master/dist/aos.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/inventoryJS.js"></script>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">NIC not found</h4>
+            </div>
+            <div class="modal-body">
+				<p>please <a href=staffRegistration.jsp>register</a> to use the system</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
 

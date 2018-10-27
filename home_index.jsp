@@ -7,24 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home Page Changed</title>
+    <title>Home Page</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-     <link href="css/customerlogin.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="cssNavindu/animate.min.css">
+     <link rel="stylesheet" href="cssNavindu/aos-master/dist/aos.css" />
+    <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
+     <link href="cssNavindu/customerlogin.css" rel="stylesheet">
+    <link href="cssNavindu/stylish-portfolio.css" rel="stylesheet">
+    <link href="cssNavindu/stylish-portfolio.min.css" rel="stylesheet">
     <link href="scss/anime.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/demo.css">
-    <link rel="stylesheet" href="css/sociel.css">
+    <link rel="stylesheet" href="cssNavindu/demo.css">
+    <link rel="stylesheet" href="cssNavindu/sociel.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
 
-	<link rel="stylesheet" href="css/footer-basic-centered.css">
+	<link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
 
 
-    <link href="css/style.css" rel="stylesheet">
+    <link href="cssNavindu/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
     <!-- Custom Fonts -->
@@ -43,7 +45,7 @@
 
 	<!--Nav Bar-->
     <nav class="navbar navbar-default navbar-fixed-top">
-
+	<div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
             <li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 
@@ -58,7 +60,7 @@
             <li style="padding-right:75px;padding-top:10px"><p><a href="login.jsp" role="button" class="btn">Login</a></p></li><br>
             </ul>
 
-
+	</div>
     </nav>
       <!--Nav Bar-->
 
@@ -73,17 +75,17 @@
       </ol>
       <div class="carousel-inner">
           <div class="item" style="">
-              <img src="//placehold.it/1024x600/556B2F&text=First+Slide" alt="" class="">
-              <div class="carousel-caption">
-                  <h4 class="">First Slide Title</h4>
+              <img src="img/hd1.png" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
+                  <h4 class="">Greater Service</h4>
                   <p class="">
-                     Description for First Slide, this First Slide.
+                     We have always customers satisfaction
                   </p>
               </div>
           </div>
           <div class="item active">
-              <img src="//placehold.it/1024x600/B05404&text=Second+Slide" alt="" class="">
-              <div class="carousel-caption">
+              <img src="img/hdfour.jpg" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
                   <h4 class="">Second Slide Title</h4>
 
                   <p class="">
@@ -92,8 +94,8 @@
               </div>
           </div>
           <div class="item" style="">
-              <img src="//placehold.it/1024x600/3333bb&text=Third+Slide" alt="" class="">
-              <div class="carousel-caption">
+              <img src="img/roomhd.jpg" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
                   <h4 class="">Third Slide Title</h4>
 
                               <p class="">
@@ -217,13 +219,14 @@
             <li><a href="about.html"><b>About</b></a></li>
             <li> <a href="contactUs.jsp"><b>Contact Us</b> </a></li>
              <li> <a href="rooms.jsp"><b>Rooms </b> </a></li>
+             <li> <a href="cusMenuView.jsp"><b>Our Menu</b> </a></li>
 
 
             </ul>
 			<ul  class="nav navbar-nav navbar-right">
-            <li style="padding-right:75px"><p id="dem"><a href="prfle.jsp">login</a></p></li><br>
-            <li style="padding-right:30px"><form action="logoutuser.jsp" method="post"><Button class="btn">Logout</Button></form></li>
-            <li><form action="prfle.jsp" method="post"><Button class="btn">Profile</Button></form></li>
+            <li style="padding-right:65px;padding-top :12px"><p id="dem"><a href="prfle.jsp">login</a></p></li>
+            <li style="padding-right:30px;padding-top :9px"><form action="logoutuser.jsp" method="post"><Button class="btn">Logout</Button></form></li>
+            <li style="padding-right:30px;padding-top :9px"><form action="prfle.jsp" method="post"><Button class="btn">Profile</Button></form></li>
             </ul>
 
             </div>
@@ -245,17 +248,17 @@
       </ol>
       <div class="carousel-inner">
           <div class="item" style="">
-              <img src="//placehold.it/1024x600/556B2F&text=First+Slide" alt="" class="">
-              <div class="carousel-caption">
-                  <h4 class="">First Slide Title</h4>
+              <img src="img/hd1.png" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
+                  <h4 class="">Greater Service</h4>
                   <p class="">
-                     Description for First Slide, this First Slide.
+                     We have always customers satisfaction
                   </p>
               </div>
           </div>
           <div class="item active">
-              <img src="//placehold.it/1024x600/B05404&text=Second+Slide" alt="" class="">
-              <div class="carousel-caption">
+              <img src="img/hdfour.jpg" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
                   <h4 class="">Second Slide Title</h4>
 
                   <p class="">
@@ -264,8 +267,8 @@
               </div>
           </div>
           <div class="item" style="">
-              <img src="//placehold.it/1024x600/3333bb&text=Third+Slide" alt="" class="">
-              <div class="carousel-caption">
+              <img src="img/roomhd.jpg" alt="" class="">
+              <div class="carousel-caption" style="background:black; opacity: .6; ">
                   <h4 class="">Third Slide Title</h4>
 
                               <p class="">
@@ -274,7 +277,6 @@
               </div>
           </div>
       </div>
-
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
@@ -362,17 +364,27 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/customerLogin.js"></script>
+    <script src="jsNavindu/bootstrap.min.js"></script>
+    <script src="jsNavindu/customerLogin.js"></script>
 
-    <script src="js/stylish-portfolio.js"></script>
-    <script src="js/stylish-portfolio.min.js"></script>
-    <script src="js/myJs.js"></script>
+    <script src="jsNavindu/stylish-portfolio.js"></script>
+    <script src="jsNavindu/stylish-portfolio.min.js"></script>
+    <script src="cssNavindu/aos-master/dist/aos.js"></script>
+    <script src="jsNavindu/myJs.js"></script>
      <!-- Bootstrap core JavaScript -->
      <script src="vendor/jquery/jquery.min.js"></script>
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <script  type="text/javascript">
+
+	AOS.init({
+
+		duration: 1000,
+
+	});
+</script>
   </body>
 	<%
 		}

@@ -1,3 +1,7 @@
+<%@page import = "java.sql.ResultSet" %>
+<%@page import = "java.sql.Connection" %>
+<%@page import = "java.sql.Statement" %>
+<%@page import = "java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!doctype html>
@@ -22,9 +26,18 @@
            
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
             
+			<script>
+			function ConfirmPassword() {
+				var password = document.forms["register"]["password"].value;
+				var confirm_password = document.forms["register"]["rpwd"].value;
+				if (password != confirm_password) {
+				alert("Passwords does not match!!!!");
+				return false;
+				}
+			}</script>
 
 
-    <title></title>
+    <title>Admin | Register</title>
   </head>
   <body>
 
@@ -47,11 +60,10 @@
 
     </nav>
       <!--Header-->
-      
-    <br><br>
+<div style="background-color: #bbbbbb; padding-top:40px"></div>
       
       <div class="container" style="background-color: #ffff66">
-      <form action="RegisterStf" class="form-horizontal" method=post>
+      <form action="RegisterStf" class="form-horizontal" method=post  name="register" id="register" onsubmit="return ConfirmPassword()">
         
         
         <fieldset>
@@ -62,7 +74,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Full Name </label>  
           <div class="col-md-4">
-          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="name" placeholder="Full Name" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -76,11 +88,20 @@
           </div>
         </div>
         
+                <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Email </label>  
+          <div class="col-md-4">
+          <input id="textinput" name="email" placeholder="Email" class="form-control input-md"  type="email">
+            
+          </div>
+        </div>
+        
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Date of Birth</label>  
           <div class="col-md-4">
-          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md"  type="date">
             
           </div>
         </div>
@@ -89,17 +110,14 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">NIC Number</label>  
           <div class="col-md-4">
-
-          <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md"  type="text">
-
-
+          <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md"  type="text" pattern="[0-9]{9}" title="This field can only contain numeric values.Please enter NIC without V">
             
           </div>
         </div>
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Password</label>
+          <label class="col-md-4 control-label" for="password">Password</label>
           <div class="col-md-4">
             <input id="passwordt" name="password" placeholder="Password" class="form-control input-md" type="password" >
            <!--   <span class="help-block">minimum of eight (8) characters in length</span>-->
@@ -108,7 +126,7 @@
         
         <!-- Password input-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Re-enter Password </label>
+          <label class="col-md-4 control-label" for="rpwd">Re-enter Password </label>
           <div class="col-md-4">
             <input id="rpwd" name="rpwd" placeholder="Re-enter Password " class="form-control input-md"  type="password">
             
@@ -119,12 +137,31 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Security question 1</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">What was your childhood nickname?</option>
-              <option value="2">What was your favorite food as a child?</option>
-              <option value="3">In what town was your first job?</option>
-              <option value="4">What was the name of the hospital where you were born?</option>
-              <option value="5">What was the name of your second pet?</option>
+          
+          
+          
+            <select id="selectbasic" name="select1" class="form-control">
+            
+            <%try{
+ 				Class.forName("com.mysql.jdbc.Driver");
+ 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
+            	
+            	<%Statement st = con.createStatement(); %>
+            	<%ResultSet rs = st.executeQuery("Select questions from securityquestions Order by RAND() LIMIT 6");%>
+            	
+            	<%while(rs.next()){%>
+            		
+            		<%String item = rs.getString("questions");%>
+            		
+            		<option><%=item%></option>
+            		
+            		
+            
+            <% }
+            }catch(Exception e){
+				System.out.println(e);
+            }%>
+
             </select>
           </div>
         </div>
@@ -133,7 +170,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans1" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans1" placeholder="" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -142,12 +179,26 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="selectbasic">Security question 2</label>
           <div class="col-md-4">
-            <select id="selectbasic" name="selectbasic" class="form-control">
-              <option value="1">Who was your childhood hero?</option>
-              <option value="2">Question 2</option>
-              <option value="3">Question 3</option>
-              <option value="4">Question 4</option>
-              <option value="5">Question 5</option>
+            <select id="selectbasic" name="select2" class="form-control">
+              <%try{
+ 				Class.forName("com.mysql.jdbc.Driver");
+ 				Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/itpv01", "root", "root");%>
+            	
+            	<%Statement st = con.createStatement(); %>
+            	<%ResultSet rs = st.executeQuery("Select questions from securityquestions Order by RAND() LIMIT 6");%>
+            	
+            	<%while(rs.next()){%>
+            		
+            		<%String item = rs.getString("questions");%>
+            		
+            		<option><%=item%></option>
+            		
+            		
+            
+            <% }
+            }catch(Exception e){
+				System.out.println(e);
+            }%>
             </select>
           </div>
         </div>
@@ -156,19 +207,19 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans2" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans2" placeholder="" class="form-control input-md"  type="text">
             
           </div>
         </div>
         
         <!-- Button (Double) -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="button1id"></label>
+          
           <div class="col-md-8">
             
             <input type=submit  name="Submit" value="Submit" >
             <input type=reset value="Reset" >
-            
+            <label class="col-md-4 control-label" for="button1id">Have an account? <a href=staffLogin.jsp>Login</a></label>
           </div>
         </div>
         
@@ -176,11 +227,11 @@
         </form>
         </div>
         
-
+        
       <!-- Footer -->
       <footer class="footer-basic-centered">
 
-  			<p class="footer-company-motto"><b>Good Food | Good Vibes</b></p>
+  			<p class="footer-company-motto"><b>Good food | Good Vibes</b></p>
 
               <section id="lab_social_icon_footer">
                       <!-- Include Font Awesome Stylesheet in Header -->
@@ -203,12 +254,8 @@
 
 
 
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
   </body>
 </html>

@@ -52,13 +52,12 @@
 				<li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 				<li><a href="about.html"><b>About</b></a></li>
 				<li><a href="contactUs.jsp"><b>Contact Us</b> </a></li>
-				<li><a href="rooms_.jsp"><b>Rooms </b> </a></li>
+				<li><a href="rooms.jsp"><b>Rooms </b> </a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li style="padding-right: 40px"><p id="demo"><a href="login.jsp">Welcome ,<%=name%></a></p></li>
-				<li style="padding-right:30px"><form action="logout.jsp" method="post"><Button>Logout</Button></form></li>
-				<br>
-
+				<li style="padding-right: 40px;padding-top :12px"><p id="demo"><a href="prfle.jsp">Welcome ,<%=name%></a></p></li>
+				<li style="padding-right:30px;padding-top :9px"><form action="logoutuser.jsp" method="post"><Button class="btn">Logout</Button></form></li>
+			
 			</ul>
 		</div>
 	</nav>
@@ -253,7 +252,7 @@
 <script src="bootstrap.min.js"></script>
 <%}else{%>
     	<script type="text/javascript">
-    	window.location.href="http://localhost:8080/ITPNisal/login.jsp";
+    	window.location.href="http://localhost:8080/FinalITP/login.jsp";
     	</script>
 <%} %>
 </html>

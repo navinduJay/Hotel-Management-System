@@ -46,7 +46,7 @@
 				<li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 				<li><a href="about.html"><b>About</b></a></li>
 				<li><a href="contactUs.jsp"><b>Contact Us</b> </a></li>
-				<li><a href="rooms_.jsp"><b>Rooms </b> </a></li>
+				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li style="padding-right: 40px"></li>

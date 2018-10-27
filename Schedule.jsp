@@ -139,7 +139,9 @@
 									</tr>
 								</table>
 							</form>
-							<form action="GenerateReport" method="post"><Button type="submit" class="btn btn-primary">Generate Monthly Report</Button></form>
+							<form action="GenerateReport" method="post">
+							<input type="hidden" name="date" value="<%=date%>">
+							<Button type="submit" class="btn btn-primary">Generate Monthly Report</Button></form>
 							</div>
 							<hr>
 						</div>

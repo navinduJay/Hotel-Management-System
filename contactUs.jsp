@@ -9,22 +9,24 @@
 
 
 
-
-      <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
+	    
+      <link rel="stylesheet" href="css/animate.min.css">
+     <link rel="stylesheet" href="css/aos-master/dist/aos.css" />
+      <link href="css/bootstrap.min.css" rel="stylesheet">
       <link href="cssNavindu/contactUsStyles.css" rel="stylesheet">
-      <link href="cssNavindu/stylish-portfolio.css" rel="stylesheet">
-      <link href="cssNavindu/stylish-portfolio.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="cssNavindu/demo.css">
+      <link href="css/stylish-portfolio.css" rel="stylesheet">
+      <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/demo.css">
        <link href="scss/anime.css" rel="stylesheet">
-       <link rel="stylesheet" href="cssNavindu/sociel.css">
-       <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
-       <link href="cssNavindu/style.css" rel="stylesheet">
+       <link rel="stylesheet" href="css/sociel.css">
+       <link rel="stylesheet" href="css/footer-basic-centered.css">
+       <link href="css/style.css" rel="stylesheet">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
     <title>Contact Us</title>
   </head>
-  <body>
+  <body background="img/back2.jpg">
 
 
 
@@ -32,7 +34,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
 
         <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 
 
             <li><a href="about.html"><b>About</b></a></li>
@@ -52,20 +54,20 @@
       <br /> <br />
       <div class="container-fluid">
 
-    <div class="row main">
-      <div class="col-md-5">
-      <div class="main-login main-center">
+    <div class="row main" >
+      <div class="col-md-5 animated fadeIn" >
+      <div class="main-login main-center" >
 
 
 
-        <form class="" method="post" action="#">
+        <form  method="post" action="ContactUs" >
 
-          <div class="form-group">
+          <div class="form-group" >
             <label for="name" class="cols-sm-2 control-label">Name</label>
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+                <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" required/>
               </div>
             </div>
           </div>
@@ -75,7 +77,7 @@
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" required/>
               </div>
             </div>
           </div>
@@ -85,7 +87,7 @@
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" name="username" id="username"  placeholder="Subject"/>
+                <input type="text" class="form-control" name="subject" id="username"  placeholder="Subject" required/>
               </div>
             </div>
           </div>
@@ -95,14 +97,14 @@
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                <input type="textarea" class="form-control" name="password" id="password"  placeholder="Enter your Message"/>
+                <input type="textarea" class="form-control" name="message" id="password"  placeholder="Enter your Message" required/>
               </div>
             </div>
           </div>
 
 
           <div class="form-group ">
-            <a href="https://ccp.cloudaccess.net/aff.php?aff=5188" target="_blank" type="button" id="button" class="btn btn-success btn-lg btn-block login-button">Submit</a>
+           <h1><input type="submit" class="btn btn-primary" value="Send"></h1>
           </div>
 
         </form>
@@ -110,7 +112,7 @@
     </div>
 
 
-    <div class="col-md-5">
+    <div class="col-md-5 animated bounceInUp">
 
 
 
@@ -125,28 +127,39 @@
 
 
 
-      <!-- Footer -->
-      <footer class="footer-basic-centered">
+         <!-- Footer -->
+    <footer class="footer-basic-centered">
 
-       <p class="footer-company-motto"><b>Good Food | Good Vibes</b></p>
+			<p class="footer-company-motto"><b>Good Food | Good Vibes </b></p>
 
-              <section id="lab_social_icon_footer">
-                      <!-- Include Font Awesome Stylesheet in Header -->
-                      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-                      <div class="container">
-                              <div class="text-center center-block">
-                                      <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                                      <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                                      <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                                      <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-                          </div>
-                      </div>
-                      </section>
+            <section id="lab_social_icon_footer">
+                    <!-- Include Font Awesome style sheet in Header -->
+                    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="container">
+                            <div class="text-center center-block">
+                                    <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                                    <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                                    <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                                    <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                        </div>
+                    </div>
+                    </section>
 
 
-       <p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+			<p class="footer-company-name"><b>Hotel Sujanee &copy; 2018</b></p>
+			 <address>
+				<small><font color="#989898">Tel : +94 112 078 517<br />
+				Athurugiriya Rd,Sri Lanka.</font>
+				</small>
+			</address> 
+			
+			<small><font color="#ffffff">
+					<b>Designed and Developed by 404 Solutions</b>
+				</font>
+				</small>
+	
+		</footer>
 
-     </footer>
 
 
 
@@ -158,15 +171,24 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="jsNavindu/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!--Google Maps-->
-    <script src="jsNavindu/contactUsGoogleMap.js"></script>
-    <script src="jsNavindu/stylish-portfolio.js"></script>
-    <script src="jsNavindu/stylish-portfolio.min.js"></script>
-    <script src="jsNavindu/myJs.js"></script>
+    <script src="js/contactUsGoogleMap.js"></script>
+    <script src="js/stylish-portfolio.js"></script>
+    <script src="js/stylish-portfolio.min.js"></script>
+    <script src="js/myJs.js"></script>
      <!-- Bootstrap core JavaScript -->
      <script src="vendor/jquery/jquery.min.js"></script>
      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="css/aos-master/dist/aos.js"></script>
+     <script  type="text/javascript">
+	
+	AOS.init({
+		
+		duration: 1000,
+		
+	});
+</script>
 
   </body>
 </html>

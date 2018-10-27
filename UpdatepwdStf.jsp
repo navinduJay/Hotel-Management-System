@@ -84,7 +84,7 @@
 	  <label class="col-md-4 control-label" for="pwd">Enter new password</label>  
 	  <div class="col-md-4">
 	  <input id="pwd" name="pwd" placeholder="password" class="form-control input-md" type="password" min="8">
-	  <span class="help-block">minimum of eight (8) characters in length</span>  
+	  <span class="help-block"></span>  
 	  </div>
 	</div>
 	

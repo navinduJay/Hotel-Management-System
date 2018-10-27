@@ -50,9 +50,10 @@
    <link href="cssNavindu/menuManagementBackground.css" rel="stylesheet">
    <link href="cssNavindu/inventoryStyles.css" rel="stylesheet">
     
+      <link rel="stylesheet" href="cssNavindu/animate.min.css">
      <link rel="stylesheet" href="cssNavindu/aos-master/dist/aos.css" />
    <link rel="stylesheet" href="cssNavindu/sociel.css">
-   <link rel="stylesheet" href="cssNavindu/animate.min.css">
+ 
     <link rel="stylesheet" href="cssNavindu/menuValidationCSS.css">
    <link rel="stylesheet" href="cssNavindu/modalCSS.css">
    <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
@@ -82,7 +83,6 @@
  </head>
 
 <body id="LoginForm">
-
 <% session = request.getSession(); %>
 <% String snic = (String)session.getAttribute("snic");%>
 <% String sname = (String)session.getAttribute("sname"); %>
@@ -96,14 +96,18 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="stock.jsp">Stock</a></li>
+      <li><a href="profileStf.jsp">Dashboard</a></li>
      
       <li class="active"><a href="menuManagement.jsp">Menu</a></li>
-      <li class="active"><a href="addPackages.jsp">Packages</a></li>
+      <li><a href="addPackages.jsp">Packages</a></li>
+      
     </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Welcome, <%=sname%></a></li>
-				<li style="padding-top: 10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form>
-				</li>
+				<li style="padding-top: 10px"><form action="logout.jsp"
+						method="post">
+						<button type="submit" class="btn btn-danger">Logout</button>
+					</form></li>
 			</ul>
 		</div>
 </nav>
@@ -113,12 +117,12 @@
 
 
         <div class="container">
-<div class=col-md-3></div>
-<div class="col-md-6">
+
+<div class="col-md-4">
 
     <div class="login-form">
     <div class="main-div ">
-        <form  id="addmenu" action="AddMenuServlet" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()" name="vForm" >
+        <form  id="addmenu" action="AddMenuServlet" method="POST" enctype="multipart/form-data"  onsubmit="return validateForm()" name="vForm" >
         <br style="clear:both">
                     <h3  style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>ADD MENU ITEM</b></h3>
                       <br />
@@ -134,12 +138,12 @@
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name" pattern="[A-Za-z]{3,}" title="This field can only contain string values!" >
+						<input type="text" class="form-control" id="name" name="name" placeholder="Item Name"    title="This field can only contain string values!"  >
 						<div id="name_error" class="val_error animated shake"></div>
 					</div>
           <br />
 					<div class="form-group">
-						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" pattern="[0-9]{3,}"  title="This field can only contain numeric values!" >
+						<input type="text" class="form-control" id="price" name="price" placeholder="Item Price" pattern="[0-9]{2,}"  title="This field can only contain numeric values!" >
 						<div id="price_error" class="val_error" ></div>
 					</div>
           <br />
@@ -155,7 +159,7 @@
           </div>
 
 		   <div class="form-group">
-             <input type="submit" name="submit" class="btn btn-success pull-right" value="ADD ITEM" >ADD ITEM</button>
+             <input type="submit" name="submit" class="btn btn-success pull-right" value="ADD ITEM" >
                <h3 id="success"></h3>
 					
  	
@@ -165,7 +169,7 @@
           </div><br /><br />
           <div class="form-group">
               
-			   <input type="button" id="btn1" name="btn" class="btn btn-primary pull-right" onclick="myFunction()" value="CHECK">
+
           </div><br />
           
 
@@ -182,8 +186,8 @@
 
 </div>
 </div>
-<div class="col-md-4"></div>
-<div id="auto" class="col-md-12">
+
+<div id="auto" class="col-md-6">
 <div id="myDIV" style="overflow:hidden">
 
 	
@@ -221,7 +225,7 @@
 		<%if(rs.next()) { %>
 			
 			    <tr>
-    				 <th>Item ID</th>
+    				 <th>Item Code</th>
     				<th>Item Name</th>
     				<th>Item Price</th>
    					<th>Remove an Item</th>
@@ -347,7 +351,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			   <img src="data:image/jpeg;base64,${imgBase}" width="100" height="100"/>
+			   <img src="data:image/jpeg;base64,${imgBase}" width="130" height="100"/>
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -550,7 +554,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <image src="data:image/jpeg;base64,${imgBase}"   height="100" width="100">
+			    <image src="data:image/jpeg;base64,${imgBase}"height="100" width="130">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -744,7 +748,7 @@
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			   
-			    <img src="data:image/jpeg;base64,${imgBase}"  height="100" width="100">
+			    <img src="data:image/jpeg;base64,${imgBase}"  height="100" width="130">
 			  </div>
 			  <div class="column" style="background-color:#f5f7fa;background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
 			    
@@ -752,12 +756,6 @@
 			  </div>
 			</div>
 		
-		<% } 
-		
-		}else{
-		%>
-			<p>no items</p>
-			
 		<% }
 		
 		
@@ -845,7 +843,7 @@
 		</footer>
 
 
-<script type="text/javascript" src="jsNavindu/bootstrap-filestyle.min.js"> </script>
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
 <script src="jsNavindu/menuManagementJS.js"></script>
 
 
@@ -861,12 +859,12 @@
 		
 	});
 </script>
- 	<%}else{%>
+
+<%}else{%>
     	<script type="text/javascript">
     	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
     	</script>
-    <%}%>	
-
+    <%}%>
 
 </body>
 
@@ -903,9 +901,29 @@ function validateForm() {
 		return false;
     }else if ((y != "") && (x != "") && (type != 0)){
     	
-   				
-   				
-   				///AJAX CODE
+    	 var form = $('#addmenu')[0];
+         var data = new FormData(form);
+    	
+    	$.ajax({
+    		
+    		type:'POST',
+    		url:'AddMenuServlet',
+    		enctype : 'multipart/form-data',
+    		data: data,
+    		processData : false,
+ 			contentType : false,
+	         cache : false,
+            
+ 
+    		success:function(data){
+    			
+    			swal("Item added!", "Successfully!", "success");
+    			
+    		
+    		}
+    	
+
+    	});
     	
     	
     	
@@ -919,7 +937,8 @@ function validateForm() {
     	
     	
     	
-    
+    	var form = document.getElementById('addmenu').reset();
+    	return false;
     	}
     
 

@@ -95,7 +95,7 @@
       <li  class="active"><a href="stock.jsp">Stock</a></li>
 
       <li><a href="menuManagement.jsp">Menu</a></li>
-       <li><a href="inventory.jsp">Dashboard</a></li>
+       <li><a href="profileStf.jsp">Dashboard</a></li>
     </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#">Welcome, <%=sname%></a></li>
