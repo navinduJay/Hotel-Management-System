@@ -106,7 +106,7 @@ function myFunction() {
 </div>
 
 <!-- navigation links -->
-<%-- sorry, i don't know how to get this look without a table --%>
+
 <table id="calendar_nav_table" border="0">
   <tr>
     <td id="prev_link">

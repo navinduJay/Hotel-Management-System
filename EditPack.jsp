@@ -36,15 +36,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-          <link href="css/bootstrap.min.css" rel="stylesheet">
+          <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
 
-          <link href="css/stylish-portfolio.css" rel="stylesheet">
-          <link href="css/stylish-portfolio.min.css" rel="stylesheet">
-          <link rel="stylesheet" href="css/demo.css">
-           <link href="scss/anime.css" rel="stylesheet">
-           <link rel="stylesheet" href="css/sociel.css">
-           <link rel="stylesheet" href="css/footer-basic-centered.css">
-           <link href="css/style.css" rel="stylesheet">
+          <link href="cssNavindu/stylish-portfolio.css" rel="stylesheet">
+          <link href="cssNavindu/stylish-portfolio.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="cssNavindu/demo.css">
+           <link href="scssNavindu/anime.css" rel="stylesheet">
+           <link rel="stylesheet" href="cssNavindu/sociel.css">
+           <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
+           <link href="cssNavindu/style.css" rel="stylesheet">
            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 

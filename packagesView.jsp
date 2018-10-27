@@ -13,27 +13,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin | Stock Management</title>
 
- <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="cssNavindu/bootstrap.min.css" rel="stylesheet">
 
-   <link href="css/menuManagementBackground.css" rel="stylesheet">
-   <link href="css/inventoryStyles.css" rel="stylesheet">
+   <link href="cssNavindu/menuManagementBackground.css" rel="stylesheet">
+   <link href="cssNavindu/inventoryStyles.css" rel="stylesheet">
     
-     <link rel="stylesheet" href="css/aos-master/dist/aos.css" />
-   <link rel="stylesheet" href="css/sociel.css">
-   <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/menuValidationCSS.css">
-   <link rel="stylesheet" href="css/modalCSS.css">
-   <link rel="stylesheet" href="css/footer-basic-centered.css">
-   <link rel="stylesheet" href="css/menuManagement.css">
-    <link rel="stylesheet" href="css/menuManagementNavBar.css">
-     <link rel="stylesheet" href="css/packageCSS.css">
+     <link rel="stylesheet" href="cssNavindu/aos-master/dist/aos.css" />
+   <link rel="stylesheet" href="cssNavindu/sociel.css">
+   <link rel="stylesheet" href="cssNavindu/animate.min.css">
+    <link rel="stylesheet" href="cssNavindu/menuValidationCSS.css">
+   <link rel="stylesheet" href="cssNavindu/modalCSS.css">
+   <link rel="stylesheet" href="cssNavindu/footer-basic-centered.css">
+   <link rel="stylesheet" href="cssNavindu/menuManagement.css">
+    <link rel="stylesheet" href="cssNavindu/menuManagementNavBar.css">
+     <link rel="stylesheet" href="cssNavindu/packageCSS.css">
 
 
 
  
    
 	 
-   <script src="js/ie-emulation-modes-warning.js"></script>
+   <script src="jsNavindu/ie-emulation-modes-warning.js"></script>
      
 	 
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
@@ -41,7 +41,7 @@
 			  src="http://code.jquery.com/jquery-3.3.1.js"
 			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 			  crossorigin="anonymous"></script>
-     <script src="js/myJS.js"></script>
+     <script src="jsNavindu/myJS.js"></script>
     
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
@@ -50,70 +50,29 @@
 
 </head>
 <body>
-
-
-
+    <% session = request.getSession(); %>
+  <% String name = (String)session.getAttribute("name"); %>
+  
+  <%if(name != null){ %>
+  
  <nav class="navbar navbar-default navbar-fixed-top">
-
-        <ul>
+	<div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
             <li><a href="home_index.jsp"><i class="fas fa-home"></i></a></li>
 
 
             <li><a href="about.html"><b>About</b></a></li>
             <li> <a href="contactUs.jsp"><b>Contact Us</b> </a></li>
-            <ul  class="nav navbar-nav navbar-right">
-
-
-              <li id="mylist"><button type="button" data-toggle="modal" data-target="#customerLoginModal" class="btn btn-success btn-lg"><i class="fas fa-user"></i></button> </li>
-                <div id="customerLoginModal" class="modal fade" role="dialog" data-backdrop="false">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-
-
-                        <form>
-
-                   <div class="card card-container">
-                     <button style="float:right;margin-left:650px"  type="button" class="btn btn-default" data-dismiss="modal">X</button>
-
-                       <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-                       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                       <p id="profile-name" class="profile-name-card"></p>
-                       <form class="form-signin">
-                           <span id="reauth-email" class="reauth-email"></span>
-                           <input type="text" id="inputEmail" class="form-control" placeholder="username" required autofocus>
-                           <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                           <div id="remember" class="checkbox">
-                               <label>
-                                   <input type="checkbox" value="remember-me"> Remember me
-                               </label>
-                           </div>
-                           <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Login</button>
-                          </form><!-- /form -->
-                     <a href="customerReg.html" class="forgot-password">
-                         Sign up
-                     </a>
-
-
-                 </div><!-- /card-container -->
-
-
-
-                      </form>
-
-
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              <li id="mylist"><button class="btn btn-danger btn-lg"><i class="fas fa-user-tie"></i></button> </li>
-
-
+             <li> <a href="rooms.jsp"><b>Rooms </b> </a></li>
+             <li> <a href="cusMenuView.jsp"><b>Our Menu</b> </a></li>
+           
             </ul>
-
-        </ul>
+            <ul class="nav navbar-nav navbar-right">
+				<li style="padding-right: 40px;padding-top :12px"><p id="demo"><a href="prfle.jsp">Welcome ,<%=name%></a></p></li>
+				<li style="padding-right:30px;padding-top :9px"><form action="logoutuser.jsp" method="post"><Button class="btn">Logout</Button></form></li>
+			</ul>
+	</div>
+ 
 
     </nav>
       <!--Nav Bar-->
@@ -192,11 +151,11 @@
                         <img src="data:image/jpeg;base64,${imgBase}"  height="250" width="250"/>
                         
 						<div class="title">
-							<h2><%=rs.getString("package_name")%></h2>
+							<h2></h2>
 						</div>
                         
 						<div class="text">
-							<h3><span>Rs.<%=rs.getString("package_price")%></span></h3>
+							<h3><span></span></h3>
 						</div>
                         
 						<a href="regularMenuCustomer.jsp" class="btn btn-success" role="button">more info</a>
@@ -265,16 +224,19 @@
 		</footer>
 
 
-<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
-<script src="js/menuManagementJS.js"></script>
+<script type="text/javascript" src="jsNavindu/bootstrap-filestyle.min.js"> </script>
+<script src="jsNavindu/menuManagementJS.js"></script>
 
 
 
-<script src="css/aos-master/dist/aos.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/inventoryJS.js"></script>
-
-
+<script src="cssNavindu/aos-master/dist/aos.js"></script>
+<script src="jsNavindu/bootstrap.min.js"></script>
+<script src="jsNavindu/inventoryJS.js"></script>
+    <%}else{%>
+    	<script type="text/javascript">
+    	window.location.href="http://localhost:8080/FinalITP/login.jsp";
+    	</script>
+<%} %>
 
 </body>
 </html>

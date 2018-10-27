@@ -109,7 +109,8 @@ public class Rooms extends HttpServlet {
 				message.setSubject("Reservation Successful");
 				message.setText("You have successfully booked "+NoOfRooms+" "+RoomType+" rooms");
 				Transport.send(message);
-				JOptionPane.showMessageDialog(null, "message sent");
+				RequestDispatcher rq = request.getRequestDispatcher("home_index.jsp");
+				rq.forward(request, response);
 
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, e);

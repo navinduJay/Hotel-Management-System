@@ -3,7 +3,6 @@ package backend;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
@@ -13,43 +12,40 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/StockManagement")
-public class StockManagement extends HttpServlet {
+/**
+ * Servlet implementation class WarehouseManagement
+ */
+@WebServlet("/WarehouseManagement")
+public class WarehouseManagement extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public StockManagement() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public WarehouseManagement() {
         super();
-       
+        // TODO Auto-generated constructor stub
     }
 
-
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		
-		
-		
-		String itemName = request.getParameter("itemName");
-		String buyerName = request.getParameter("buyerName");
-		String categoryItem = request.getParameter("itemCategory");
-		String buyPrice = request.getParameter("buyingPrice");
-		String sellPrice = request.getParameter("sellingPrice");
-		String itemQty = request.getParameter("itemAmount");
-		String priceUnit = request.getParameter("unitPrice");
-		int pUnit = Integer.parseInt(priceUnit);
-		String discountPercentage = request.getParameter("discount");
-		
-;
-	
-		
+		String itemCategory = request.getParameter("wItemCategory");
+		String itemName = request.getParameter("wItemName");
+		String itemQuantity = request.getParameter("wItemQty");
+
 		
 		
 	try {
@@ -59,7 +55,7 @@ public class StockManagement extends HttpServlet {
 			
 			Statement statement = connection.createStatement();
 			
-			statement.executeUpdate("insert into stock_mgmt(item_name,buyer,category,buy_price,sell_price,amount,unit_price,discount)values('"+itemName+"','"+buyerName+"','"+categoryItem+"','"+buyPrice+"','"+sellPrice+"','"+itemQty+"','"+pUnit+"','"+discountPercentage+"')");
+			statement.executeUpdate("insert into warehouse_mgmt(item_name,quantity,category)values('"+itemName+"','"+itemQuantity+"','"+itemCategory+"')");
 			
 			System.out.println("Insertion Successful!");
 			
@@ -78,9 +74,8 @@ public class StockManagement extends HttpServlet {
 	RequestDispatcher dispatch = request.getRequestDispatcher("stock.jsp");
     dispatch.forward(request, response);
 	
+    
 	
-	
-		
 		
 		
 		

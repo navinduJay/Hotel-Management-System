@@ -70,10 +70,6 @@
 	</background>
 	<title>
 		<band height="70" splitType="Stretch">
-			<image>
-				<reportElement x="275" y="0" width="300" height="64" uuid="88796d59-cd8c-43c1-853f-dd6acfa88258"/>
-				<imageExpression><![CDATA["leaf_banner_violet.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="bcf29663-c4b8-483e-a197-e5f6920fd2a2"/>
 				<textElement verticalAlignment="Middle"/>

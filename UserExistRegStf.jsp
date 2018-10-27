@@ -116,7 +116,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Date of Birth</label>  
           <div class="col-md-4">
-          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="dob" placeholder="DD/MM/YYYY" class="form-control input-md" type="date">
             
           </div>
         </div>
@@ -125,7 +125,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">NIC Number</label>  
           <div class="col-md-4">
-          <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="nic" placeholder="NIC without v" class="form-control input-md"  type="text" pattern="[0-9]{9}" title="This field can only contain numeric values.Please enter NIC without V">
             
           </div>
         </div>
@@ -182,7 +182,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans1" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans1" placeholder="" class="form-control input-md"  type="text">
             
           </div>
         </div>
@@ -221,7 +221,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Answer</label>  
           <div class="col-md-4">
-          <input id="textinput" name="ans2" placeholder="" class="form-control input-md" required="" type="text">
+          <input id="textinput" name="ans2" placeholder="" class="form-control input-md" type="text">
             
           </div>
         </div>

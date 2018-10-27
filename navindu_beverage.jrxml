@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="navindu_beverage" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="850f3729-82dd-4411-bc52-be7fd0310c92">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<queryString language="SQL">
+		<![CDATA[select * from  sujanee_hotel.stock_mgmt  where category = "Beverages"]]>
+	</queryString>
+	<field name="item_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="item_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="item_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="item_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="buyer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="buyer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="category" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="category"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="buy_price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="buy_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="sell_price" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sell_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="amount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="unit_price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="unit_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<field name="discount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="discount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="stock_mgmt"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{item_id}]]></groupExpression>
+		<groupHeader>
+			<band height="35">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="10" width="60" height="22" forecolor="#666666" backcolor="#E6E6E6" uuid="c6f110d7-b6f7-465f-86ca-17514f72ece7"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Item Name]]></text>
+				</staticText>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="eaaf2f23-699d-4cfd-840f-1392e7297b64"/>
+				</line>
+				<textField>
+					<reportElement x="80" y="3" width="455" height="32" forecolor="#006699" uuid="040e5390-4388-434e-b97d-6af702fefec6"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{item_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{item_name}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="dcefc897-7672-4dd0-8e62-1a55c5760726"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Category]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="80" y="0" width="455" height="32" forecolor="#006699" uuid="84dda0d5-c333-472a-8dc4-2b1f547e8b9e"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{buyer}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="80" y="0" width="455" height="32" forecolor="#006699" uuid="85553fff-2356-4fdf-95ae-9bb56c11a40e"/>
+					<textElement>
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{buyer}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="2d73b669-9eca-4383-b98b-b6e5a48704a8"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Buyer]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupExpression><![CDATA[$F{category}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="5031916d-3dc1-4209-8ecf-eefd8f02f28a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Amount]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="80" y="0" width="100" height="30" forecolor="#1121B8" uuid="6bc5720d-a567-434c-93e8-c29bd2b5fcea"/>
+					<textElement>
+						<font size="19"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="buy_price">
+		<groupExpression><![CDATA[$F{buy_price}]]></groupExpression>
+	</group>
+	<group name="sell_price">
+		<groupExpression><![CDATA[$F{sell_price}]]></groupExpression>
+	</group>
+	<group name="amount">
+		<groupExpression><![CDATA[$F{amount}]]></groupExpression>
+	</group>
+	<group name="unit_price">
+		<groupExpression><![CDATA[$F{unit_price}]]></groupExpression>
+	</group>
+	<group name="discount">
+		<groupExpression><![CDATA[$F{discount}]]></groupExpression>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="6f266261-67a1-407a-9698-c49aa6e1f44b"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="a1ccb88f-4869-4f13-9321-bcd5a8fdf091"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="0725a960-b264-4212-8898-213bdbc8d79f"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3ba59022-ce0d-4a8f-bc24-564a33e02056"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="521c899a-8e77-43c8-814e-c3a0d49eb14c"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="587ca782-a081-4e23-9e18-b3488ad2e8eb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="dfb4a1f0-dc4a-40b3-8773-30b0eb161db2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="f095372c-fa1a-459b-a7a9-0dd7e619af1a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

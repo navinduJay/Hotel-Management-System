@@ -1,11 +1,19 @@
+<%@page import = "java.sql.DriverManager" %>
+<%@ page import ="backend.*" %>
+
+<%@page import = "java.sql.ResultSet" %>
+
+<%@page import = "java.sql.Connection" %>
+<%@page import = "java.sql.Statement" %>
+<%@page import = "java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin | Add Packages</title>
-</head>
+<title>Admin | Current Stock</title>
 
 
 
@@ -43,90 +51,243 @@
 
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" >
    
+<style>
+<style>
+#item {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+#item td, #item th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#item tr:nth-child(even){background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);}
+
+#item tr:hover {background-color: #ddd;}
+
+#item th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-image:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+</style>
+</style>
+</head>
 <body id="LoginForm">
-
-
 <% session = request.getSession(); %>
 <% String snic = (String)session.getAttribute("snic");%>
 <% String sname = (String)session.getAttribute("sname"); %>
 
 <%if(snic!=null){ %>
-
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><b>Sujanee Restaurant</b></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="stock.jsp">Stock</a></li>
+      <li  class="active"><a href="stock.jsp">Stock</a></li>
      
       <li><a href="menuManagement.jsp">Menu</a></li>
-    
-       <li class="active"><a href="addPackages.jsp">Packages</a></li>
-       <li class=><a href="EditPack.jsp">Edit packages</a></li>
+       <li><a href="profileStf.jsp">Dashboard</a></li>
     </ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Welcome, <%=sname%></a></li>
-			<li style="padding-top: 10px"><form action="logout.jsp" method="post"><button type="submit" class="btn btn-danger">Logout</button></form></li>
-		</ul>
-	</div>
+        			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Welcome, <%=sname%></a></li>
+				<li style="padding-top: 10px"><form action="logout.jsp"
+						method="post">
+						<button type="submit" class="btn btn-danger">Logout</button>
+					</form></li>
+			</ul>
+  </div>
 </nav>
 
- <h1 class="deepshd animated fadeInLeft" ><b>Food Packages</b></h1>
+
+<div class="col-md-6">
+
+<h1 class="animated fadeIn">Warehouse Management</h1>
+
+</div>
+<div class = "col-md-3">
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+</div>
+<div class = "col-md-1">
+
+
+
+<h1><button type="button" class="btn btn-primary">Export Report as PDF</button></h1>
+</div>
+
+
+<div class="container">
+
 <div class="row">
-				 		<div class="col-md-4"></div>
-							<div class="col-md-4">
+
+
+</div>
+    	<div class="row">
+			<div class="col-md-12">
+				<table id ="item" class="table animated">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Item Name</th>
+        
+         <th>Category</th>
+       
+        <th>Quantity</th>
+      <th>Delete</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+   
+ 
+  
+  
+ 
+  	
+  <% 
+  	try{
 								
-                                <br>
-                                <div class="login-form">
-                                <div class="main-div">
-								 <form class="form" role="form" method="post" action="AddPackages" accept-charset="UTF-8" id="login-nav" enctype="multipart/form-data">
-								 <h3  style="margin-bottom: 25px; text-align: center; "><i class="fas fa-plus-circle"></i> <b>Add Package</b></h3>
-										<div class="form-group">
-											 
-											 <input type="text" class="form-control" name="packageName" placeholder="Package Name"  required>
-										</div>
-										<div class="form-group">
-											 
-											 <input type="text" class="form-control" name="packagePrice" placeholder="Price"  required>
-                                             
-										</div>
-										
-																
-										<div class="form-group">
-										
-											<p class="text-left">Upload an Image</p>
-											<input type="file"  name="packagePic" >
-											
-											
-								
-										</div>
-															
-															
-										
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sujanee_hotel" , "root", "root");%>
+		
+		<% Statement st = con.createStatement();%>
+		
+		<%ResultSet rs = st.executeQuery("select * from warehouse_mgmt");%>
+		
+		<%if(rs.next()) { %>
+			
+	
+			
+		<% 	
+			rs.beforeFirst();
+			 while(rs.next()) {
+			 
+			
 
-									
-									
-										 
-         								 <div class="form-group">
-											 <button type="submit" class="btn btn-success btn-block"><b>ADD PACKAGE  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></b></button>
-										</div>
-										 <br /><br />
-         							
-										
-								 </form>
-								 </div>
-								 </div>
-							</div>
-						
-					 </div>
-				
+		  			String a = rs.getString("quantity");
+		    		int x = Integer.parseInt(a);
+		  			
+		  			 
+		  		
+		    
+		    		
+		    		
+			 
+		%>
+	 <tr >
+    <td class="warning"><p><%=rs.getString("item_ID")%></p></td>
+    <td><p><%=rs.getString("item_name")%></p></td>
+    <td><p><%=rs.getString("category")%></p></td>
+    <td><p><%
+    
+    
+    	if(x <= 10){%>
+    
+    
+    
+   	<p style="background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);"><%= x %></p>
+     
+   
+    <% } else {%>
+	
+	<p><%= x %></p>
+	
+<%}%>
+    
+    
+
+    
+
+    
+    
+    </p></td>
+ 
+	<td>
+	
+	  
+		<form id="deletemenu"  action="RemoveWareHouseItem"   method="post"  >
+	
+	      <input type=hidden name="itemCode" value="<%=rs.getString("item_ID")%>" >
+  		
+		   <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> </button>
+   		  
+		  
+		</form>     
+		
+  
+	
+	
+	
+	</td>
+	
+
+    
+  </tr>
+  
+  	<% 
+		}
+		%>
+	
+		<%
+		}else{
+		%>	
+			<span class="badge badge-pill badge-secondary animated zoomIn">no items</span>
+			
+		<%}
+		
+		}catch(Exception e){
+		
+			System.out.println("Failed");
+			System.out.println(e);
+		
+		
+		}%>
+    
+ 
+    </tbody>
+  </table>
+
+</div>
+
+
+
+</div>
 
 
 
 
+</div>
+<div class="col-md-5">
+<h1 class="animated fadeInLeft"></h1>
 
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
 
 
 
@@ -176,15 +337,10 @@
 <script src="cssNavindu/aos-master/dist/aos.js"></script>
 <script src="jsNavindu/bootstrap.min.js"></script>
 <script src="jsNavindu/inventoryJS.js"></script>
-	<%
-		} else {
-	%>
-	<script type="text/javascript">
-		window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
-	</script>
-	<%
-		}
-	%>
-
+<%}else{%>
+    	<script type="text/javascript">
+    	window.location.href = "http://localhost:8080/FinalITP/staffLogin.jsp";
+    	</script>
+    <%}%>
 </body>
 </html>
